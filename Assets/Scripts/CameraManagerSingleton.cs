@@ -4,11 +4,6 @@ public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManag
 {
     public Camera ActiveCamera { get; private set; }
 
-    void Awake()
-    {
-        ActiveCamera = Camera.main;
-    }
-
     public void SetActiveCamera(Camera camera)
     {
         if (IsActiveCamera(camera))
@@ -18,6 +13,7 @@ public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManag
         if (ActiveCamera != null)
         {
             ActiveCamera.enabled = false;
+            PlayerController.Instance.DelayControls();
         }
         ActiveCamera = camera;
         ActiveCamera.enabled = true;
