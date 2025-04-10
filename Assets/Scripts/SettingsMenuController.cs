@@ -42,6 +42,10 @@ public class SettingsMenuController : MonoBehaviour
 
     private void Bind()
     {
+        masterVolumeSlider.value = AudioController.Instance.MasterVolume;
+        musicVolumeSlider.value = AudioController.Instance.MusicVolume;
+        sfxVolumeSlider.value = AudioController.Instance.SfxVolume;
+
         masterVolumeSlider.onValueChanged.AddListener(OnMasterChanged);
         musicVolumeSlider.onValueChanged.AddListener(OnMusicChanged);
         sfxVolumeSlider.onValueChanged.AddListener(OnSfxChanged);
@@ -56,16 +60,16 @@ public class SettingsMenuController : MonoBehaviour
 
     private void OnSfxChanged(float value)
     {
-        throw new NotImplementedException();
+        AudioController.Instance.MusicVolume = value;
     }
 
     private void OnMusicChanged(float value)
     {
-        throw new NotImplementedException();
+        AudioController.Instance.MusicVolume = value;
     }
 
     private void OnMasterChanged(float value)
     {
-        throw new NotImplementedException();
+        AudioController.Instance.MasterVolume = value;
     }
 }
