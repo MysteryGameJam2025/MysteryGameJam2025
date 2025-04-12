@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1553607226716261669}
   - component: {fileID: 1419428194848453981}
   - component: {fileID: 6041513212887000379}
+  - component: {fileID: 2296832954226456753}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -129,6 +130,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2296832954226456753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508153188999153134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b2b525f65762b4e9ca02e391306670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiController: {fileID: 0}
+  activate: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  next: {fileID: -5413215560383261667, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  previous: {fileID: -4708071574823929280, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  currentSymbol: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
+  availableSymbols:
+  - {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
+  - {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
+  - {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}
 --- !u!1 &8850111045699705921
 GameObject:
   m_ObjectHideFlags: 0
