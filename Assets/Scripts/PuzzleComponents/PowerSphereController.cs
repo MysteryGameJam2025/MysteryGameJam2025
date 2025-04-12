@@ -25,7 +25,7 @@ public class PowerSphereController : SymbolActivatableBase
 
     public override void OnSymbolInteract(Symbol symbol, GauntletController gauntlet)
     {
-        currentSymbol = symbol;
+        base.OnSymbolInteract(symbol, gauntlet);       
         switch (symbol.SymbolType)
         {
             case SymbolType.Attraction:

@@ -6,7 +6,10 @@ public abstract class SymbolActivatableBase : MonoBehaviour
     protected Symbol currentSymbol;
     public Symbol CurrentSymbol => currentSymbol;
 
-    public abstract void OnSymbolInteract(Symbol symbol, GauntletController gauntlet);
+    public virtual void OnSymbolInteract(Symbol symbol, GauntletController gauntlet)
+    {
+        currentSymbol = symbol;
+    }
 
     public virtual void DropInteraction()
     {
