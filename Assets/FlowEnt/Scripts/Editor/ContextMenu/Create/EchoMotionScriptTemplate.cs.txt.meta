@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7ff264c18e4064bbeb03cefcaa68ddf9
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/ContextMenu/Create/EchoMotionScriptTemplate.cs.txt
+  uploadId: 701943

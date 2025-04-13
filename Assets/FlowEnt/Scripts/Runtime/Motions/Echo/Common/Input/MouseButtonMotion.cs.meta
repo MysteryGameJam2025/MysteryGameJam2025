@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fe22d7678d1ac4cb286a62160d784341
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Echo/Common/Input/MouseButtonMotion.cs
+  uploadId: 701943

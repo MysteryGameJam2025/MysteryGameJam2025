@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e7f84a52721834794a78e9aa0c5fa947
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Easings/Quad/EaseInQuad.cs
+  uploadId: 701943

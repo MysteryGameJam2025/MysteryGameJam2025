@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9e879d07a236e4e428bd8c5307154b07
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Easings/Elastic/EaseInOutElastic.cs
+  uploadId: 701943

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: af68b57454e9e45f7b61bc9f8f92d4e3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Abstract/Values/AbstractVector2Motion.cs
+  uploadId: 701943

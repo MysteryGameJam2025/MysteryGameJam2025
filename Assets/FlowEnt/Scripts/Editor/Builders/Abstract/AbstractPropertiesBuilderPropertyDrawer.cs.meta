@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6a4e256d44c034f038cd975f1e86e918
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Abstract/AbstractPropertiesBuilderPropertyDrawer.cs
+  uploadId: 701943

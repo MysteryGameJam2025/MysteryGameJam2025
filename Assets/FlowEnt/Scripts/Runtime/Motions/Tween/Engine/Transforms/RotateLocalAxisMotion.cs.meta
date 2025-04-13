@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b9255cbad196648dca4ea3157c9b44b7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Engine/Transforms/RotateLocalAxisMotion.cs
+  uploadId: 701943

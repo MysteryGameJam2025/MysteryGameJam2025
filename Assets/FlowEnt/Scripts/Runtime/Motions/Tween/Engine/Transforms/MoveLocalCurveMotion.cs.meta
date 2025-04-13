@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 36ad6ca6f500646f1b37f22071f6a5ca
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Engine/Transforms/MoveLocalCurveMotion.cs
+  uploadId: 701943

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 20b24152311b643c3953c429ca0ac587
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/FriedSynapse.FlowEnt.asmdef
+  uploadId: 701943

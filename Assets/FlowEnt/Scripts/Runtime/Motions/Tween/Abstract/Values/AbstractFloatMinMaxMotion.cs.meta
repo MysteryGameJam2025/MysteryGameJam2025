@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 88e3f22c6cd247c6baec36bb27781944
+timeCreated: 1703275663
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Abstract/Values/AbstractFloatMinMaxMotion.cs
+  uploadId: 701943

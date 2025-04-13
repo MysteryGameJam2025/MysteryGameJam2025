@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7eeb8e934b3d24e69b6a2f899b032197
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Curves/Splines/NormalisedCurve.cs
+  uploadId: 701943

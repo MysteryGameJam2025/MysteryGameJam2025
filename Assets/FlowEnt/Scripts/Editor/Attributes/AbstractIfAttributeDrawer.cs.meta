@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 18f9f0098fa3f48fe918258eaa292b15
+timeCreated: 1703267331
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Attributes/AbstractIfAttributeDrawer.cs
+  uploadId: 701943
