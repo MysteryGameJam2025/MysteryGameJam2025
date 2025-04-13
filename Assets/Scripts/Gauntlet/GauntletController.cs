@@ -102,6 +102,10 @@ public class GauntletController : MonoBehaviour
 
     void EndHover()
     {
+        if (currentInteractable == null)
+        {
+            return;
+        }
         currentInteractable.OnInteractionHoverEnd();
     }
 
@@ -111,7 +115,10 @@ public class GauntletController : MonoBehaviour
         if (!currentInteractable || previousInteractable == currentInteractable)
             return;
 
-        currentInteractable.OnInteract();
+        currentInteractable.OnInteract(new InteractionEvent()
+        {
+            EquippedSymbol = CurrentSymbol
+        });
 
         // OnActivation?.Invoke(currentActivatable);
         // currentActivatable?.OnSymbolInteract(CurrentSymbol, this);

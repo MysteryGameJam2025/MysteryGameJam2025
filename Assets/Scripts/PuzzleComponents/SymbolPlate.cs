@@ -14,6 +14,17 @@ public class SymbolPlate : AbstractInteractable
     public UnityEvent<Symbol> OnSymbolUsed;
 
     private AbstractAnimation PromptAnimation { get; set; }
+    private AbstractAnimation PlateAnimation { get; set; }
+    private Material SymbolMaterial { get; set; }
+
+    private bool HasSymbol { get; set; }
+
+    void Awake()
+    {
+        HasSymbol = false;
+        SymbolMaterial = new Material(SymbolDisplay.material);
+        SymbolDisplay.material = SymbolMaterial;
+    }
 
     public override void OnInteractionHoverStart()
     {
@@ -35,9 +46,42 @@ public class SymbolPlate : AbstractInteractable
             .Start();
     }
 
-    public override void OnInteract()
+    public override void OnInteract(InteractionEvent e)
     {
-        throw new System.NotImplementedException();
+        PromptAnimation?.Stop();
+        PromptCanvas.alpha = 0;
+
+
+
+        PlateAnimation?.Stop();
+        Flow flow = new Flow();
+        if (HasSymbol)
+        {
+            flow.Queue(new Tween(1)
+            .For(SymbolMaterial)
+            .FloatTo("_Progress", 1, 0)
+            .OnCompleted(() =>
+            {
+                SymbolDisplay.sprite = e.EquippedSymbol.SymbolSprite;
+            }));
+        }
+        else
+        {
+            SymbolDisplay.sprite = e.EquippedSymbol.SymbolSprite;
+        }
+
+        HasSymbol = true;
+        flow
+            .Queue(new Tween(1)
+            .For(SymbolMaterial)
+            .FloatTo("_Progress", 0, 1))
+            .OnCompleted(() =>
+            {
+                OnSymbolUsed.Invoke(e.EquippedSymbol);
+            })
+            .Start();
+
+
     }
 
 
