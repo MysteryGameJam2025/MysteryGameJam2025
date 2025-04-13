@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0dee15528bb3c402c8ffedbd0f9b00ff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Echo/EchoMotionsBuilder.cs
+  uploadId: 701943

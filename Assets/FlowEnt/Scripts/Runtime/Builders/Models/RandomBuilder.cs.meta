@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 437784ac59cd424e917a476453cafc66
+timeCreated: 1700327635
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Models/RandomBuilder.cs
+  uploadId: 701943

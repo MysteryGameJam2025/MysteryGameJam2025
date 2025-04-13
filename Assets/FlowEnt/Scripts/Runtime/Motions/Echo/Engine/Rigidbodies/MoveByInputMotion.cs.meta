@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 595c1cca6dfd0495a85f7e9e36360303
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Echo/Engine/Rigidbodies/MoveByInputMotion.cs
+  uploadId: 701943

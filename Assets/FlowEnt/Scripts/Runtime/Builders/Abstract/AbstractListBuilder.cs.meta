@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 97d475840adac402ca3d03fd063b1fc0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Abstract/AbstractListBuilder.cs
+  uploadId: 701943

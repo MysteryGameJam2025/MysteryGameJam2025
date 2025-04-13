@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 6bf630aa12534db3b3a48fa2e0022a65
+timeCreated: 1703849943
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Core/Common/StartHelperType.cs
+  uploadId: 701943

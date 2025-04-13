@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5a74ff5852f0346eeb72cbc01db0ee39
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Abstract/Values/AbstractIntMotion.cs
+  uploadId: 701943

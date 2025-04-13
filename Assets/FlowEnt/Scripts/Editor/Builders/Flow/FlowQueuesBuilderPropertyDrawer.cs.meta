@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c6ab85d7e076b4f049f94c8693f4441a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Flow/FlowQueuesBuilderPropertyDrawer.cs
+  uploadId: 701943

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 54c1e96256b694e4a99ad4dc1c6d7e7c
+timeCreated: 1703267158
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Attributes/ShowIfAttribute.cs
+  uploadId: 701943

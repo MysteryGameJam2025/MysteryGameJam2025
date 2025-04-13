@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 07ba1de90da6e4474b2a238dec1c8201
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Core/Flow/Flow.Options.cs
+  uploadId: 701943

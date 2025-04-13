@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a42baedc9236b4154be455ae31cee533
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Components/Resources/ComponentsContainer.asset
+  uploadId: 701943

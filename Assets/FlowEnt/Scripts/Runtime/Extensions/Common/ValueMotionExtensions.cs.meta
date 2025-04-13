@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b33824c14c79347feb8a603bb2737d8c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Extensions/Common/ValueMotionExtensions.cs
+  uploadId: 701943

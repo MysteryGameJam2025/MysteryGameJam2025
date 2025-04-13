@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4a23054d931724970b07a3d56fd05f7b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Extensions/Engine/CharacterControllerMotionExtensions.cs
+  uploadId: 701943

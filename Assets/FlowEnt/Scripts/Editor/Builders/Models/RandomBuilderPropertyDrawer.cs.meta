@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c7344a3bd1094962a2ba9816207f5f91
+timeCreated: 1700327971
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Models/RandomBuilderPropertyDrawer.cs
+  uploadId: 701943

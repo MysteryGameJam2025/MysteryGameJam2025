@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b8352b2ff6f1e448f92f1aecb060ccc5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Components/ControlSection/ControlSection.cs
+  uploadId: 701943

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 56d026e559cea4a949b2c3c84ddd1a9a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Common/FlowEntEditorGUILayout.cs
+  uploadId: 701943

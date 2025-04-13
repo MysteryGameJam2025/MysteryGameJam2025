@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: aad5dd84e97040febec46bf55f3afa2a
+timeCreated: 1703336477
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Attributes/AutoAssignButtonAttributeDrawer.cs
+  uploadId: 701943

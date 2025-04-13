@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 16a4da8b1fc641d7a933dc6535156592
+timeCreated: 1702743561
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Models/MaterialBuilder.cs
+  uploadId: 701943

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e24c94bb8a9db4a6282955e1cd8d7691
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Core/Common/FlowEntDebug.cs
+  uploadId: 701943

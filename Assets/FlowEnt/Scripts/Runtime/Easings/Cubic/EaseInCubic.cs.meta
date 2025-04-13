@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f06fef0a732e94260983e2253c2dd795
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Easings/Cubic/EaseInCubic.cs
+  uploadId: 701943

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: fb13efbe05514ac998133c9a187b52a0
+timeCreated: 1703275526
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Models/Wrappers/MinMaxVector2.cs
+  uploadId: 701943
