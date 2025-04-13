@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 94789786c9a1485cbadd286df1d33ff5
+timeCreated: 1703329353
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Attributes/AutoAssignButtonAttribute.cs
+  uploadId: 701943

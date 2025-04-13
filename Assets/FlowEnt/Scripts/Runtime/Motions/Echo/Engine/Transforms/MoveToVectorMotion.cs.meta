@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 00a5b19c57441451586d91ab5ffcfdee
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Echo/Engine/Transforms/MoveToVectorMotion.cs
+  uploadId: 701943

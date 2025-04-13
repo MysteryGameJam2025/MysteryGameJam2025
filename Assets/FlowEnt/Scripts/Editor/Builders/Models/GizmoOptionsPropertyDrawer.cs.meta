@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 65730a54a6fd4f9c8ac6c21a381b7f74
+timeCreated: 1704142891
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Models/GizmoOptionsPropertyDrawer.cs
+  uploadId: 701943

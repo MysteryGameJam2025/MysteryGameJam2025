@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 38f20a4501a348e1b27ce0b38795a814
+timeCreated: 1703500842
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Models/Wrappers/RectHelper.cs
+  uploadId: 701943

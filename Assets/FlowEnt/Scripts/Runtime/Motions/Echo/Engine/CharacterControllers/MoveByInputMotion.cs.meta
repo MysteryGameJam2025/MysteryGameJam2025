@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 35b9ecb773ef449f28c4a639e79d1804
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Echo/Engine/CharacterControllers/MoveByInputMotion.cs
+  uploadId: 701943

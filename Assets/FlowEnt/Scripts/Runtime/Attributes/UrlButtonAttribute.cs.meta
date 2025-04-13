@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 6766aa7ac8d844e1b3466dfeb8c25359
+timeCreated: 1703627385
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Attributes/UrlButtonAttribute.cs
+  uploadId: 701943

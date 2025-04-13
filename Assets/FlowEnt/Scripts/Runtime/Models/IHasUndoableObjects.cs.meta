@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 5f73e0a19722435a98f23ddf5de7333a
+timeCreated: 1702852495
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Models/IHasUndoableObjects.cs
+  uploadId: 701943

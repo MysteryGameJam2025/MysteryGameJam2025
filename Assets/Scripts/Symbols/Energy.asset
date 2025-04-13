@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c3749046309a34ba725709c8596cd3, type: 3}
   m_Name: Energy
   m_EditorClassIdentifier: 
-  symbolSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  symbolSprite: {fileID: 21300000, guid: 37114b621d93c6e4c96d3b8da1bcbe8a, type: 3}
   symbolName: Energy
   symbolType: 2

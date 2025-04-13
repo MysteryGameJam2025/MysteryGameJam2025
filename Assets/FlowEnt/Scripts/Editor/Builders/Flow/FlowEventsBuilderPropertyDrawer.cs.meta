@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e3947e5a12b534ec39a9c2f0daded9ca
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Flow/FlowEventsBuilderPropertyDrawer.cs
+  uploadId: 701943

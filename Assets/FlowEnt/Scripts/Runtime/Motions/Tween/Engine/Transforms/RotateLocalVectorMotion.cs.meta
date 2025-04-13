@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1d6469355bef940d1870150f7708c532
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Engine/Transforms/RotateLocalVectorMotion.cs
+  uploadId: 701943

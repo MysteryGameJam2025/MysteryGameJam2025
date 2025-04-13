@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 3e1e789b8d1246698060563d67fb0d02
+timeCreated: 1702743722
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Models/MaterialBuilderPropertyDrawer.cs
+  uploadId: 701943

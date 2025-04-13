@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cfa978d54929a43d787edfa13aae48ce
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Easings/Quart/EaseOutQuart.cs
+  uploadId: 701943

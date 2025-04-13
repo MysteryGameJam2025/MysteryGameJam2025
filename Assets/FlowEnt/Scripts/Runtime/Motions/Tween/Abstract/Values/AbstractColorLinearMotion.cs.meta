@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 686ec848b589a4409a953a2af0c9a8ba
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Abstract/Values/AbstractColorLinearMotion.cs
+  uploadId: 701943

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7a8e3282bfb8c4b0591574b42fb2cead
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Core/Helpers/StartHelpers/SkipFramesStartHelper.cs
+  uploadId: 701943

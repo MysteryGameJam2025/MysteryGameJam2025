@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4e3a4504b96e247918479a1adfdc28a8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Common/Values/IntValueMotion.cs
+  uploadId: 701943

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2f60de3bf02c542edb0a9f85f334877c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Engine/Rigidbody/MassMotion.cs
+  uploadId: 701943

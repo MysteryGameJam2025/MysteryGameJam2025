@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: f1235695a8a44682b56cc5314beb547d
+timeCreated: 1704136797
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Builders/Models/DisplayNamePropertyDrawer.cs
+  uploadId: 701943

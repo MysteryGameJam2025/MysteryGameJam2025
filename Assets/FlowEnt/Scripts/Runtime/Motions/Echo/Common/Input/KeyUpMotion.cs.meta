@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: eb25e7f6f248a44d4bfee5802a0ce3f4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Echo/Common/Input/KeyUpMotion.cs
+  uploadId: 701943

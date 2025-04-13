@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: a728b2a090454f91b601387c1b0cac4a
+timeCreated: 1704136764
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Models/DisplayName.cs
+  uploadId: 701943

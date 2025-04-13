@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f22b6300d7d404dcc9c1a5cfcaa0a482
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Core/Helpers/StartHelpers/AutoStartHelper.cs
+  uploadId: 701943

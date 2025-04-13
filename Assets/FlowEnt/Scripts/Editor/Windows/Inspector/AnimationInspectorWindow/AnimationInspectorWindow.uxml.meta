@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 07748ba5444f04b839c2f01c487589fe
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 13804, guid: 0000000000000000e000000000000000, type: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Windows/Inspector/AnimationInspectorWindow/AnimationInspectorWindow.uxml
+  uploadId: 701943

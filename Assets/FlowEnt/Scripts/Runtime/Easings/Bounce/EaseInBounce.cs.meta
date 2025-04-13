@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1b499afe5baab4990958b01cb43ecf6b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Easings/Bounce/EaseInBounce.cs
+  uploadId: 701943

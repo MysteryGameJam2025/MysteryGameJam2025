@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 3e11cac4b66040c8971d2c52e3aad668
+timeCreated: 1704041473
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Gizmos/FlowEntGizmos.cs
+  uploadId: 701943

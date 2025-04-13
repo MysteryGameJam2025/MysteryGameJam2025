@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 6718377f89dc497ea110d4476c57fbec
+timeCreated: 1695245609
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Builders/Models/AnimationListBuilder.cs
+  uploadId: 701943

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 45a96e9db32f940a3af5500c65de5e65
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 13804, guid: 0000000000000000e000000000000000, type: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Editor/Components/ControlSection/Components/ControlButton/ControlButton.uxml
+  uploadId: 701943

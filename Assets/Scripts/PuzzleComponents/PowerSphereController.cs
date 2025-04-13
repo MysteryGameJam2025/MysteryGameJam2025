@@ -25,27 +25,27 @@ public class PowerSphereController : SymbolActivatableBase
 
     public override void OnSymbolInteract(Symbol symbol, GauntletController gauntlet)
     {
-        base.OnSymbolInteract(symbol, gauntlet);       
-        switch (symbol.SymbolType)
-        {
-            case SymbolType.Attraction:
-            case SymbolType.Connection:
-                if (gauntlet.PreviousActivatable?.CurrentSymbol.SymbolType == symbol.SymbolType)
-                {
-                    SetTarget(gauntlet.PreviousActivatable);
-                    return;
-                }
-                gauntlet.OnActivation += SetTarget;
-                break;
-            case SymbolType.Energy:
-                if(connectedControlPanel != null)
-                {
-                    connectedControlPanel.SetPowered(true);
-                }
-                break;
-            default:
-                break;
-        }
+        // base.OnSymbolInteract(symbol, gauntlet);
+        // switch (symbol.SymbolType)
+        // {
+        //     case SymbolType.Attraction:
+        //     case SymbolType.Connection:
+        //         if (gauntlet.PreviousActivatable?.CurrentSymbol.SymbolType == symbol.SymbolType)
+        //         {
+        //             SetTarget(gauntlet.PreviousActivatable);
+        //             return;
+        //         }
+        //         gauntlet.OnActivation += SetTarget;
+        //         break;
+        //     case SymbolType.Energy:
+        //         if (connectedControlPanel != null)
+        //         {
+        //             connectedControlPanel.SetPowered(true);
+        //         }
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     public void SetTarget(SymbolActivatableBase target)
@@ -58,7 +58,7 @@ public class PowerSphereController : SymbolActivatableBase
                 targetTransform = currentTarget.transform;
                 break;
             case SymbolType.Connection:
-                if(target.TryGetComponent(out DoorControl doorControl))
+                if (target.TryGetComponent(out DoorControl doorControl))
                 {
                     connectedControlPanel = doorControl;
                 }

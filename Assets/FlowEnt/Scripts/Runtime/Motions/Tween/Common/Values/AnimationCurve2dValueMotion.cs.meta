@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: eeaa04f59a7344b7d847968a7a64727f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 206982
+  packageName: FlowEnt
+  packageVersion: 2.8.0
+  assetPath: Assets/FlowEnt/Scripts/Runtime/Motions/Tween/Common/Values/AnimationCurve2dValueMotion.cs
+  uploadId: 701943
