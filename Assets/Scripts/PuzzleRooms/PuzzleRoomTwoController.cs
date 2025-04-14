@@ -12,6 +12,9 @@ public class PuzzleRoomTwoController : MonoBehaviour
     [SerializeField]
     private Symbol togetherness;
     private Symbol Togetherness => togetherness;
+    [SerializeField]
+    private Symbol harmony;
+    private Symbol Harmony => harmony;
 
     [SerializeField]
     private Transform leftTrumpet;
@@ -30,6 +33,7 @@ public class PuzzleRoomTwoController : MonoBehaviour
     private bool HasRightTrumpetBeenPlaced { get; set; }
     private bool HasLeftTrumpetBeenRepaired { get; set; }
     private bool HasRightTrumpetBeenRepaired { get; set; }
+    private bool IsFullyRepaired { get; set; }
 
     private AbstractAnimation LeftTrumpetRepairAnimation { get; set; }
     private AbstractAnimation RightTrumpetRepairAnimation { get; set; }
@@ -70,6 +74,15 @@ public class PuzzleRoomTwoController : MonoBehaviour
     {
         MusicDeviceActiveSymbol = symbol;
         CheckForTrumpetRepair();
+
+        if (symbol == Harmony && IsFullyRepaired)
+        {
+            StartMelody();
+        }
+        else
+        {
+            StopMelody();
+        }
     }
 
     void CheckForTrumpetRepair()
@@ -94,11 +107,18 @@ public class PuzzleRoomTwoController : MonoBehaviour
     void PlayLeftTrumpetRepairAnimation()
     {
         LeftTrumpetRepairAnimation?.Stop();
-        LeftTrumpetRepairAnimation = new Tween(3)
+        LeftTrumpetRepairAnimation = new Tween(3.1f)
             .For(LeftTrumpet)
             .MoveTo(LeftTrumpetEnd.position)
             .RotateTo(LeftTrumpetEnd.rotation)
             .SetEasing(Easing.EaseInOutSine)
+            .OnCompleted(() =>
+            {
+                if (HasRightTrumpetBeenRepaired)
+                {
+                    IsFullyRepaired = true;
+                }
+            })
             .Start();
     }
 
@@ -111,9 +131,24 @@ public class PuzzleRoomTwoController : MonoBehaviour
             .MoveTo(RightTrumpetEnd.position)
             .RotateTo(RightTrumpetEnd.rotation)
             .SetEasing(Easing.EaseInOutSine)
+            .OnCompleted(() =>
+            {
+                if (HasLeftTrumpetBeenRepaired)
+                {
+                    IsFullyRepaired = true;
+                }
+            })
             .Start();
     }
 
 
+    void StartMelody()
+    {
 
+    }
+
+    void StopMelody()
+    {
+
+    }
 }

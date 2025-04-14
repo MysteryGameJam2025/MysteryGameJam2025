@@ -12826,13 +12826,17 @@ PrefabInstance:
     - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: currentSymbol
       value: 
-      objectReference: {fileID: 11400000, guid: efbdba41618307441a15b9ae12fd9342, type: 2}
+      objectReference: {fileID: 11400000, guid: a74118f3f3f5c974889d11caa518564b, type: 2}
     - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: availableSymbols.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: 'availableSymbols.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a74118f3f3f5c974889d11caa518564b, type: 2}
+    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: 'availableSymbols.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: efbdba41618307441a15b9ae12fd9342, type: 2}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
@@ -33966,6 +33970,7 @@ MonoBehaviour:
   leftTrumpetPlacement: {fileID: 1109709223}
   rightTrumpetPlacement: {fileID: 107386975}
   togetherness: {fileID: 11400000, guid: efbdba41618307441a15b9ae12fd9342, type: 2}
+  harmony: {fileID: 0}
   leftTrumpet: {fileID: 1284306242}
   rightTrumpet: {fileID: 387824082}
   leftTrumpetEnd: {fileID: 118714488}
@@ -40349,7 +40354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: d58e419f2df09c740ba283c084330e80, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
