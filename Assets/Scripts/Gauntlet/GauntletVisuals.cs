@@ -16,22 +16,28 @@ public class GauntletVisuals : MonoBehaviour
     private float particleRotateSpeed;
     private float ParticleRotateSpeed => particleRotateSpeed;
     [SerializeField]
+    private float particleRotateAcceleration;
+    private float ParticleRotateAcceleration => particleRotateAcceleration;
+    [SerializeField]
     private GameObject hitParticle;
     private GameObject HitParticle => hitParticle;
 
     private List<ParticleData> Particles { get; set; }
     private Transform Target { get; set; }
+    private Action OnComplete { get; set; }
 
     private class ParticleData
     {
         public Transform Transform { get; set; }
         public Vector3 Target { get; set; }
+        public float RotationSpeed { get; set; }
     }
 
 
     [EasyButtons.Button]
-    public void PlayEffect(Transform target)
+    public void PlayEffect(Transform target, Action onComplete = null)
     {
+        OnComplete = onComplete;
         Target = target;
         Particles = new List<ParticleData>();
         InstantiateParticles().RunParallel();
@@ -45,7 +51,7 @@ public class GauntletVisuals : MonoBehaviour
         {
             GameObject particle = Instantiate(Particle, transform.position, Quaternion.identity);
 
-            Quaternion forwardRot = Quaternion.AngleAxis(360 / 8 * indexes[i], transform.forward);
+            Quaternion forwardRot = Quaternion.AngleAxis(240 + ((230 / 8) * indexes[i]), transform.forward);
             particle.transform.rotation = Quaternion.LookRotation(forwardRot * Vector3.up, forwardRot * Vector3.forward);
             Vector3 target = Target.position;
             Vector2 randomWithinDisc = UnityEngine.Random.insideUnitCircle * 0.4f;
@@ -55,7 +61,8 @@ public class GauntletVisuals : MonoBehaviour
             ParticleData particleData = new ParticleData()
             {
                 Transform = particle.transform,
-                Target = target
+                Target = target,
+                RotationSpeed = ParticleRotateSpeed
             };
             Particles.Add(particleData);
             await Task.Delay(TimeSpan.FromSeconds(0.05));
@@ -96,11 +103,19 @@ public class GauntletVisuals : MonoBehaviour
         for (int i = 0; i < Particles.Count; i++)
         {
             ParticleData particleData = Particles[i];
+            if (particleData.Transform == null)
+            {
+                Particles.Remove(particleData);
+                continue;
+            }
+
+            particleData.RotationSpeed += Time.deltaTime * ParticleRotateAcceleration;
+
             Transform particleTransform = particleData.Transform;
             Vector3 targetDirection = particleData.Target - particleTransform.position;
             targetDirection = targetDirection.normalized;
 
-            float step = ParticleRotateSpeed * Time.deltaTime;
+            float step = particleData.RotationSpeed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(particleTransform.forward, targetDirection, step, 0.0f);
             particleTransform.rotation = Quaternion.LookRotation(newDirection);
             particleTransform.position += particleTransform.forward * ParticleSpeed * Time.deltaTime;
@@ -115,6 +130,10 @@ public class GauntletVisuals : MonoBehaviour
             }
         }
 
-
+        if (Particles.Count == 0)
+        {
+            OnComplete?.Invoke();
+            OnComplete = null;
+        }
     }
 }

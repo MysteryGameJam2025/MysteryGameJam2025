@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315682911560977094}
   - component: {fileID: 935256590895493868}
+  - component: {fileID: 2018023941241239220}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -148,3 +149,16 @@ TrailRenderer:
   m_Autodestruct: 1
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
+--- !u!114 &2018023941241239220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793045400733167311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d5e0ebcd2dbcb4a87d2089459b32fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1

@@ -1507,6 +1507,10 @@ PrefabInstance:
       propertyPath: uiController
       value: 
       objectReference: {fileID: 2119964262}
+    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: gauntletVisuals
+      value: 
+      objectReference: {fileID: 1593308589}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3291,6 +3295,7 @@ MonoBehaviour:
   particle: {fileID: 3793045400733167311, guid: 178f21628d7f9e8478d1c77ed5514b20, type: 3}
   particleSpeed: 10
   particleRotateSpeed: 6
+  particleRotateAcceleration: 5
   hitParticle: {fileID: 4193139791110929886, guid: 4d521ba84546ae141a25309062beb4fc, type: 3}
 --- !u!1 &1603709365
 GameObject:

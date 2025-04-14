@@ -39,8 +39,12 @@ public class GauntletController : MonoBehaviour
     [SerializeField]
     private LayerMask interactablesLayerMask;
     private LayerMask InteractablesLayerMask => interactablesLayerMask;
+    [SerializeField]
+    private GauntletVisuals gauntletVisuals;
+    private GauntletVisuals GauntletVisuals => gauntletVisuals;
     private Transform self;
     private Transform Self => self ??= transform;
+    private bool IsLockingInteraction { get; set; }
 
     public Action<AbstractInteractable> OnActivation;
 
@@ -66,7 +70,7 @@ public class GauntletController : MonoBehaviour
             ChangeSymbol(--symbolIndex);
 
         if (Activate.action.WasPressedThisFrame())
-            ActivateSymbol();
+            ActivateInteractable();
     }
 
     void FixedUpdate()
@@ -87,15 +91,17 @@ public class GauntletController : MonoBehaviour
 
         Collider closestInteractable = interactables.OrderBy(interactable => Vector3.Distance(interactable.transform.position, Self.position)).First();
         AbstractInteractable interactable = closestInteractable.gameObject.GetComponent<AbstractInteractable>();
-        if (interactable != currentInteractable)
+        if (interactable != currentInteractable && interactable != null)
         {
             if (currentInteractable != null)
             {
                 previousInteractable = currentInteractable;
                 EndHover();
             }
+
             interactable.OnInteractionHoverStart();
             currentInteractable = interactable;
+
         }
 
     }
@@ -109,20 +115,34 @@ public class GauntletController : MonoBehaviour
         currentInteractable.OnInteractionHoverEnd();
     }
 
-    private void ActivateSymbol()
+    private void ActivateInteractable()
     {
-
-        if (!currentInteractable || previousInteractable == currentInteractable)
+        if (IsLockingInteraction || !currentInteractable || previousInteractable == currentInteractable)
             return;
 
-        currentInteractable.OnInteract(new InteractionEvent()
-        {
-            EquippedSymbol = CurrentSymbol
-        });
 
-        // OnActivation?.Invoke(currentActivatable);
-        // currentActivatable?.OnSymbolInteract(CurrentSymbol, this);
-        // previousActivatable = currentActivatable;
+        if (currentInteractable is SymbolPlate)
+        {
+            IsLockingInteraction = true;
+            SymbolPlate symbolPlate = currentInteractable as SymbolPlate;
+            symbolPlate.HidePrompt();
+            //NOTE: Play visual effect if the interactable is a symbol plate
+            GauntletVisuals.PlayEffect(currentInteractable.transform, () =>
+            {
+                IsLockingInteraction = false;
+                currentInteractable.OnInteract(new InteractionEvent()
+                {
+                    EquippedSymbol = CurrentSymbol
+                });
+            });
+        }
+        else
+        {
+            currentInteractable.OnInteract(new InteractionEvent()
+            {
+                EquippedSymbol = CurrentSymbol
+            });
+        }
     }
 
     private void ChangeSymbol(int symbolIndex)
