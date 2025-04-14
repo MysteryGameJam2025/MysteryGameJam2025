@@ -53,7 +53,7 @@ public class GauntletController : MonoBehaviour
     private AbstractInteractable previousInteractable;
     public AbstractInteractable PreviousActivatable => previousInteractable;
 
-    private const float InteractablesRange = 3f;
+    private const float InteractablesRange = 4f;
 
 
     private void Start()
@@ -89,7 +89,7 @@ public class GauntletController : MonoBehaviour
             return;
         }
 
-        Collider closestInteractable = interactables.OrderBy(interactable => Vector3.Distance(interactable.transform.position, Self.position)).First();
+        Collider closestInteractable = interactables.OrderBy(interactable => Vector3.Distance(interactable.ClosestPoint(Self.position), Self.position)).First();
         AbstractInteractable interactable = closestInteractable.gameObject.GetComponent<AbstractInteractable>();
         if (interactable != currentInteractable && interactable != null)
         {
