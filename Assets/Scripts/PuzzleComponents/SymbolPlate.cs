@@ -46,15 +46,19 @@ public class SymbolPlate : AbstractInteractable
             .Start();
     }
 
-    public override void OnInteract(InteractionEvent e)
+    public void HidePrompt()
     {
         PromptAnimation?.Stop();
         PromptCanvas.alpha = 0;
 
+    }
 
-
+    public override void OnInteract(InteractionEvent e)
+    {
+        Debug.Log("plate interact");
         PlateAnimation?.Stop();
         Flow flow = new Flow();
+        //flow.QueueDelay(1);
         if (HasSymbol)
         {
             flow.Queue(new Tween(1)
@@ -71,7 +75,7 @@ public class SymbolPlate : AbstractInteractable
         }
 
         HasSymbol = true;
-        flow
+        PlateAnimation = flow
             .Queue(new Tween(1)
             .For(SymbolMaterial)
             .FloatTo("_Progress", 0, 1))
