@@ -831,6 +831,8 @@ MonoBehaviour:
   rb: {fileID: 704381732}
   speed: 2
   stoppingDistance: 1.2
+  attraction: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
+  connection: {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
 --- !u!1 &795730411
 GameObject:
   m_ObjectHideFlags: 0
