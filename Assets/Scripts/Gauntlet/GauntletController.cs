@@ -95,13 +95,11 @@ public class GauntletController : MonoBehaviour
         {
             if (currentInteractable != null)
             {
-                previousInteractable = currentInteractable;
                 EndHover();
             }
 
             interactable.OnInteractionHoverStart();
             currentInteractable = interactable;
-
         }
 
     }
@@ -144,6 +142,7 @@ public class GauntletController : MonoBehaviour
                 EquippedSymbol = CurrentSymbol
             });
         }
+        previousInteractable = currentInteractable;
     }
 
     private void ChangeSymbol(int symbolIndex)
