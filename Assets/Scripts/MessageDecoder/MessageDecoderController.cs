@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class MessageDecoderController : MonoBehaviour
     [SerializeField]
     private MessageData currentMessage;
     private MessageData CurrentMessage => currentMessage;
+
+    [SerializeField]
+    private DragAndDropController dragAndDropBox;
+    private DragAndDropController DragAndDropBox;
 
     private void Start()
     {
@@ -35,5 +40,8 @@ public class MessageDecoderController : MonoBehaviour
         }
 
         TextField.text = parsedString;
+
+        TMP_TextInfo textInfo = new TMP_TextInfo(TextField);
+        //TMP_CharacterInfo charInfo = textInfo.characterInfo[index];
     }
 }
