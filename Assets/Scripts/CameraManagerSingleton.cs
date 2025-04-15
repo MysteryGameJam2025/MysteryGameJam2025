@@ -17,6 +17,7 @@ public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManag
         }
         ActiveCamera = camera;
         ActiveCamera.enabled = true;
+        Debug.Log($"Switched to camera: {ActiveCamera.transform.parent.gameObject.name}");
     }
 
     public bool IsActiveCamera(Camera camera)
