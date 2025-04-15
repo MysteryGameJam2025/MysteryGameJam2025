@@ -2,9 +2,14 @@ using System;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MessageDecoderController : MonoBehaviour
 {
+    [SerializeField]
+    private Canvas currentCanvas;
+    private Canvas CurrentCanvas => currentCanvas;
+
     [SerializeField]
     private TMP_Text textField;
     private TMP_Text TextField => textField;
@@ -15,7 +20,7 @@ public class MessageDecoderController : MonoBehaviour
 
     [SerializeField]
     private DragAndDropController dragAndDropBox;
-    private DragAndDropController DragAndDropBox;
+    private DragAndDropController DragAndDropBox => dragAndDropBox;
 
     private void Start()
     {
@@ -40,8 +45,16 @@ public class MessageDecoderController : MonoBehaviour
         }
 
         TextField.text = parsedString;
+        TextField.ForceMeshUpdate();
 
-        TMP_TextInfo textInfo = new TMP_TextInfo(TextField);
-        //TMP_CharacterInfo charInfo = textInfo.characterInfo[index];
+
+        foreach(TMP_CharacterInfo info in TextField.textInfo.characterInfo)
+        {
+            if(info.character == 57344)
+            {
+                DragAndDropController newDragAndDrop = Instantiate(DragAndDropBox, TextField.transform);
+                newDragAndDrop.transform.position = TextField.transform.TransformPoint(info.bottomLeft);
+            }
+        }
     }
 }
