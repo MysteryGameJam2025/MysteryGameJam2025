@@ -127,10 +127,11 @@ public class GauntletController : MonoBehaviour
             SymbolPlate symbolPlate = currentInteractable as SymbolPlate;
             symbolPlate.HidePrompt();
             //NOTE: Play visual effect if the interactable is a symbol plate
-            GauntletVisuals.PlayEffect(currentInteractable.transform, () =>
+            AbstractInteractable interactableToActivate = currentInteractable;
+            GauntletVisuals.PlayEffect(interactableToActivate.transform, () =>
             {
                 IsLockingInteraction = false;
-                currentInteractable.OnInteract(new InteractionEvent()
+                interactableToActivate.OnInteract(new InteractionEvent()
                 {
                     EquippedSymbol = CurrentSymbol
                 });
