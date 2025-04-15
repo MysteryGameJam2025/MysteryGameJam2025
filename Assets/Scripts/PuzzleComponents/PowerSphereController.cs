@@ -23,54 +23,29 @@ public class PowerSphereController : SymbolActivatableBase
     private float stoppingDistance;
     private float StoppingDistance => stoppingDistance;
 
-    public override void OnSymbolInteract(Symbol symbol, GauntletController gauntlet)
-    {
-        // base.OnSymbolInteract(symbol, gauntlet);
-        // switch (symbol.SymbolType)
-        // {
-        //     case SymbolType.Attraction:
-        //     case SymbolType.Connection:
-        //         if (gauntlet.PreviousActivatable?.CurrentSymbol.SymbolType == symbol.SymbolType)
-        //         {
-        //             SetTarget(gauntlet.PreviousActivatable);
-        //             return;
-        //         }
-        //         gauntlet.OnActivation += SetTarget;
-        //         break;
-        //     case SymbolType.Energy:
-        //         if (connectedControlPanel != null)
-        //         {
-        //             connectedControlPanel.SetPowered(true);
-        //         }
-        //         break;
-        //     default:
-        //         break;
-        // }
-    }
+    [SerializeField]
+    private Symbol attraction;
+    private Symbol Attraction => attraction;
+    [SerializeField]
+    private Symbol connection;
+    private Symbol Connection => connection;
 
     public void SetTarget(SymbolActivatableBase target)
     {
         currentTarget = target;
-        switch (currentSymbol.SymbolType)
+        if (currentSymbol == Attraction)
         {
-            case SymbolType.Attraction:
-                shouldMoveTowardsTarget = true;
-                targetTransform = currentTarget.transform;
-                break;
-            case SymbolType.Connection:
-                if (target.TryGetComponent(out DoorControl doorControl))
-                {
-                    connectedControlPanel = doorControl;
-                }
-                break;
-            default:
-                break;
+            shouldMoveTowardsTarget = true;
+            targetTransform = currentTarget.transform;
         }
-    }
 
-    private void Update()
-    {
-
+        if (currentSymbol == Connection)
+        {
+            if (target.TryGetComponent(out DoorControl doorControl))
+            {
+                connectedControlPanel = doorControl;
+            }
+        }
     }
 
     private void FixedUpdate()

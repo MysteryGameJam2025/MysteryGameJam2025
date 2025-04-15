@@ -1,18 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 
-public enum SymbolType
-{
-    Attraction,
-    Connection,
-    Energy,
-    Totality,
-    Harmony,
-    Substance,
-    Deactivate,
-    Rest,
-    Expire
-}
+
 
 [CreateAssetMenu]
 public class Symbol : ScriptableObject
@@ -25,7 +14,4 @@ public class Symbol : ScriptableObject
     private string symbolName;
     public string SymbolName => symbolName;
 
-    [SerializeField]
-    private SymbolType symbolType;
-    public SymbolType SymbolType => symbolType;
 }
