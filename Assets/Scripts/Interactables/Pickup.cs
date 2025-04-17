@@ -22,6 +22,11 @@ public class Pickup : AbstractInteractable
 
     public override void OnInteractionHoverStart()
     {
+        if (PromptDisplay == null)
+        {
+            return;
+        }
+
         PromptAnimation?.Stop();
         PromptAnimation = new Tween(0.6f)
             .For(PromptDisplay)
@@ -32,6 +37,11 @@ public class Pickup : AbstractInteractable
 
     public override void OnInteractionHoverEnd()
     {
+        if (PromptDisplay == null)
+        {
+            return;
+        }
+
         PromptAnimation?.Stop();
         PromptAnimation = new Tween(0.6f)
             .For(PromptDisplay)
