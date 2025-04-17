@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Playables;
 
 public class CrystalController : MonoBehaviour
 {
@@ -17,5 +16,6 @@ public class CrystalController : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
         Animator.CrossFade(FallClip.name, 0);
+        Pickup.SetActive(true);
     }
 }

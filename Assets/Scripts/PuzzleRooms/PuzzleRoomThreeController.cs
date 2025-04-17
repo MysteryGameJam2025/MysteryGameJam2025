@@ -17,10 +17,17 @@ public class PuzzleRoomThreeController : MonoBehaviour
     [SerializeField]
     private CrystalController crystal;
     private CrystalController Crystal => crystal;
+    [SerializeField]
+    private GameObject bottomCrystal;
+    private GameObject BottomCrystal => bottomCrystal;
+    [SerializeField]
+    private GameObject holoCrystal;
+    private GameObject HoloCrystal => holoCrystal;
 
     private bool IsStairsDestroyed { get; set; }
     private bool IsBrokenEmitterFixed { get; set; }
     private bool IsCrystalDropped { get; set; }
+    private bool IsHoloCrystalActive { get; set; }
 
     public void OnStairsSymbolPlateUsed(Symbol symbol)
     {
@@ -47,11 +54,24 @@ public class PuzzleRoomThreeController : MonoBehaviour
             IsCrystalDropped = true;
             Crystal.DropCrystal();
         }
+
+        if (IsCrystalDropped && symbol == Fulfill)
+        {
+            IsHoloCrystalActive = true;
+            HoloCrystal.SetActive(true);
+        }
+
+        if (IsBrokenEmitterFixed && IsHoloCrystalActive)
+        {
+            Debug.Log("You win!");
+        }
     }
 
     public void OnEmitterFixed()
     {
         IsBrokenEmitterFixed = true;
+        Crystal.gameObject.SetActive(false);
+        BottomCrystal.SetActive(true);
     }
 
 }
