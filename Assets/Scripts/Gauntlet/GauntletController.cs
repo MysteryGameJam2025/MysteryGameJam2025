@@ -58,16 +58,20 @@ public class GauntletController : MonoBehaviour
 
     private void Start()
     {
-        UIController?.SetSymbolInUI(CurrentSymbol);
+        UIController?.SetInitialSymbol(CurrentSymbol);
     }
 
     void Update()
     {
-        if (Next.action.WasPressedThisFrame())
-            ChangeSymbol(++symbolIndex);
+        if (!UIController.IsAnimationPlaying)
+        {
+            if (Next.action.WasPressedThisFrame())
+                ChangeSymbol(++symbolIndex, true);
 
-        if (Previous.action.WasPressedThisFrame())
-            ChangeSymbol(--symbolIndex);
+            if (Previous.action.WasPressedThisFrame())
+                ChangeSymbol(--symbolIndex, false);
+        }
+
 
         if (Activate.action.WasPressedThisFrame())
             ActivateInteractable();
@@ -145,12 +149,13 @@ public class GauntletController : MonoBehaviour
         previousInteractable = currentInteractable;
     }
 
-    private void ChangeSymbol(int symbolIndex)
+    private void ChangeSymbol(int symbolIndex, bool isNext)
     {
+
         symbolIndex = (symbolIndex + AvailableSymbols.Count) % AvailableSymbols.Count;
         CurrentSymbol = AvailableSymbols[symbolIndex];
 
-        UIController?.SetSymbolInUI(CurrentSymbol);
+        UIController?.SetSymbolInUI(CurrentSymbol, isNext);
         //PreviousActivatable?.DropInteraction();
         previousInteractable = null;
         OnActivation = null;
