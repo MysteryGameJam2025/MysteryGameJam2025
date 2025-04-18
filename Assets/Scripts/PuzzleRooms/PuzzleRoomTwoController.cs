@@ -15,6 +15,9 @@ public class PuzzleRoomTwoController : MonoBehaviour
     [SerializeField]
     private Symbol harmony;
     private Symbol Harmony => harmony;
+    [SerializeField]
+    private Symbol learning;
+    private Symbol Learning => learning;
 
     [SerializeField]
     private Transform leftTrumpet;
@@ -34,11 +37,14 @@ public class PuzzleRoomTwoController : MonoBehaviour
     private bool HasLeftTrumpetBeenRepaired { get; set; }
     private bool HasRightTrumpetBeenRepaired { get; set; }
     private bool IsFullyRepaired { get; set; }
+    private bool IsFirstDevicePlayingCorrectMelody { get; set; }
+    private bool IsSecondDevicePlayingCorrectMelody { get; set; }
 
     private AbstractAnimation LeftTrumpetRepairAnimation { get; set; }
     private AbstractAnimation RightTrumpetRepairAnimation { get; set; }
 
-    private Symbol MusicDeviceActiveSymbol { get; set; }
+    private Symbol FirstMusicDeviceActiveSymbol { get; set; }
+    private Symbol SecondMusicDeviceActiveSymbol { get; set; }
 
     void Awake()
     {
@@ -60,34 +66,38 @@ public class PuzzleRoomTwoController : MonoBehaviour
     {
         HasLeftTrumpetBeenPlaced = true;
         LeftTrumpet.parent.gameObject.SetActive(true);
-        CheckForTrumpetRepair();
+        CheckState();
     }
 
     public void PlaceRightTrumpet()
     {
         HasRightTrumpetBeenPlaced = true;
         RightTrumpet.parent.gameObject.SetActive(true);
-        CheckForTrumpetRepair();
+        CheckState();
     }
 
-    public void MusicDeviceSymbolPlateUsed(Symbol symbol)
+    public void FirstMusicDeviceSymbolPlateUsed(Symbol symbol)
     {
-        MusicDeviceActiveSymbol = symbol;
-        CheckForTrumpetRepair();
+        FirstMusicDeviceActiveSymbol = symbol;
+        CheckState();
+    }
 
-        if (symbol == Harmony && IsFullyRepaired)
-        {
-            StartMelody();
-        }
-        else
-        {
-            StopMelody();
-        }
+    public void SecondMusicDeviceSymbolPlateUsed(Symbol symbol)
+    {
+        SecondMusicDeviceActiveSymbol = symbol;
+        CheckState();
+    }
+
+    void CheckState()
+    {
+        CheckForTrumpetRepair();
+        CheckForFirstDeviceMelodyPlaying();
+        CheckForCorrectMelodies();
     }
 
     void CheckForTrumpetRepair()
     {
-        if (MusicDeviceActiveSymbol == Togetherness)
+        if (FirstMusicDeviceActiveSymbol == Togetherness)
         {
             if (HasLeftTrumpetBeenPlaced && !HasLeftTrumpetBeenRepaired)
             {
@@ -103,6 +113,37 @@ public class PuzzleRoomTwoController : MonoBehaviour
         }
     }
 
+    void CheckForFirstDeviceMelodyPlaying()
+    {
+        if (FirstMusicDeviceActiveSymbol == Harmony && IsFullyRepaired)
+        {
+            StartFirstDeviceMelody();
+        }
+        else
+        {
+            StopFirstDeviceMelody();
+        }
+    }
+
+    void CheckForCorrectMelodies()
+    {
+        if (SecondMusicDeviceActiveSymbol == Harmony)
+        {
+            PlaySecondDeviceIncorrectMelody();
+            return;
+        }
+
+        if (SecondMusicDeviceActiveSymbol == Learning && IsFullyRepaired && FirstMusicDeviceActiveSymbol == Harmony)
+        {
+            PlaySecondDeviceCorrectMelody();
+            return;
+        }
+
+        StopSecondDeviceMelody();
+    }
+
+
+
     [EasyButtons.Button]
     void PlayLeftTrumpetRepairAnimation()
     {
@@ -117,6 +158,7 @@ public class PuzzleRoomTwoController : MonoBehaviour
                 if (HasRightTrumpetBeenRepaired)
                 {
                     IsFullyRepaired = true;
+                    CheckState();
                 }
             })
             .Start();
@@ -136,19 +178,39 @@ public class PuzzleRoomTwoController : MonoBehaviour
                 if (HasLeftTrumpetBeenRepaired)
                 {
                     IsFullyRepaired = true;
+                    CheckState();
                 }
             })
             .Start();
     }
 
 
-    void StartMelody()
+    void StartFirstDeviceMelody()
     {
-
+        IsFirstDevicePlayingCorrectMelody = true;
+        Debug.Log("Toot toot!");
     }
 
-    void StopMelody()
+    void StopFirstDeviceMelody()
     {
+        IsFirstDevicePlayingCorrectMelody = false;
+        Debug.Log("Jazz music stops");
+    }
 
+    void PlaySecondDeviceCorrectMelody()
+    {
+        Debug.Log("You win!");
+    }
+
+    void PlaySecondDeviceIncorrectMelody()
+    {
+        IsSecondDevicePlayingCorrectMelody = false;
+        Debug.Log("BRRRRRRRRR");
+    }
+
+    void StopSecondDeviceMelody()
+    {
+        IsSecondDevicePlayingCorrectMelody = false;
+        Debug.Log("Rock music stops");
     }
 }
