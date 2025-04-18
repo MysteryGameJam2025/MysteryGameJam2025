@@ -1983,26 +1983,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: currentSymbol
-      value: 
-      objectReference: {fileID: 11400000, guid: eb07a6178e1a0a14eaa3db240681c0ac, type: 2}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: availableSymbols.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: eb07a6178e1a0a14eaa3db240681c0ac, type: 2}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 444ef1ebec8eeb64f8ab95e42f970f7c, type: 2}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 91636e5178ae97b4ba367aa894a30588, type: 2}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_Name
       value: Player

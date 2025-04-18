@@ -238,10 +238,11 @@ MonoBehaviour:
   activate: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   next: {fileID: -5413215560383261667, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   previous: {fileID: -4708071574823929280, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  currentSymbol: {fileID: 11400000, guid: a74118f3f3f5c974889d11caa518564b, type: 2}
+  currentSymbol: {fileID: 11400000, guid: eb07a6178e1a0a14eaa3db240681c0ac, type: 2}
   availableSymbols:
-  - {fileID: 11400000, guid: a74118f3f3f5c974889d11caa518564b, type: 2}
-  - {fileID: 11400000, guid: efbdba41618307441a15b9ae12fd9342, type: 2}
+  - {fileID: 11400000, guid: eb07a6178e1a0a14eaa3db240681c0ac, type: 2}
+  - {fileID: 11400000, guid: 444ef1ebec8eeb64f8ab95e42f970f7c, type: 2}
+  - {fileID: 11400000, guid: 91636e5178ae97b4ba367aa894a30588, type: 2}
   interactablesHandle: {fileID: 8909301475737573469}
   interactablesLayerMask:
     serializedVersion: 2
