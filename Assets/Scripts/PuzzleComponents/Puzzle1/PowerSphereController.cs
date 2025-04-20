@@ -29,6 +29,9 @@ public class PowerSphereController : SymbolActivatableBase
     [SerializeField]
     private Symbol connection;
     private Symbol Connection => connection;
+    [SerializeField]
+    private GameObject attractionEffect;
+    private GameObject AttractionEffect => attractionEffect;
 
     public void SetTarget(SymbolActivatableBase target)
     {
@@ -36,6 +39,7 @@ public class PowerSphereController : SymbolActivatableBase
         if (currentSymbol == Attraction)
         {
             shouldMoveTowardsTarget = true;
+            AttractionEffect.SetActive(true);
             targetTransform = currentTarget.transform;
         }
 
@@ -54,8 +58,10 @@ public class PowerSphereController : SymbolActivatableBase
         {
             if (shouldMoveTowardsTarget)
             {
+
                 if (Vector3.Distance(targetTransform.position, transform.position) <= StoppingDistance)
                 {
+                    AttractionEffect.SetActive(false);
                     shouldMoveTowardsTarget = false;
                     currentTarget = null;
                     RB.isKinematic = true;

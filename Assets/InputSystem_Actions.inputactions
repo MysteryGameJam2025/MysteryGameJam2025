@@ -440,6 +440,17 @@
                 },
                 {
                     "name": "",
+                    "id": "58c4f08e-5f10-41fd-a2d8-eda165296f52",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "GauntletNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f688ca98-3ffd-4fe3-b931-f77f6c46294d",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -456,6 +467,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "GauntletPrev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a718db26-4a1c-4d26-9239-452c350b5cf4",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "GauntletPrev",
                     "isComposite": false,
                     "isPartOfComposite": false
