@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8037193866153248667}
   - component: {fileID: 8804656685783881752}
   - component: {fileID: 7785563467912138044}
-  - component: {fileID: 58222783585387594}
+  - component: {fileID: 8077740726703501411}
   m_Layer: 5
-  m_Name: DragAndDropBox
+  m_Name: DragAndDropTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &58222783585387594
+--- !u!114 &8077740726703501411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,6 +85,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8008048324519071315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6dbae8ae0dc70f4c81a0d1ce32cf394, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f0a1636789930a4a921bbffbeed6002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

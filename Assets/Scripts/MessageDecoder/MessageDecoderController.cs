@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class MessageDecoderController : MonoBehaviour
@@ -15,12 +17,22 @@ public class MessageDecoderController : MonoBehaviour
     private TMP_Text TextField => textField;
 
     [SerializeField]
+    private RectTransform dragAndDropTextHolder;
+    private RectTransform DragAndDropTextHolder => dragAndDropTextHolder;
+
+    [SerializeField]
     private MessageData currentMessage;
     private MessageData CurrentMessage => currentMessage;
 
     [SerializeField]
-    private DragAndDropController dragAndDropBox;
-    private DragAndDropController DragAndDropBox => dragAndDropBox;
+    private DragAndDropTargetController dragAndDropTarget;
+    private DragAndDropTargetController DragAndDropTarget => dragAndDropTarget;
+
+    [SerializeField]
+    private DragAndDropTextController dragAndDropText;
+    private DragAndDropTextController DragAndDropText => dragAndDropText;
+
+    private List<DragAndDropTextController> remainingOptions = new List<DragAndDropTextController>();
 
     private void Start()
     {
@@ -36,12 +48,18 @@ public class MessageDecoderController : MonoBehaviour
     {
         string rawData = CurrentMessage.Message.text;
         string parsedString = rawData;
-        Regex symbolRegex = new Regex("<[A-Za-z]*>");
 
-        MatchCollection symbols = symbolRegex.Matches(rawData);
-        for (int i = 0; i < symbols.Count; i++)
+        for (int i = 0; i < CurrentMessage.SymbolsInMessage.Length; i++)
         {
-            parsedString = symbolRegex.Replace(parsedString, $"<sprite name={CurrentMessage.SymbolsInMessage[i].SymbolSprite.name}>", 1, i);
+            Regex regex = new Regex($"<{CurrentMessage.SymbolsInMessage[i].SymbolName}>");
+            MatchCollection symbols = regex.Matches(rawData);
+            parsedString = regex.Replace(parsedString, $"<sprite name={CurrentMessage.SymbolsInMessage[i].SymbolSprite.name}>");
+            CreateNewTextOption(CurrentMessage.SymbolsInMessage[i].SymbolSprite.name);
+        }
+
+        for (int i = 0; i < CurrentMessage.AlternatePossibilites.Length; i++)
+        {
+            CreateNewTextOption(CurrentMessage.AlternatePossibilites[i]);
         }
 
         TextField.text = parsedString;
@@ -52,9 +70,28 @@ public class MessageDecoderController : MonoBehaviour
         {
             if(info.character == 57344)
             {
-                DragAndDropController newDragAndDrop = Instantiate(DragAndDropBox, TextField.transform);
+                DragAndDropTargetController newDragAndDrop = Instantiate(DragAndDropTarget, TextField.transform);
                 newDragAndDrop.transform.position = TextField.transform.TransformPoint(info.bottomLeft);
             }
         }
+
+        RandomiseRemainingTextOptions();
+    }
+
+    private void CreateNewTextOption(string text)
+    {
+        DragAndDropTextController newText = Instantiate(DragAndDropText, DragAndDropTextHolder);
+        newText.SetText(text);
+        remainingOptions.Add(newText);
+    }
+
+    private void RandomiseRemainingTextOptions()
+    {
+        remainingOptions.Shuffle();
+        for(int i = 0; i < remainingOptions.Count; i++)
+        {
+            remainingOptions[i].transform.SetSiblingIndex(i);
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(DragAndDropTextHolder);
     }
 }
