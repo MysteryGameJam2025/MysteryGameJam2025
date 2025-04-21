@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 541646633}
   - component: {fileID: 541646632}
   m_Layer: 0
-  m_Name: AttractionEfffect
+  m_Name: AttractionEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +638,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541646629}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -697,7 +697,7 @@ LineRenderer:
   - {x: 3.6, y: 0.94, z: -6.5}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.7
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1612,30 +1612,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: uiController
-      value: 
-      objectReference: {fileID: 1183226182}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: currentSymbol
-      value: 
-      objectReference: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: gauntletVisuals
-      value: 
-      objectReference: {fileID: 1593308589}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1682,28 +1658,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1593308588}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
---- !u!4 &1183226181 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-  m_PrefabInstance: {fileID: 1183226180}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1183226182 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 875211921847124238, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-  m_PrefabInstance: {fileID: 1183226180}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f56e31ec3a9f246bfeac3f8d2cfb9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1234273516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,55 +3341,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &1593308587
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1593308588}
-  - component: {fileID: 1593308589}
-  m_Layer: 0
-  m_Name: Gauntlet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1593308588
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593308587}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1183226181}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1593308589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593308587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c34c1decc3dd74b83026ddb653db7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 3793045400733167311, guid: 178f21628d7f9e8478d1c77ed5514b20, type: 3}
-  particleSpeed: 10
-  particleRotateSpeed: 6
-  particleRotateAcceleration: 5
-  hitParticle: {fileID: 4193139791110929886, guid: 4d521ba84546ae141a25309062beb4fc, type: 3}
 --- !u!1 &1603709365
 GameObject:
   m_ObjectHideFlags: 0

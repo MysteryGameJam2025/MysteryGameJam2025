@@ -11533,14 +11533,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: availableSymbols.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: 'availableSymbols.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 810f9493cc031804180a91f753f8e7c4, type: 2}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11583,10 +11575,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436776525055355938, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
