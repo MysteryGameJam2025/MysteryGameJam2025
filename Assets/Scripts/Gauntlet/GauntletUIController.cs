@@ -46,11 +46,11 @@ public class GauntletUIController : MonoBehaviour
                 .SetEasing(Easing.EaseInOutSine))
             .At(0, new Tween(0.5f)
                 .For(isNext ? RightArrow : LeftArrow)
-                .MoveAnchoredPositionXTo(isNext ? 162 : -113)
+                .MoveAnchoredPositionX(isNext ? 20 : -20)
                 .SetEasing(Easing.EaseInSine))
             .At(0.5f, new Tween(0.5f)
                 .For(isNext ? RightArrow : LeftArrow)
-                .MoveAnchoredPositionXTo(isNext ? 142 : -93)
+                .MoveAnchoredPositionX(isNext ? -20 : 20)
                 .SetEasing(Easing.EaseOutSine))
             .OnCompleted(() =>
                 {
