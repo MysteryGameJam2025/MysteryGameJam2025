@@ -1612,9 +1612,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: currentSymbol
+      value: 
+      objectReference: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
+    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: 'availableSymbols.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
+    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: 'availableSymbols.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
+    - target: {fileID: 2296832954226456753, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: 'availableSymbols.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672922722779078199, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672922722779078199, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672922722779078199, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672922722779078199, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 410
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4778,9 +4810,9 @@ SceneRoots:
   - {fileID: 520908266}
   - {fileID: 1840416174}
   - {fileID: 275858615}
-  - {fileID: 1183226180}
   - {fileID: 284102172}
   - {fileID: 8508446521969883491}
   - {fileID: 1667828137}
   - {fileID: 1465774121}
   - {fileID: 541646630}
+  - {fileID: 1183226180}
