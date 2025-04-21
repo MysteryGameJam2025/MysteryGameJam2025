@@ -35,6 +35,10 @@ public class MessageDecoderController : MonoBehaviour
     private List<DragAndDropTargetController> dragAndDropTargets = new List<DragAndDropTargetController>();
     private List<DragAndDropTextController> remainingOptions = new List<DragAndDropTextController>();
 
+    private int dragAndDropTargetsRemaining = 0;
+
+    public Action OnCompleted;
+
     private void Start()
     {
         ParseText();
@@ -86,6 +90,7 @@ public class MessageDecoderController : MonoBehaviour
     {
         DragAndDropTargetController newDragAndDrop = Instantiate(DragAndDropTarget, TextField.transform);
         newDragAndDrop.TextToMatch = text;
+        dragAndDropTargetsRemaining++;
         dragAndDropTargets.Add(newDragAndDrop);
     }
 
@@ -115,9 +120,15 @@ public class MessageDecoderController : MonoBehaviour
                 if (controller.DoesMatchText(dragAndDropTargets[i].TextToMatch))
                 {
                     remainingOptions.Remove(controller);
+                    dragAndDropTargets.Remove(dragAndDropTargets[i]);
                     Destroy(controller.gameObject);
+                    Destroy(dragAndDropTargets[i].gameObject);
+                    dragAndDropTargetsRemaining--;
+
+                    if (dragAndDropTargetsRemaining <= 0)
+                        OnCompleted?.Invoke();
+
                     return;
-                    //TODO: progress towards end state
                 }
         }
 
