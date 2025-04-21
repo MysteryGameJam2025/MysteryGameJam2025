@@ -17,13 +17,14 @@ public class DragAndDropTextController : MonoBehaviour
     private InputActionReference pointerLocationAction;
     private InputActionReference PointerLocationAction => pointerLocationAction;
 
-    public Action OnPickedUp;
+    public Action<DragAndDropTextController> OnPickedUp;
 
-    public Action OnDropped;
+    public Action<DragAndDropTextController> OnDropped;
 
     private bool isHovered;
+    private bool isPickedUp;
 
-    public void SetText(string text)
+    public void Init(string text)
     {
         TextElement.text = text;
     }
@@ -33,15 +34,26 @@ public class DragAndDropTextController : MonoBehaviour
         isHovered = hovered;
     }
 
+    public bool DoesMatchText(string textToMatch)
+    {
+        return TextElement.text == textToMatch;
+    }
+
     private void Update()
     {
-        //Debug.Log($"Pointer location: {PointerLocationAction.action.ReadValue<Vector2>()}");
-        Debug.Log($"Object location: {gameObject.transform.position}");
-
-        if (isHovered && SelectAction.action.IsInProgress())
+        if (isHovered && SelectAction.action.WasPressedThisFrame())
         {
-            OnPickedUp?.Invoke();
+            OnPickedUp?.Invoke(this);
+            isPickedUp = true;
+        }
+        else if (isPickedUp && SelectAction.action.IsPressed())
+        {
             transform.position = PointerLocationAction.action.ReadValue<Vector2>();
+        }
+        else if (isPickedUp && SelectAction.action.WasReleasedThisFrame())
+        {
+            OnDropped?.Invoke(this);
+            isPickedUp = false;
         }
     }
 }
