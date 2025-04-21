@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class DragAndDropTextController : MonoBehaviour
 {
     [SerializeField]
@@ -29,19 +28,17 @@ public class DragAndDropTextController : MonoBehaviour
         TextElement.text = text;
     }
 
-    private void OnMouseEnter()
+    public void SetHovered(bool hovered)
     {
-        isHovered = true;
-    }
-
-    private void OnMouseExit()
-    {
-        isHovered = false;
+        isHovered = hovered;
     }
 
     private void Update()
     {
-        if(isHovered && SelectAction.action.IsInProgress())
+        //Debug.Log($"Pointer location: {PointerLocationAction.action.ReadValue<Vector2>()}");
+        Debug.Log($"Object location: {gameObject.transform.position}");
+
+        if (isHovered && SelectAction.action.IsInProgress())
         {
             OnPickedUp?.Invoke();
             transform.position = PointerLocationAction.action.ReadValue<Vector2>();
