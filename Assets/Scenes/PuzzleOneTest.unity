@@ -6457,6 +6457,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2816860897024885648, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1567535071}
+    - target: {fileID: 3097770039482282031, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6497,13 +6505,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7039455972164572505, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039455972164572505, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039455972164572505, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039455972164572505, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4745098
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2693914431719161014, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2140889223}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
 --- !u!225 &1183226181 stripped
 CanvasGroup:
@@ -9512,9 +9533,9 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &2140889219 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2693914431719161014, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+--- !u!225 &1932675142 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1591202385579012114, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
   m_PrefabInstance: {fileID: 1183226180}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2140889221 stripped
@@ -9522,36 +9543,23 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3941861991917227694, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
   m_PrefabInstance: {fileID: 1183226180}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140889219}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2140889223
+--- !u!114 &2140889223 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2816860897024885648, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+  m_PrefabInstance: {fileID: 1183226180}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140889219}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9840f87219df84505803024c796e739d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2140889221}
-  usePreset: 0
-  preset: {fileID: 0}
-  tagEffects: []
-  globalEffects:
-  - triggerWhen: 1
-    effect: {fileID: 11400000, guid: 029f61b8c2a1f2640acaaf858351e095, type: 2}
-    onEffectCompleted:
-      m_PersistentCalls:
-        m_Calls: []
-    overrideTagEffects: 0
-  updatesPerSecond: 30
 --- !u!1001 &589570843082659193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9601,9 +9609,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4462660875258049804, guid: de81a38b7b23da04fbb40a005ed2cdd3, type: 3}
+      propertyPath: activate
+      value: 
+      objectReference: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 4462660875258049804, guid: de81a38b7b23da04fbb40a005ed2cdd3, type: 3}
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 2140889221}
+    - target: {fileID: 4462660875258049804, guid: de81a38b7b23da04fbb40a005ed2cdd3, type: 3}
+      propertyPath: promptGroup
+      value: 
+      objectReference: {fileID: 1932675142}
     - target: {fileID: 4462660875258049804, guid: de81a38b7b23da04fbb40a005ed2cdd3, type: 3}
       propertyPath: dialogueGroup
       value: 
@@ -9679,7 +9695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
       propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
       propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9699,7 +9715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
       propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetText
+      value: EnqueueDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
       propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9710,6 +9726,10 @@ PrefabInstance:
       value: DialogueSingleton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
+      propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 0881e52e7a6c6ba4fa3e296ad2596a18, type: 2}
+    - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
       propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: I can use this plate!
       objectReference: {fileID: 0}
@@ -9719,7 +9739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8307030322599930768, guid: ad7b81c0ad7e0554dbe68592a741c710, type: 3}
       propertyPath: OnSymbolUsed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: DialogueSectionSO, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
