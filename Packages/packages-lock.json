@@ -7,6 +7,15 @@
       "dependencies": {},
       "hash": "73d2383899210da808a1b27329cdaa8000de557b"
     },
+    "com.qiaozhilei.easy-text-effects": {
+      "version": "https://github.com/LeiQiaoZhi/Easy-Text-Effect.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "dd7b702f9cf666a725c4e8f04e52acbe380a599c"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
