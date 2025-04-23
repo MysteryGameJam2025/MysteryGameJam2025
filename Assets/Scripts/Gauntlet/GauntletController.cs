@@ -72,6 +72,11 @@ public class GauntletController : MonoBehaviour
 
     void Update()
     {
+        if (PlayerController.Instance.IsControlsLocked)
+        {
+            return;
+        }
+
         if (!UIController.IsAnimationPlaying)
         {
             if (Next.action.WasPressedThisFrame())
