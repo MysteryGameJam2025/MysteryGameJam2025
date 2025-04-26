@@ -30,7 +30,7 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     private Transform self;
     private Transform Self => self ??= transform;
     private float DelayRemaining { get; set; }
-    private bool IsControlsLocked { get; set; }
+    public bool IsControlsLocked { get; private set; }
 
     private int VelocityZHash { get; set; }
     private int IsGroundedHash { get; set; }

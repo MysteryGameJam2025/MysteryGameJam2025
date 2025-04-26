@@ -30,8 +30,20 @@ public class PowerSphereController : SymbolActivatableBase
     private Symbol connection;
     private Symbol Connection => connection;
     [SerializeField]
+    private Symbol energy;
+    private Symbol Energy => energy;
+    [SerializeField]
     private GameObject attractionEffect;
     private GameObject AttractionEffect => attractionEffect;
+    [SerializeField]
+    private Material energizedMaterial;
+    private Material EnergizedMaterial => energizedMaterial;
+    [SerializeField]
+    private GameObject energizedEffect;
+    private GameObject EnergizedEffect => energizedEffect;
+
+    private MeshRenderer meshRenderer;
+    private MeshRenderer MeshRenderer => meshRenderer ??= GetComponent<MeshRenderer>();
 
     public void SetTarget(SymbolActivatableBase target)
     {
@@ -68,6 +80,22 @@ public class PowerSphereController : SymbolActivatableBase
                 }
                 RB.AddForce((targetTransform.position - transform.position).normalized * Speed);
             }
+        }
+    }
+
+    public override void SetCurrentSymbol(Symbol symbol)
+    {
+        base.SetCurrentSymbol(symbol);
+
+        if (symbol == Energy)
+        {
+            MeshRenderer.materials = new Material[2] { MeshRenderer.materials[0], EnergizedMaterial };
+            EnergizedEffect.SetActive(true);
+        }
+        else
+        {
+            MeshRenderer.materials = new Material[1] { MeshRenderer.materials[0] };
+            EnergizedEffect.SetActive(false);
         }
     }
 }
