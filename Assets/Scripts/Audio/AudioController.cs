@@ -1,4 +1,5 @@
 using FriedSynapse.FlowEnt;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -83,7 +84,7 @@ public class AudioController : MonoBehaviour
     private AudioSource backgroundMusicSource;
     private AudioSource BackgroundMusicSource => backgroundMusicSource;
 
-    private Tween SoundFadeTween;
+    private Dictionary<AudioSource, Tween> SoundFadeTweens = new Dictionary<AudioSource, Tween>();
 
     private void Awake()
     {
@@ -99,7 +100,7 @@ public class AudioController : MonoBehaviour
 
     private void Start()
     {
-        FadeInSource(BackgroundMusicSource, 0.5f);
+        FadeBackgroundMusic(true);
     }
 
     private void SetOnMixer(string name, float value)
@@ -113,34 +114,55 @@ public class AudioController : MonoBehaviour
         Mixer.SetFloat(name, dB);
     }
 
+    public void FadeBackgroundMusic(bool fadeIn, float timeOfFade = 1f)
+    {
+        if (fadeIn)
+            FadeInSource(BackgroundMusicSource, timeOfFade);
+        else
+            FadeOutSource(BackgroundMusicSource, timeOfFade);
+    }
+
     public void FadeInSource(AudioSource source, float timeOfFade = 1f)
     {
-        SoundFadeTween?.Stop();
+        if (SoundFadeTweens.TryGetValue(source, out Tween tween))
+        {
+            tween.Stop();
+            SoundFadeTweens.Remove(source);
+        }
 
-        if (!source.isPlaying)
-            source.Play();
-
-        SoundFadeTween = new Tween(timeOfFade)
+        SoundFadeTweens.Add(source, new Tween(timeOfFade)
             .OnStarted(() =>
             {
                 if (!source.isPlaying)
                     source.Play();
             })
             .For(source)
-                .VolumeTo(1)
-            .Start();
+                .VolumeTo(source.volume, 1)
+            .OnCompleted(() =>
+            {
+                SoundFadeTweens.Remove(source);
+            })
+            .Start()
+        );
     }
 
     public void FadeOutSource(AudioSource source, float timeOfFade = 1f)
     {
-        SoundFadeTween?.Stop();
-        if (!source.isPlaying)
-            source.Play();
+        if (SoundFadeTweens.TryGetValue(source, out Tween tween))
+        {
+            tween.Stop();
+            SoundFadeTweens.Remove(source);
+        }
 
-        SoundFadeTween = new Tween(timeOfFade)
+        SoundFadeTweens.Add(source, new Tween(timeOfFade)
             .For(source)
-                .VolumeTo(0)
-            .OnCompleted(() => source.Stop())
-            .Start();
+                .VolumeTo(source.volume, 0)
+            .OnCompleted(() => 
+            { 
+                source.Stop();
+                SoundFadeTweens.Remove(source);
+            })
+            .Start()
+        );
     }
 }
