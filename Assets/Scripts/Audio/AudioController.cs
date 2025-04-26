@@ -1,3 +1,4 @@
+using FriedSynapse.FlowEnt;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -78,6 +79,12 @@ public class AudioController : MonoBehaviour
     private AudioMixer mixer;
     public AudioMixer Mixer => mixer;
 
+    [SerializeField]
+    private AudioSource backgroundMusicSource;
+    private AudioSource BackgroundMusicSource => backgroundMusicSource;
+
+    private Tween SoundFadeTween;
+
     private void Awake()
     {
         if (_instance == null)
@@ -90,6 +97,11 @@ public class AudioController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        FadeInSource(BackgroundMusicSource, 0.5f);
+    }
+
     private void SetOnMixer(string name, float value)
     {
         float dB;
@@ -99,5 +111,36 @@ public class AudioController : MonoBehaviour
             dB = -144.0f;
 
         Mixer.SetFloat(name, dB);
+    }
+
+    public void FadeInSource(AudioSource source, float timeOfFade = 1f)
+    {
+        SoundFadeTween?.Stop();
+
+        if (!source.isPlaying)
+            source.Play();
+
+        SoundFadeTween = new Tween(timeOfFade)
+            .OnStarted(() =>
+            {
+                if (!source.isPlaying)
+                    source.Play();
+            })
+            .For(source)
+                .VolumeTo(1)
+            .Start();
+    }
+
+    public void FadeOutSource(AudioSource source, float timeOfFade = 1f)
+    {
+        SoundFadeTween?.Stop();
+        if (!source.isPlaying)
+            source.Play();
+
+        SoundFadeTween = new Tween(timeOfFade)
+            .For(source)
+                .VolumeTo(0)
+            .OnCompleted(() => source.Stop())
+            .Start();
     }
 }
