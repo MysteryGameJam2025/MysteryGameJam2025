@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManagerSingleton>
 {
+    [SerializeField]
+    private AudioListener audioListenerController;
+    private AudioListener AudioListenerController => audioListenerController;
+
     public Camera ActiveCamera { get; private set; }
 
     public void SetActiveCamera(Camera camera)
@@ -17,6 +21,9 @@ public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManag
         }
         ActiveCamera = camera;
         ActiveCamera.enabled = true;
+
+        AudioListenerController.transform.SetParent(ActiveCamera.transform, false);
+
         Debug.Log($"Switched to camera: {ActiveCamera.transform.parent.gameObject.name}");
     }
 
