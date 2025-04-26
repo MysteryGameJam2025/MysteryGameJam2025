@@ -145,15 +145,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HiResUI_1
+      name: Cursor
       rect:
         serializedVersion: 2
         x: 1593
         y: 1114
         width: 308
         height: 402
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -488,11 +488,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Cursor: 1003518887
       DialBG: 556913764
       DialFG: 1859722887
       DialLeft: 952287546
       DialRight: 446731779
-      HiResUI_1: 1003518887
       HiResUI_11: -1909970572
       HiResUI_12: -1184662248
       HiResUI_13: -1433280186
