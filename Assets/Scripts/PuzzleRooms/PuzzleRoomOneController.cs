@@ -41,9 +41,10 @@ public class PuzzleRoomOneController : MonoBehaviour
     private Color EmissionEnd => emissionEnd;
 
 
-    bool isSphereMoved;
-
+    bool isSphereAtBottom = true;
+    bool isSphereAtTop;
     bool areControlsConnected;
+    bool areLightsOn;
 
     private AbstractAnimation MaterialAnimation { get; set; }
 
@@ -55,7 +56,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void SetSymbolBottomOfHill(Symbol symbol)
     {
-        if (isSphereMoved)
+        if (!isSphereAtBottom)
         {
             return;
         }
@@ -66,7 +67,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void SetSymbolTopOfHill(Symbol symbol)
     {
-        if (!isSphereMoved)
+        if (!isSphereAtTop)
         {
             Backstop.SetCurrentSymbol(symbol);
             CheckSphereAndBackstop();
@@ -74,6 +75,10 @@ public class PuzzleRoomOneController : MonoBehaviour
         }
 
         PowerSphere.SetCurrentSymbol(symbol);
+
+        if (PowerSphere.IsEnergised && !areLightsOn)
+            TurnLightsOn();
+
         CheckSphereAndDoorControls();
     }
 
@@ -88,13 +93,19 @@ public class PuzzleRoomOneController : MonoBehaviour
         if (PowerSphere.CurrentSymbol == Attraction && Backstop.CurrentSymbol == Attraction)
         {
             PowerSphere.SetTarget(backstop);
-            isSphereMoved = true;
+            isSphereAtBottom = false;
+            PowerSphere.OnReachedTarget = () =>
+            {
+                isSphereAtTop = true;
+                if (PowerSphere.IsEnergised)
+                    TurnLightsOn();
+            };
         }
     }
 
     public void CheckSphereAndDoorControls()
     {
-        if (isSphereMoved && PowerSphere.CurrentSymbol == Energy)
+        if (isSphereAtTop && PowerSphere.CurrentSymbol == Energy)
         {
             MaterialAnimation?.Stop();
             MaterialAnimation = new Tween(2)
@@ -118,5 +129,11 @@ public class PuzzleRoomOneController : MonoBehaviour
             AudioController.Instance?.PlayLocalSound("LightsOn", DoorControls.gameObject);
             DoorControls.Open();
         }
+    }
+
+    private void TurnLightsOn()
+    {
+        areLightsOn = true;
+        AudioController.Instance?.PlayGlobalSound("LightsOn");
     }
 }
