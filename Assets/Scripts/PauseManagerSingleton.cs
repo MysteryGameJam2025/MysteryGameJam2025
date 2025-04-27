@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PauseManagerSingleton : MonoBehaviour
 {
+    private const string MainSceneName = "Main";
+
     [SerializeField]
     private InputActionReference pauseAction;
     private InputActionReference PauseAction => pauseAction;
@@ -37,7 +39,7 @@ public class PauseManagerSingleton : MonoBehaviour
     public void Quit()
     {
         Time.timeScale = 1;
-        // TODO: Load main menu
+        SceneController.Instance.LoadScene(MainSceneName);
     }
 
     void Update()
