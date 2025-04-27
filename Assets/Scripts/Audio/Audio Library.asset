@@ -46,3 +46,6 @@ MonoBehaviour:
   - assetName: UiAccept
     audioClip: {fileID: 8300000, guid: 3391a529ba7dff34c8f17f983745bbc8, type: 3}
     type: 0
+  - assetName: SwapSymbol
+    audioClip: {fileID: 8300000, guid: 2e682be38a3287c4cacfbcbe7f795db2, type: 3}
+    type: 0
