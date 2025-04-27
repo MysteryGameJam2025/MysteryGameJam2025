@@ -1,9 +1,16 @@
 using FriedSynapse.FlowEnt;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
+
+public enum AudioTypes
+{
+    Sfx,
+    Music
+}
 
 public class AudioController : MonoBehaviour
 {
@@ -81,10 +88,33 @@ public class AudioController : MonoBehaviour
     public AudioMixer Mixer => mixer;
 
     [SerializeField]
+    private AudioMixerGroup musicGroup;
+    private AudioMixerGroup MusicGroup => musicGroup;
+
+    [SerializeField]
+    private AudioMixerGroup sfxGroup;
+    private AudioMixerGroup SfxGroup => sfxGroup;
+
+    [SerializeField]
     private AudioSource backgroundMusicSource;
     private AudioSource BackgroundMusicSource => backgroundMusicSource;
 
+    [SerializeField]
+    private AudioLibrary audioLibrary;
+    private AudioLibrary AudioLibrary => audioLibrary;
+
+    [SerializeField]
+    private AudioSource globalSourcePrefab;
+    private AudioSource GlobalSourcePrefab => globalSourcePrefab;
+
+    [SerializeField]
+    private AudioSource localSourcePrefab;
+    private AudioSource LocalSourcePrefab => localSourcePrefab;
+
     private Dictionary<AudioSource, Tween> SoundFadeTweens = new Dictionary<AudioSource, Tween>();
+
+    private Dictionary<string, AudioSource> LoadedGlobalSounds = new Dictionary<string, AudioSource>();
+    private Dictionary<(string, GameObject), AudioSource> LoadedLocalSounds = new Dictionary<(string, GameObject), AudioSource>();
 
     private void Awake()
     {
@@ -164,5 +194,80 @@ public class AudioController : MonoBehaviour
             })
             .Start()
         );
+    }
+
+    public AudioSource PlayGlobalSound(string name, bool shouldOverride = true, bool shouldPlay = true)
+    {
+        AudioSource source;
+        
+        if (LoadedGlobalSounds.TryGetValue(name, out AudioSource loadedSource))
+        {
+            source = loadedSource;
+            if (source.isPlaying && !shouldOverride)
+                return source;
+        }
+        else
+        {
+            AudioAsset asset = AudioLibrary.GetAsset(name);
+            source = Instantiate(GlobalSourcePrefab);
+
+            source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
+            source.clip = asset.AudioClip;
+            LoadedGlobalSounds.Add(name, source);
+        }
+
+        if (shouldPlay)
+            source.Play();
+        return source;
+    }
+
+    public AudioSource PlayLocalSound(string name, GameObject parent, bool shouldOverride = true, bool shouldPlay = true)
+    {
+        AudioSource source;
+
+        if (LoadedLocalSounds.TryGetValue((name, parent), out AudioSource loadedSource))
+        {
+            source = loadedSource;
+            if (source.isPlaying && !shouldOverride)
+                return source;
+        }
+        else
+        {
+            AudioAsset asset = AudioLibrary.GetAsset(name);
+            source = Instantiate(LocalSourcePrefab, parent.transform);
+
+            source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
+            source.clip = asset.AudioClip;
+            LoadedLocalSounds.Add((name, parent), source);
+        }
+
+        if (shouldPlay)
+            source.Play();
+        return source;
+    }
+
+    public AudioSource PlayRandomLocalSound(string name, int numberOfSounds, GameObject parent, bool shouldOverride = true, bool shouldPlay = true)
+    {
+        AudioSource source;
+
+        if (LoadedLocalSounds.TryGetValue((name, parent), out AudioSource loadedSource))
+        {
+            source = loadedSource;
+            if (source.isPlaying && !shouldOverride)
+                return source;
+        }
+        else
+        {
+            source = Instantiate(LocalSourcePrefab, parent.transform);
+            LoadedLocalSounds.Add((name, parent), source);
+        }
+
+        AudioAsset asset = AudioLibrary.GetAssetRange(name, numberOfSounds)[Random.Range(0, numberOfSounds)];
+        source.clip = asset.AudioClip;
+        source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
+
+        if (shouldPlay)
+            source.Play();
+        return source;
     }
 }

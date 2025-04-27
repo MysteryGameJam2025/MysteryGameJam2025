@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69fbef9c0fa57646a949426ecce1f79, type: 3}
+  m_Name: Audio Library
+  m_EditorClassIdentifier: 
+  audioAssets:
+  - assetName: BackgroundMusic
+    audioClip: {fileID: 8300000, guid: 4b49be93b57e7f446abbdc310cc3b38f, type: 3}
+    type: 1
+  - assetName: Footsteps1
+    audioClip: {fileID: 8300000, guid: e9bb2d3e8b737d44db1cf4854d0a751d, type: 3}
+    type: 0
+  - assetName: Footsteps2
+    audioClip: {fileID: 8300000, guid: 598312b15644a7749b05f39d5bc10db8, type: 3}
+    type: 0
+  - assetName: Footsteps3
+    audioClip: {fileID: 8300000, guid: 9525ce9ab43ddc948b981af860254d44, type: 3}
+    type: 0
+  - assetName: Footsteps4
+    audioClip: {fileID: 8300000, guid: 7b160518934419f4e9138bf6425df526, type: 3}
+    type: 0
+  - assetName: Footsteps5
+    audioClip: {fileID: 8300000, guid: b8acbbf62f85e874d8d97d7d285783f3, type: 3}
+    type: 0
+  - assetName: Footsteps6
+    audioClip: {fileID: 8300000, guid: 0a6374a58de0b9e43856ba1aaeccd464, type: 3}
+    type: 0
+  - assetName: Footsteps7
+    audioClip: {fileID: 8300000, guid: 3bc9ea056cfd272468ce480b6bf65b6d, type: 3}
+    type: 0
+  - assetName: Footsteps8
+    audioClip: {fileID: 8300000, guid: 2d04e2c8d481ece4aa2f32b069f55051, type: 3}
+    type: 0
+  - assetName: UiClick
+    audioClip: {fileID: 8300000, guid: 1bfe4ced89e58b94da4185f21f25d3e9, type: 3}
+    type: 0
+  - assetName: UiAccept
+    audioClip: {fileID: 8300000, guid: 3391a529ba7dff34c8f17f983745bbc8, type: 3}
+    type: 0

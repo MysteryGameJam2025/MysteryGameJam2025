@@ -781,7 +781,8 @@ MonoBehaviour:
   rotateSpeed: 10
   animChangeSpeed: 10
   cameraSwitchControlsDelay: 0.4
-  playerAnimator: {fileID: 4987142670202685521}
+  playerAnimator: {fileID: 5217093834676915050}
+  footstepCooldown: 0.5
 --- !u!114 &2296832954226456753
 MonoBehaviour:
   m_ObjectHideFlags: 0
