@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PowerSphereController : SymbolActivatableBase
@@ -47,6 +47,10 @@ public class PowerSphereController : SymbolActivatableBase
 
     private AudioSource RollingSource { get; set; }
 
+    public Action OnReachedTarget;
+
+    public bool IsEnergised { get; set; } = false;
+
     public void SetTarget(SymbolActivatableBase target)
     {
         currentTarget = target;
@@ -76,16 +80,22 @@ public class PowerSphereController : SymbolActivatableBase
                 AudioController.Instance.PlayLocalSound("BallRolling", gameObject, false);
                 if (Vector3.Distance(targetTransform.position, transform.position) <= StoppingDistance)
                 {
-                    AttractionEffect.SetActive(false);
-                    shouldMoveTowardsTarget = false;
-                    currentTarget = null;
-                    RB.isKinematic = true;
-                    RollingSource?.Stop();
-                    AudioController.Instance.PlayLocalSound("BallClick", gameObject);
+                    ReachedTarget();
                 }
                 RB.AddForce((targetTransform.position - transform.position).normalized * Speed);
             }
         }
+    }
+
+    private void ReachedTarget()
+    {
+        AttractionEffect.SetActive(false);
+        shouldMoveTowardsTarget = false;
+        currentTarget = null;
+        RB.isKinematic = true;
+        RollingSource?.Stop();
+        AudioController.Instance.PlayLocalSound("BallClick", gameObject);
+        OnReachedTarget?.Invoke();
     }
 
     public override void SetCurrentSymbol(Symbol symbol)
@@ -95,11 +105,13 @@ public class PowerSphereController : SymbolActivatableBase
         if (symbol == Energy)
         {
             MeshRenderer.materials = new Material[2] { MeshRenderer.materials[0], EnergizedMaterial };
+            IsEnergised = true;
             EnergizedEffect.SetActive(true);
         }
         else
         {
             MeshRenderer.materials = new Material[1] { MeshRenderer.materials[0] };
+            IsEnergised = false;
             EnergizedEffect.SetActive(false);
         }
     }
