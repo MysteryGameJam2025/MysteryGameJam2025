@@ -42,6 +42,12 @@ public class GauntletController : MonoBehaviour
     [SerializeField]
     private GauntletVisuals gauntletVisuals;
     private GauntletVisuals GauntletVisuals => gauntletVisuals;
+    [SerializeField]
+    private Animator playerAnimator;
+    private Animator PlayerAnimator => playerAnimator;
+    [SerializeField]
+    private PlayerController player;
+    private PlayerController Player => player;
     private Transform self;
     private Transform Self => self ??= transform;
     private bool IsLockingInteraction { get; set; }
@@ -54,20 +60,32 @@ public class GauntletController : MonoBehaviour
     public AbstractInteractable PreviousActivatable => previousInteractable;
 
     private const float InteractablesRange = 4f;
-
+    private int UseGauntletHash { get; set; }
+    private int IsPickupHash { get; set; }
 
     private void Start()
     {
-        UIController?.SetSymbolInUI(CurrentSymbol);
+        IsPickupHash = Animator.StringToHash("IsPickup");
+        UseGauntletHash = Animator.StringToHash("UseGauntlet");
+        UIController?.SetInitialSymbol(CurrentSymbol);
     }
 
     void Update()
     {
-        if (Next.action.WasPressedThisFrame())
-            ChangeSymbol(++symbolIndex);
+        if (PlayerController.Instance.IsControlsLocked)
+        {
+            return;
+        }
 
-        if (Previous.action.WasPressedThisFrame())
-            ChangeSymbol(--symbolIndex);
+        if (!UIController.IsAnimationPlaying)
+        {
+            if (Next.action.WasPressedThisFrame())
+                ChangeSymbol(++symbolIndex, true);
+
+            if (Previous.action.WasPressedThisFrame())
+                ChangeSymbol(--symbolIndex, false);
+        }
+
 
         if (Activate.action.WasPressedThisFrame())
             ActivateInteractable();
@@ -95,13 +113,11 @@ public class GauntletController : MonoBehaviour
         {
             if (currentInteractable != null)
             {
-                previousInteractable = currentInteractable;
                 EndHover();
             }
 
             interactable.OnInteractionHoverStart();
             currentInteractable = interactable;
-
         }
 
     }
@@ -115,6 +131,35 @@ public class GauntletController : MonoBehaviour
         currentInteractable.OnInteractionHoverEnd();
     }
 
+    public void OnGauntletFire()
+    {
+        Player.UnlockControls();
+        PlayerAnimator.SetBool(UseGauntletHash, false);
+        AbstractInteractable interactableToActivate = currentInteractable;
+        GauntletVisuals.PlayEffect(interactableToActivate.transform, () =>
+        {
+            IsLockingInteraction = false;
+            interactableToActivate.OnInteract(new InteractionEvent()
+            {
+                EquippedSymbol = CurrentSymbol
+            });
+        });
+    }
+
+    public void OnPickup()
+    {
+        PlayerAnimator.SetBool(IsPickupHash, false);
+        currentInteractable.OnInteract(new InteractionEvent()
+        {
+            EquippedSymbol = CurrentSymbol
+        });
+    }
+
+    public void OnPickupCompleted()
+    {
+        Player.UnlockControls();
+    }
+
     private void ActivateInteractable()
     {
         if (IsLockingInteraction || !currentInteractable || previousInteractable == currentInteractable)
@@ -123,34 +168,30 @@ public class GauntletController : MonoBehaviour
 
         if (currentInteractable is SymbolPlate)
         {
+            Player.LockControls();
+            PlayerAnimator.SetBool(UseGauntletHash, true);
             IsLockingInteraction = true;
             SymbolPlate symbolPlate = currentInteractable as SymbolPlate;
             symbolPlate.HidePrompt();
             //NOTE: Play visual effect if the interactable is a symbol plate
-            GauntletVisuals.PlayEffect(currentInteractable.transform, () =>
-            {
-                IsLockingInteraction = false;
-                currentInteractable.OnInteract(new InteractionEvent()
-                {
-                    EquippedSymbol = CurrentSymbol
-                });
-            });
+
         }
         else
         {
-            currentInteractable.OnInteract(new InteractionEvent()
-            {
-                EquippedSymbol = CurrentSymbol
-            });
+            Player.LockControls();
+            PlayerAnimator.SetBool(IsPickupHash, true);
+
         }
+        previousInteractable = currentInteractable;
     }
 
-    private void ChangeSymbol(int symbolIndex)
+    private void ChangeSymbol(int symbolIndex, bool isNext)
     {
+
         symbolIndex = (symbolIndex + AvailableSymbols.Count) % AvailableSymbols.Count;
         CurrentSymbol = AvailableSymbols[symbolIndex];
 
-        UIController?.SetSymbolInUI(CurrentSymbol);
+        UIController?.SetSymbolInUI(CurrentSymbol, isNext);
         //PreviousActivatable?.DropInteraction();
         previousInteractable = null;
         OnActivation = null;

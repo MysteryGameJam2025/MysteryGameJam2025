@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
+    "com.qiaozhilei.easy-text-effects": "https://github.com/LeiQiaoZhi/Easy-Text-Effect.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.5",
     "com.unity.collab-proxy": "2.7.1",
@@ -11,6 +12,7 @@
     "com.unity.postprocessing": "3.4.0",
     "com.unity.probuilder": "6.0.5",
     "com.unity.render-pipelines.universal": "17.0.3",
+    "com.unity.splines": "2.7.2",
     "com.unity.test-framework": "1.4.5",
     "com.unity.timeline": "1.8.7",
     "com.unity.ugui": "2.0.0",
