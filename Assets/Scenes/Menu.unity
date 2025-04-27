@@ -528,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 461.65796
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_SizeDelta.y
@@ -564,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 230.82898
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -665,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 461.65796
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_SizeDelta.y
@@ -701,7 +701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 230.82898
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1720074016}
   playButton: {fileID: 583179095}
-  sceneToLoadOnPlay: 
+  sceneToLoadOnPlay: PlayerMovementTest
   settingsButton: {fileID: 1303309900}
   settingsMenu: {fileID: 1249145920}
   quitButton: {fileID: 2060498435}
@@ -1163,7 +1163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 461.65796
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1199,7 +1199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 230.82898
       objectReference: {fileID: 0}
     - target: {fileID: 3119976408407685808, guid: 32c82c0326bf45b4f831df768e396e73, type: 3}
       propertyPath: m_AnchoredPosition.y
