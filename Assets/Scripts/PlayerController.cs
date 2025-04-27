@@ -1,3 +1,4 @@
+using FriedSynapse.FlowEnt;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,6 +26,9 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     [SerializeField]
     private Animator playerAnimator;
     private Animator PlayerAnimator => playerAnimator;
+    [SerializeField]
+    private float footstepCooldown;
+    private float FootstepCooldown => footstepCooldown;
 
 
     private Transform self;
@@ -35,10 +39,16 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     private int VelocityZHash { get; set; }
     private int IsGroundedHash { get; set; }
 
+    private AudioSource FootstepSource;
+    private bool FootstepOnCooldown { get; set; } = false;
+    private Tween FootstepCooldownTween;
+
     void Awake()
     {
         VelocityZHash = Animator.StringToHash("VelocityZ");
         IsGroundedHash = Animator.StringToHash("IsGrounded");
+
+        FootstepSource = AudioController.Instance?.PlayLocalSound("Footsteps1", gameObject, shouldPlay: false);
     }
 
     public void DelayControls()
@@ -73,7 +83,26 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
         float newAnimVelocityZ = Mathf.Lerp(PlayerAnimator.GetFloat(VelocityZHash), inputVector.magnitude, AnimChangeSpeed * Time.deltaTime);
         PlayerAnimator.SetFloat(VelocityZHash, newAnimVelocityZ);
 
-        Transform camTransform = cam.transform;
+        if(newAnimVelocityZ > 0.1f)
+        {
+            if (!FootstepSource.isPlaying && !FootstepOnCooldown)
+            {
+                FootstepCooldownTween = new Tween(FootstepCooldown)
+                    .OnStarted(() => 
+                    { 
+                        FootstepOnCooldown = true;
+                        AudioController.Instance?.PlayRandomLocalSound("Footsteps1", 8, gameObject);
+                    })
+                    .OnCompleted(() => FootstepOnCooldown = false)
+                    .Start();
+            }
+        }
+        else
+        {
+            FootstepCooldownTween?.Stop(true);
+        }
+
+            Transform camTransform = cam.transform;
         Vector3 forward = camTransform.forward;
         Vector3 right = camTransform.right;
 

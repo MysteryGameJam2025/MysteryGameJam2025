@@ -1,3 +1,4 @@
+using FriedSynapse.FlowEnt;
 using System;
 using System.Xml.Serialization;
 using UnityEngine;
@@ -42,7 +43,12 @@ public class MainMenuController : MonoBehaviour
 
     private void OnPlayButtonClicked()
     {
-        SceneController.Instance.LoadScene(sceneToLoadOnPlay);
+        AudioController.Instance?.FadeBackgroundMusic(false, 0.5f);
+        new Tween(0.75f).OnCompleted(() => 
+        {
+            SceneController.Instance.LoadScene(sceneToLoadOnPlay);
+            AudioController.Instance?.FadeBackgroundMusic(true, 0.5f);
+        }).Start();
     }
 
     private void SetMenuUIVisibility(bool isVisible)
