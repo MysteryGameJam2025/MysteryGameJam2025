@@ -80,6 +80,7 @@ public class PuzzleRoomOneController : MonoBehaviour
         }
         else if (PowerSphere.CurrentSymbol == Energy && DoorControls.CurrentSymbol == Energy && areControlsConnected)
         {
+            AudioController.Instance?.PlayLocalSound("LightsOn", DoorControls.gameObject);
             DoorControls.Open();
         }
     }
