@@ -11368,9 +11368,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565571937665462204, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565571937665462204, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565571937665462204, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 565571937665462204, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 565571937665462204, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 565571937665462204, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -422.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2508153188999153134, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694558800055901222, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694558800055901222, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694558800055901222, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694558800055901222, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694558800055901222, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694558800055901222, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -227.5
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27970,6 +28018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb8aaaf1a727984e948c35a0440e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioListenerController: {fileID: 0}
 --- !u!4 &1840416174
 Transform:
   m_ObjectHideFlags: 0
