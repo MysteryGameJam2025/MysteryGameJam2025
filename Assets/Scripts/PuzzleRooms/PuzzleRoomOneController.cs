@@ -77,7 +77,11 @@ public class PuzzleRoomOneController : MonoBehaviour
         PowerSphere.SetCurrentSymbol(symbol);
 
         if (PowerSphere.IsEnergised && !areLightsOn)
+        {
             TurnLightsOn();
+
+        }
+
 
         CheckSphereAndDoorControls();
     }
@@ -105,19 +109,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void CheckSphereAndDoorControls()
     {
-        if (isSphereAtTop && PowerSphere.CurrentSymbol == Energy)
-        {
-            MaterialAnimation?.Stop();
-            MaterialAnimation = new Tween(2)
-                .For(PowerUpMaterial)
-                .ColorTo("_EmissionColor", EmissionEnd)
-                .SetEasing(Easing.EaseOutSine)
-                .OnCompleted(() =>
-                {
 
-                })
-                .Start();
-        }
 
         if (PowerSphere.CurrentSymbol == Connection && DoorControls.CurrentSymbol == Connection)
         {
@@ -133,7 +125,16 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     private void TurnLightsOn()
     {
-        areLightsOn = true;
         AudioController.Instance?.PlayGlobalSound("LightsOn");
+        MaterialAnimation?.Stop();
+        MaterialAnimation = new Tween(2)
+            .For(PowerUpMaterial)
+            .ColorTo("_EmissionColor", EmissionEnd)
+            .SetEasing(Easing.EaseOutSine)
+            .OnCompleted(() =>
+            {
+                areLightsOn = true;
+            })
+            .Start();
     }
 }
