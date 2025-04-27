@@ -781,7 +781,7 @@ MonoBehaviour:
   rotateSpeed: 10
   animChangeSpeed: 10
   cameraSwitchControlsDelay: 0.4
-  playerAnimator: {fileID: 5217093834676915050}
+  playerAnimator: {fileID: 4987142670202685521}
   footstepCooldown: 0.5
 --- !u!114 &2296832954226456753
 MonoBehaviour:
@@ -2776,8 +2776,8 @@ CanvasGroup:
   m_GameObject: {fileID: 8651774356871629400}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &8830178099467987420
 GameObject:
