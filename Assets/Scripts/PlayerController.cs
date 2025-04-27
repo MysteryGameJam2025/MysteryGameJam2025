@@ -83,26 +83,34 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
         float newAnimVelocityZ = Mathf.Lerp(PlayerAnimator.GetFloat(VelocityZHash), inputVector.magnitude, AnimChangeSpeed * Time.deltaTime);
         PlayerAnimator.SetFloat(VelocityZHash, newAnimVelocityZ);
 
-        if(newAnimVelocityZ > 0.1f)
+        if (newAnimVelocityZ > 0.1f)
         {
-            if (!FootstepSource.isPlaying && !FootstepOnCooldown)
+            if (FootstepSource == null)
             {
-                FootstepCooldownTween = new Tween(FootstepCooldown)
-                    .OnStarted(() => 
-                    { 
-                        FootstepOnCooldown = true;
-                        AudioController.Instance?.PlayRandomLocalSound("Footsteps1", 8, gameObject);
-                    })
-                    .OnCompleted(() => FootstepOnCooldown = false)
-                    .Start();
+                Debug.LogWarning("FootstepSource not in scene");
             }
+            else
+            {
+                if (!FootstepSource.isPlaying && !FootstepOnCooldown)
+                {
+                    FootstepCooldownTween = new Tween(FootstepCooldown)
+                        .OnStarted(() =>
+                        {
+                            FootstepOnCooldown = true;
+                            AudioController.Instance?.PlayRandomLocalSound("Footsteps1", 8, gameObject);
+                        })
+                        .OnCompleted(() => FootstepOnCooldown = false)
+                        .Start();
+                }
+            }
+
         }
         else
         {
             FootstepCooldownTween?.Stop(true);
         }
 
-            Transform camTransform = cam.transform;
+        Transform camTransform = cam.transform;
         Vector3 forward = camTransform.forward;
         Vector3 right = camTransform.right;
 
