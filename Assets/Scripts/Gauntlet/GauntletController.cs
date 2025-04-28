@@ -59,7 +59,7 @@ public class GauntletController : MonoBehaviour
     private AbstractInteractable previousInteractable;
     public AbstractInteractable PreviousActivatable => previousInteractable;
 
-    private const float InteractablesRange = 4f;
+    private const float InteractablesRange = 2f;
     private int UseGauntletHash { get; set; }
     private int IsPickupHash { get; set; }
 
