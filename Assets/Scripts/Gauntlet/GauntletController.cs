@@ -187,7 +187,6 @@ public class GauntletController : MonoBehaviour
 
     private void ChangeSymbol(int symbolIndex, bool isNext)
     {
-
         symbolIndex = (symbolIndex + AvailableSymbols.Count) % AvailableSymbols.Count;
         CurrentSymbol = AvailableSymbols[symbolIndex];
 
@@ -195,5 +194,7 @@ public class GauntletController : MonoBehaviour
         //PreviousActivatable?.DropInteraction();
         previousInteractable = null;
         OnActivation = null;
+
+        AudioController.Instance?.PlayLocalSound("SwapSymbol", gameObject);
     }
 }
