@@ -874,11 +874,8 @@ MonoBehaviour:
   activate: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   next: {fileID: -5413215560383261667, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   previous: {fileID: -4708071574823929280, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  currentSymbol: {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
-  availableSymbols:
-  - {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
-  - {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
-  - {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}
+  currentSymbol: {fileID: 0}
+  availableSymbols: []
   interactablesHandle: {fileID: 8909301475737573469}
   interactablesLayerMask:
     serializedVersion: 2

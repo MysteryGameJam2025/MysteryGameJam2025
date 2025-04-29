@@ -478,6 +478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333816676456456068}
   - component: {fileID: 6808956502545940669}
+  - component: {fileID: 8626232210371032626}
   m_Layer: 5
   m_Name: GauntletUI
   m_TagString: Untagged
@@ -517,12 +518,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f56e31ec3a9f246bfeac3f8d2cfb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 8626232210371032626}
   symbolUIImage: {fileID: 7877753937777604937}
   fromRight: {fileID: 3980679386220555439}
   fromLeft: {fileID: 8130138580520930919}
   pivot: {fileID: 6093844473611764527}
   leftArrow: {fileID: 3779274566290187441}
   rightArrow: {fileID: 2451797068528917544}
+--- !u!225 &8626232210371032626
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6748958475900223838}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7046499243511430161
 GameObject:
   m_ObjectHideFlags: 0
