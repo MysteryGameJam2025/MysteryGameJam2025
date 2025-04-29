@@ -47,7 +47,7 @@ public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullSc
         {
             if (TimeElapsed >= TimeBetweenCharacters)
             {
-                TimeElapsed = 0;
+                TimeElapsed -= TimeBetweenCharacters;
                 NextCharacter();
             }
             else
