@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94579628104783439874d378925d1f0, type: 3}
+  m_Name: Introduction2
+  m_EditorClassIdentifier: 
+  dialogueData:
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "It\u2019s fine. No damage."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "That\u2019s a relief!"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Air analysis of the cave looks good. You\u2019re safe to go on."
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "I\u2019m feeling pretty dizzy."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "You\u2019ll be fine."
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Can you just give me a second?
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "We don\u2019t have a lot of time, Rho. I need to repeat your briefing
+      for me."
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Missing people, large group, unknown number.
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Last seen over twenty-four hours ago.
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: 'Strangely broad age range: Children and elderly among the missing
+      number.'
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Very little evidence to suggest any particular circumstance of disappearance.
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: One singular note found in initial sweep.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Very good, Rho. In your pack is the note. Open it up for me.

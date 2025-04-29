@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleton>
+public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullScreenDialogueSingleton>
 {
     [SerializeField]
     private TMP_Text dialogue;
@@ -14,9 +14,6 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
     [SerializeField]
     private CanvasGroup dialogueGroup;
     private CanvasGroup DialogueGroup => dialogueGroup;
-    [SerializeField]
-    private TextEffect typewriterEffect;
-    private TextEffect TypewriterEffect => typewriterEffect;
     [SerializeField]
     private InputActionReference activate;
     private InputActionReference Activate => activate;
@@ -27,16 +24,35 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
     private AbstractAnimation ShowHideAnimation { get; set; }
 
     private Queue<DialogueData> DialogueQueue { get; set; }
+    private TMP_CharacterQueue CharacterQueue { get; set; }
     private bool IsReadyForNext { get; set; }
+    private float TimeElapsed { get; set; }
+    private SpeakerSO PreviousSpeaker { get; set; }
+
     public Action OnSectionCompleted { get; set; }
+
+    private const float TimeBetweenCharacters = 0.03f;
 
     void Update()
     {
+
         if (Activate.action.WasPressedThisFrame())
         {
             if (IsReadyForNext)
             {
                 PlayNextDialogue();
+            }
+        }
+        else if (!IsReadyForNext && CharacterQueue != null)
+        {
+            if (TimeElapsed >= TimeBetweenCharacters)
+            {
+                TimeElapsed = 0;
+                NextCharacter();
+            }
+            else
+            {
+                TimeElapsed += Time.deltaTime;
             }
         }
     }
@@ -65,24 +81,15 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
             .SetEasing(Easing.EaseInSine)
             .OnCompleted(() =>
             {
-                Debug.Log("here");
+                Debug.Log("Calling on section completed");
                 Dialogue.text = string.Empty;
                 OnSectionCompleted?.Invoke();
             })
             .Start();
     }
-
-    public void OnTypewriterFinished()
-    {
-        Color color = Dialogue.color;
-        color.a = 1;
-        Dialogue.color = color;
-        IsReadyForNext = true;
-        PromptGroup.alpha = 1;
-    }
-
     public void EnqueueDialogue(DialogueSectionSO dialogueSection)
     {
+        PreviousSpeaker = null;
         if (DialogueQueue == null)
         {
             DialogueQueue = new Queue<DialogueData>();
@@ -103,7 +110,16 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         if (DialogueQueue.Count > 0)
         {
             var dialogue = DialogueQueue.Dequeue();
-            SetText(dialogue.ToTaggedString());
+            if (PreviousSpeaker == dialogue.Speaker)
+            {
+                AddText(dialogue.Dialogue);
+            }
+            else
+            {
+                AddText(dialogue.ToTaggedString());
+            }
+            PreviousSpeaker = dialogue.Speaker;
+
         }
         else
         {
@@ -111,12 +127,23 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         }
     }
 
-    private void SetText(string text)
+    private void AddText(string text)
     {
-        Color color = Dialogue.color;
-        color.a = 0;
-        Dialogue.color = color;
-        Dialogue.text = text;
-        TypewriterEffect.Refresh();
+        CharacterQueue = new TMP_CharacterQueue($"{text}{Environment.NewLine}{Environment.NewLine}");
     }
+
+    void NextCharacter()
+    {
+        bool isSuccessful = CharacterQueue.TryGetNextCharacter(out string characterString);
+        if (!isSuccessful)
+        {
+            CharacterQueue = null;
+            IsReadyForNext = true;
+            PromptGroup.alpha = 1;
+            return;
+        }
+
+        Dialogue.text += characterString;
+    }
+
 }
