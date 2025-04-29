@@ -17,6 +17,12 @@ public class IntroductionController : MonoBehaviour
 
     void StartInLevelDialogue()
     {
+        DialogueSingleton.Instance.OnSectionCompleted = OpenNote;
         DialogueSingleton.Instance.EnqueueDialogue(InLevelDialogue);
+    }
+
+    void OpenNote()
+    {
+
     }
 }
