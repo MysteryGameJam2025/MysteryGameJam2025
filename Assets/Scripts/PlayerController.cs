@@ -60,21 +60,23 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     void Update()
     {
 
+        if (DelayRemaining > 0)
+        {
+            PlayerAnimator.SetFloat(VelocityZHash, 1);
+            DelayRemaining -= Time.deltaTime;
+            CharacterController.SimpleMove(Self.forward * Speed);
+            return;
+        }
 
         if (IsControlsLocked)
         {
             // NOTE: Still need to call for gravity
+            PlayerAnimator.SetFloat(VelocityZHash, 0);
             CharacterController.SimpleMove(Vector3.zero);
             //UpdateGrounded();
             return;
         }
 
-        if (DelayRemaining > 0)
-        {
-            DelayRemaining -= Time.deltaTime;
-            CharacterController.SimpleMove(Self.forward * Speed);
-            return;
-        }
 
         Camera cam = CameraManagerSingleton.Instance.ActiveCamera;
 
