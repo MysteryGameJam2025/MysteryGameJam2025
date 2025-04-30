@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GauntletController : MonoBehaviour
+public class GauntletController : AbstractMonoBehaviourSingleton<GauntletController>
 {
     private int symbolIndex = 0;
 
@@ -67,7 +67,6 @@ public class GauntletController : MonoBehaviour
     {
         IsPickupHash = Animator.StringToHash("IsPickup");
         UseGauntletHash = Animator.StringToHash("UseGauntlet");
-        UIController?.SetInitialSymbol(CurrentSymbol);
     }
 
     void Update()
@@ -176,11 +175,18 @@ public class GauntletController : MonoBehaviour
             //NOTE: Play visual effect if the interactable is a symbol plate
 
         }
-        else
+        else if (currentInteractable is Pickup)
         {
             Player.LockControls();
             PlayerAnimator.SetBool(IsPickupHash, true);
 
+        }
+        else
+        {
+            currentInteractable.OnInteract(new InteractionEvent()
+            {
+                EquippedSymbol = CurrentSymbol
+            });
         }
         previousInteractable = currentInteractable;
     }
@@ -196,5 +202,20 @@ public class GauntletController : MonoBehaviour
         OnActivation = null;
 
         AudioController.Instance?.PlayLocalSound("SwapSymbol", gameObject);
+    }
+
+    public void SetSymbols(List<Symbol> symbolsToEquip)
+    {
+        bool isFirstSymbols = availableSymbols.Count == 0;
+
+        availableSymbols = symbolsToEquip;
+        currentSymbol = availableSymbols[0];
+
+        UIController.SetInitialSymbol(CurrentSymbol);
+
+        if (isFirstSymbols)
+        {
+            UIController.Show();
+        }
     }
 }

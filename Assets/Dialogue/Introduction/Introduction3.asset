@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94579628104783439874d378925d1f0, type: 3}
+  m_Name: Introduction3
+  m_EditorClassIdentifier: 
+  dialogueData:
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "Auric symbols, but I\u2019m not familiar with these ones."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Exactly. Understanding of Auric Symbology remains limited. We don\u2019t
+      know what these symbols mean."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "That\u2019s why you have the gauntlet. We strongly suspect this to
+      be an old-world cave system."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "The gauntlet will respond to the symbols. It\u2019s your key to finding
+      out what this message means.\r"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Make your way through with it and find these people before anything
+      happens to them.
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Any guesses who they are?
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Best guess? Old-world obsessed cult.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "I don\u2019t know how else to explain the age range of the missing
+      people."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "We\u2019ll worry about that later."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Find the missing people, Rho.

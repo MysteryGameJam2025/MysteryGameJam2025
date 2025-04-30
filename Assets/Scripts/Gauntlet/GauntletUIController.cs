@@ -1,3 +1,4 @@
+using System;
 using FriedSynapse.FlowEnt;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,9 @@ using UnityEngine.UI;
 
 public class GauntletUIController : MonoBehaviour
 {
+    [SerializeField]
+    private CanvasGroup canvasGroup;
+    private CanvasGroup CanvasGroup => canvasGroup;
     [SerializeField]
     private Image symbolUIImage;
     public Image SymbolUIImage => symbolUIImage;
@@ -25,6 +29,7 @@ public class GauntletUIController : MonoBehaviour
     private RectTransform rightArrow;
     private RectTransform RightArrow => rightArrow;
 
+    private AbstractAnimation ShowAnimation { get; set; }
     private AbstractAnimation DialAnimation { get; set; }
     public bool IsAnimationPlaying { get; private set; }
 
@@ -58,6 +63,16 @@ public class GauntletUIController : MonoBehaviour
                     SymbolUIImage.sprite = symbol.SymbolSprite;
                     Pivot.rotation = Quaternion.Euler(0, 0, 0);
                 })
+            .Start();
+    }
+
+    public void Show()
+    {
+        ShowAnimation?.Stop();
+        ShowAnimation = new Tween(1)
+            .For(CanvasGroup)
+            .AlphaTo(1)
+            .SetEasing(Easing.EaseOutSine)
             .Start();
     }
 }

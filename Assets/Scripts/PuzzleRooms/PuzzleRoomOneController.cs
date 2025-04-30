@@ -10,8 +10,8 @@ public class PuzzleRoomOneController : MonoBehaviour
     private Symbol Attraction => attraction;
 
     [SerializeField]
-    private Symbol connection;
-    private Symbol Connection => connection;
+    private Symbol openness;
+    private Symbol Openness => openness;
 
     [SerializeField]
     private Symbol energy;
@@ -109,16 +109,8 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void CheckSphereAndDoorControls()
     {
-
-
-        if (PowerSphere.CurrentSymbol == Connection && DoorControls.CurrentSymbol == Connection)
+        if (DoorControls.CurrentSymbol == Openness && areLightsOn)
         {
-            areControlsConnected = true;
-        }
-        else if (PowerSphere.CurrentSymbol == Energy && DoorControls.CurrentSymbol == Energy && areControlsConnected)
-        {
-
-            AudioController.Instance?.PlayLocalSound("LightsOn", DoorControls.gameObject);
             DoorControls.Open();
         }
     }
