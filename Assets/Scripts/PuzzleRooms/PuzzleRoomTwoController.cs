@@ -65,14 +65,14 @@ public class PuzzleRoomTwoController : MonoBehaviour
     public void PlaceLeftTrumpet()
     {
         HasLeftTrumpetBeenPlaced = true;
-        LeftTrumpet.parent.gameObject.SetActive(true);
+        LeftTrumpet.gameObject.SetActive(true);
         CheckState();
     }
 
     public void PlaceRightTrumpet()
     {
         HasRightTrumpetBeenPlaced = true;
-        RightTrumpet.parent.gameObject.SetActive(true);
+        RightTrumpet.gameObject.SetActive(true);
         CheckState();
     }
 
