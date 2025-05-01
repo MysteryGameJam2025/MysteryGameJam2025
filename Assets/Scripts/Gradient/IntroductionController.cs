@@ -9,10 +9,23 @@ public class IntroductionController : MonoBehaviour
     private DialogueSectionSO inLevelDialogue;
     private DialogueSectionSO InLevelDialogue => inLevelDialogue;
 
+
+    [Header("Debug")]
+    [SerializeField]
+    private bool playIntro;
+    private bool PlayIntro => playIntro;
+
     void Awake()
     {
-        FullScreenDialogueSingleton.Instance.OnSectionCompleted = StartInLevelDialogue;
-        FullScreenDialogueSingleton.Instance.EnqueueDialogue(BlackScreenDialogue);
+        if (PlayIntro)
+        {
+            FullScreenDialogueSingleton.Instance.OnSectionCompleted = StartInLevelDialogue;
+            FullScreenDialogueSingleton.Instance.EnqueueDialogue(BlackScreenDialogue);
+        }
+        else
+        {
+            FullScreenDialogueSingleton.Instance.Hide();
+        }
     }
 
     void StartInLevelDialogue()
