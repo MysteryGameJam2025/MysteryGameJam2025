@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c3749046309a34ba725709c8596cd3, type: 3}
   m_Name: Togetherness
   m_EditorClassIdentifier: 
-  symbolSprite: {fileID: 21300000, guid: 7ff3e2a0688d1e44ca06335c72921c5b, type: 3}
+  symbolSprite: {fileID: 1034411918, guid: 0ae0654da6f298d4190b7a7f826257a6, type: 3}
   symbolName: Togetherness

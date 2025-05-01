@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c3749046309a34ba725709c8596cd3, type: 3}
   m_Name: Attraction
   m_EditorClassIdentifier: 
-  symbolSprite: {fileID: 21300000, guid: 822570f54b26e8e4197d6cdcbabfb454, type: 3}
+  symbolSprite: {fileID: -2109477091, guid: 0ae0654da6f298d4190b7a7f826257a6, type: 3}
   symbolName: Attraction
-  symbolType: 0
