@@ -8,6 +8,9 @@ public class IntroductionController : MonoBehaviour
     [SerializeField]
     private DialogueSectionSO inLevelDialogue;
     private DialogueSectionSO InLevelDialogue => inLevelDialogue;
+    [SerializeField]
+    private DoorControl caveDoor;
+    private DoorControl CaveDoor => caveDoor;
 
 
     [Header("Debug")]
@@ -25,6 +28,7 @@ public class IntroductionController : MonoBehaviour
         else
         {
             FullScreenDialogueSingleton.Instance.Hide();
+            OpenNote();
         }
     }
 
@@ -36,6 +40,6 @@ public class IntroductionController : MonoBehaviour
 
     void OpenNote()
     {
-
+        CaveDoor.Open();
     }
 }
