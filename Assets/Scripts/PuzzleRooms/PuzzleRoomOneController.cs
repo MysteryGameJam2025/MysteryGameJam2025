@@ -40,6 +40,10 @@ public class PuzzleRoomOneController : MonoBehaviour
     private Color emissionEnd;
     private Color EmissionEnd => emissionEnd;
 
+    [SerializeField]
+    private MessageData firstNote;
+    private MessageData FirstNote => firstNote;
+
 
     bool isSphereAtBottom = true;
     bool isSphereAtTop;
@@ -53,6 +57,10 @@ public class PuzzleRoomOneController : MonoBehaviour
         PowerUpMaterial.SetColor("_EmissionColor", EmmissionStart);
     }
 
+    public void PickUpFirstNote()
+    {
+        MessageDecoderController.Instance?.OpenMessage(FirstNote);
+    }
 
     public void SetSymbolBottomOfHill(Symbol symbol)
     {

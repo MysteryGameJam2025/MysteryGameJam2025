@@ -1,155 +1,52 @@
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using TMPro;
+using FriedSynapse.FlowEnt;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
-public class MessageDecoderController : MonoBehaviour
+public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDecoderController>
 {
     [SerializeField]
-    private Canvas currentCanvas;
-    private Canvas CurrentCanvas => currentCanvas;
+    private MessageDecoder messageDecoder;
+    private MessageDecoder MessageDecoder => messageDecoder;
 
     [SerializeField]
-    private TMP_Text textField;
-    private TMP_Text TextField => textField;
+    private CanvasGroup messageCanvasGroup;
+    private CanvasGroup MessageCanvasGroup => messageCanvasGroup;
 
     [SerializeField]
-    private RectTransform dragAndDropTextHolder;
-    private RectTransform DragAndDropTextHolder => dragAndDropTextHolder;
+    private PlayerController player;
+    private PlayerController Player => player;
 
-    [SerializeField]
-    private MessageData currentMessage;
-    private MessageData CurrentMessage => currentMessage;
+    private Tween ShowMessageTween { get; set; }
 
-    [SerializeField]
-    private DragAndDropTargetController dragAndDropTarget;
-    private DragAndDropTargetController DragAndDropTarget => dragAndDropTarget;
-
-    [SerializeField]
-    private DragAndDropTextController dragAndDropText;
-    private DragAndDropTextController DragAndDropText => dragAndDropText;
-
-    private List<DragAndDropTargetController> dragAndDropTargets = new List<DragAndDropTargetController>();
-    private List<DragAndDropTextController> remainingOptions = new List<DragAndDropTextController>();
-
-    private int dragAndDropTargetsRemaining = 0;
-
-    public Action OnCompleted;
-
-    private void Start()
+    public void OpenMessage(MessageData messageData)
     {
-        ParseText();
-    }
+        ShowMessageTween?.Stop();
+        MessageDecoder.SetUp(messageData, CloseMessage);
+        Player.LockControls();
 
-    public void SetUp(MessageData message)
-    {
-        currentMessage = message;
-    }
-
-    public void ParseText()
-    {
-        string rawData = CurrentMessage.Message.text;
-        string parsedString = rawData;
-
-        for (int i = 0; i < CurrentMessage.SymbolsInMessage.Length; i++)
-        {
-            string symbolName = CurrentMessage.SymbolsInMessage[i].SymbolSprite.name;
-            Regex regex = new Regex($"<{symbolName}>");
-            MatchCollection symbols = regex.Matches(rawData);
-            parsedString = regex.Replace(parsedString, $"<sprite name={symbolName}>");
-            CreateNewTextOption(symbolName);
-            for(int j = 0; j < symbols.Count; j++)
-                CreateNewDragAndDropTarget(symbolName);
-        }
-
-        for (int i = 0; i < CurrentMessage.AlternatePossibilites.Length; i++)
-        {
-            CreateNewTextOption(CurrentMessage.AlternatePossibilites[i]);
-        }
-
-        TextField.text = parsedString;
-        TextField.ForceMeshUpdate();
-
-        int index = 0;
-        foreach(TMP_CharacterInfo info in TextField.textInfo.characterInfo)
-        {
-            if(info.character == 57344)
+        //Play animation or something
+        ShowMessageTween = new Tween(0.8f)
+            .For(MessageCanvasGroup)
+                .AlphaTo(1)
+            .OnCompleted(() => 
             {
-                dragAndDropTargets[index].transform.position = TextField.transform.TransformPoint(info.bottomLeft);
-                index++;
-            }
-        }
-
-        RandomiseRemainingTextOptions();
+                MessageCanvasGroup.blocksRaycasts = true;
+                MessageCanvasGroup.interactable = true;
+            })
+            .Start();
     }
 
-    private void CreateNewDragAndDropTarget(string text)
+    public void CloseMessage()
     {
-        DragAndDropTargetController newDragAndDrop = Instantiate(DragAndDropTarget, TextField.transform);
-        newDragAndDrop.TextToMatch = text;
-        dragAndDropTargetsRemaining++;
-        dragAndDropTargets.Add(newDragAndDrop);
-    }
-
-    private void CreateNewTextOption(string text)
-    {
-        DragAndDropTextController newText = Instantiate(DragAndDropText, DragAndDropTextHolder);
-        newText.Init(text);
-        newText.OnPickedUp += PlayerPickedUpOption;
-        newText.OnDropped += PlayerDroppedOption;
-        remainingOptions.Add(newText);
-    }
-
-    private void PlayerPickedUpOption(DragAndDropTextController controller)
-    {
-        controller.transform.SetParent(transform);
-        controller.transform.SetAsLastSibling();
-        remainingOptions.Remove(controller);
-
-        LayoutRemainingOptions();
-    }
-
-    private void PlayerDroppedOption(DragAndDropTextController controller)
-    {
-        for(int i = 0; i < dragAndDropTargets.Count; i++)
-        {
-            if ((controller.transform as RectTransform).GetWorldSapceRect().Overlaps((dragAndDropTargets[i].transform as RectTransform).GetWorldSapceRect()))
-                if (controller.DoesMatchText(dragAndDropTargets[i].TextToMatch))
-                {
-                    remainingOptions.Remove(controller);
-                    dragAndDropTargets.Remove(dragAndDropTargets[i]);
-                    Destroy(controller.gameObject);
-                    Destroy(dragAndDropTargets[i].gameObject);
-                    dragAndDropTargetsRemaining--;
-
-                    if (dragAndDropTargetsRemaining <= 0)
-                        OnCompleted?.Invoke();
-
-                    return;
-                }
-        }
-
-        controller.transform.SetParent(DragAndDropTextHolder);
-        remainingOptions.Add(controller);
-
-        LayoutRemainingOptions();
-    }
-
-    private void RandomiseRemainingTextOptions()
-    {
-        remainingOptions.Shuffle();
-        LayoutRemainingOptions();
-    }
-
-    private void LayoutRemainingOptions()
-    {
-        for (int i = 0; i < remainingOptions.Count; i++)
-        {
-            remainingOptions[i].transform.SetSiblingIndex(i);
-        }
-        LayoutRebuilder.ForceRebuildLayoutImmediate(DragAndDropTextHolder);
+        ShowMessageTween?.Stop();
+        ShowMessageTween = new Tween(0.8f)
+            .OnStarted(() =>
+            {
+                MessageCanvasGroup.blocksRaycasts = false;
+                MessageCanvasGroup.interactable = false;
+            })
+            .For(MessageCanvasGroup)
+                .AlphaTo(0)
+            .OnCompleted(Player.UnlockControls)
+            .Start();
     }
 }
