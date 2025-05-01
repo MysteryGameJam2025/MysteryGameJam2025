@@ -11,17 +11,13 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
     private CanvasGroup messageCanvasGroup;
     private CanvasGroup MessageCanvasGroup => messageCanvasGroup;
 
-    [SerializeField]
-    private PlayerController player;
-    private PlayerController Player => player;
-
     private Tween ShowMessageTween { get; set; }
 
     public void OpenMessage(MessageData messageData)
     {
         ShowMessageTween?.Stop();
         MessageDecoder.SetUp(messageData, CloseMessage);
-        Player.LockControls();
+        PlayerController.Instance.LockControls();
 
         //Play animation or something
         ShowMessageTween = new Tween(0.8f)
@@ -46,7 +42,7 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
             })
             .For(MessageCanvasGroup)
                 .AlphaTo(0)
-            .OnCompleted(Player.UnlockControls)
+            .OnCompleted(PlayerController.Instance.UnlockControls)
             .Start();
     }
 }
