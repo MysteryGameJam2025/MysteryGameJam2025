@@ -69,7 +69,7 @@ public class MessageDecoder : MonoBehaviour
         int index = 0;
         foreach(TMP_CharacterInfo info in TextField.textInfo.characterInfo)
         {
-            if(info.character == 57344)
+            if(info.character >= 57344)
             {
                 dragAndDropTargets[index].transform.position = TextField.transform.TransformPoint(info.bottomLeft);
                 index++;

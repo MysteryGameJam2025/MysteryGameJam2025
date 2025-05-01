@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: connection
+      name: Connection
       rect:
         serializedVersion: 2
         x: 0
@@ -105,7 +105,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -119,7 +119,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energy
+      name: Energy
       rect:
         serializedVersion: 2
         x: 512
@@ -127,7 +127,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -141,7 +141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attraction
+      name: Attraction
       rect:
         serializedVersion: 2
         x: 1024
@@ -149,7 +149,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fulfil
+      name: Fulfil
       rect:
         serializedVersion: 2
         x: 1536
@@ -171,7 +171,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -185,7 +185,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ruin
+      name: Ruin
       rect:
         serializedVersion: 2
         x: 0
@@ -193,7 +193,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: entrust
+      name: Entrust
       rect:
         serializedVersion: 2
         x: 512
@@ -215,7 +215,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -229,15 +229,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: togetherness
+      name: Togetherness
       rect:
         serializedVersion: 2
         x: 1024
-        y: 1024
+        y: 1028
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,7 +251,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: learning
+      name: Learning
       rect:
         serializedVersion: 2
         x: 1536
@@ -259,7 +259,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -273,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: harmony
+      name: Harmony
       rect:
         serializedVersion: 2
         x: 0
@@ -281,7 +281,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,7 +295,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: world
+      name: World
       rect:
         serializedVersion: 2
         x: 512
@@ -303,7 +303,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,7 +317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: love
+      name: Love
       rect:
         serializedVersion: 2
         x: 1024
@@ -325,7 +325,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,7 +339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death
+      name: Death
       rect:
         serializedVersion: 2
         x: 1536
@@ -347,7 +347,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -374,18 +374,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      attraction: -2109477091
-      connection: -202149106
-      death: 1485205055
-      energy: -1320411313
-      entrust: 484211224
-      fulfil: 389590493
-      harmony: 1321231558
-      learning: -610235160
-      love: 1150918450
-      ruin: -853956548
-      togetherness: 1034411918
-      world: -1696380420
+      Attraction: -2109477091
+      Connection: -202149106
+      Death: 1485205055
+      Energy: -1320411313
+      Entrust: 484211224
+      Fulfil: 389590493
+      Harmony: 1321231558
+      Learning: -610235160
+      Love: 1150918450
+      Ruin: -853956548
+      Togetherness: 1034411918
+      World: -1696380420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
