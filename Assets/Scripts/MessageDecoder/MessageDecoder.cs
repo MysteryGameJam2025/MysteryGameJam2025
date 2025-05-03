@@ -1,3 +1,4 @@
+using FriedSynapse.FlowEnt;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -28,14 +29,24 @@ public class MessageDecoder : MonoBehaviour
     private DragAndDropTextController dragAndDropText;
     private DragAndDropTextController DragAndDropText => dragAndDropText;
 
+    [SerializeField]
+    private CanvasGroup canvasGroup;
+    public CanvasGroup CanvasGroup => canvasGroup;
+
     private List<DragAndDropTargetController> dragAndDropTargets = new List<DragAndDropTargetController>();
     private List<DragAndDropTextController> remainingOptions = new List<DragAndDropTextController>();
 
     private int dragAndDropTargetsRemaining = 0;
 
     private Action OnCompleted;
+    private Flow TextFadeFlow;
 
-    public void SetUp(MessageData message, Action onCompleted)
+    private void Start()
+    {
+        SetUp(currentMessage);
+    }
+
+    public void SetUp(MessageData message, Action onCompleted = null)
     {
         currentMessage = message;
         OnCompleted = onCompleted;
@@ -111,25 +122,72 @@ public class MessageDecoder : MonoBehaviour
         {
             DragAndDropTargetController target = dragAndDropTargets[i];
             if ((controller.transform as RectTransform).GetWorldSapceRect().Overlaps((target.transform as RectTransform).GetWorldSapceRect()))
+            {
                 if (controller.DoesMatchText(target.TextToMatch))
                 {
-                    remainingOptions.Remove(controller);
-                    dragAndDropTargets.Remove(target);
-                    Destroy(controller.gameObject);
-                    Destroy(target.gameObject);
-                    dragAndDropTargetsRemaining--;
-
-                    if (dragAndDropTargetsRemaining <= 0)
-                        OnCompleted?.Invoke();
-
+                    SuccessfulDragAndDrop(controller, target);
                     return;
                 }
+            }
         }
 
         controller.transform.SetParent(DragAndDropTextHolder);
         remainingOptions.Add(controller);
 
         LayoutRemainingOptions();
+    }
+
+    private void SuccessfulDragAndDrop(DragAndDropTextController controller, DragAndDropTargetController target)
+    {
+        //FadeInOutText(() => ReplaceSymbolWithText(target.TextToMatch));
+        ReplaceSymbolWithText(target.TextToMatch);
+
+        remainingOptions.Remove(controller);
+        dragAndDropTargets.Remove(target);
+        Destroy(controller.gameObject);
+        Destroy(target.gameObject);
+        dragAndDropTargetsRemaining--;
+
+        if (dragAndDropTargetsRemaining <= 0)
+            OnCompleted?.Invoke();
+    }
+
+    private void FadeInOutText(Action whileFaded = null)
+    {
+        TextFadeFlow?.Stop(true);
+
+        TextFadeFlow = new Flow()
+            .OnStarted(() => 
+            {
+                CanvasGroup.blocksRaycasts = false;
+                CanvasGroup.interactable = false;
+            })
+            .Queue(new Tween(0.6f)
+                .For(TextField)
+                    .AlphaTo(1, 0)
+                .SetEasing(Easing.EaseOutCubic)
+            ).Queue(new Tween(0.2f)
+                .OnStarted(() => whileFaded?.Invoke())
+            ).Queue(new Tween(0.6f)
+                .For(TextField)
+                    .AlphaTo(0, 1)
+                .SetEasing(Easing.EaseInOutCubic)
+            ).OnStarted(() =>
+            {
+                CanvasGroup.blocksRaycasts = true;
+                CanvasGroup.interactable = true;
+            }).Start();
+    }
+
+    private void ReplaceSymbolWithText(string symbolName)
+    {
+        string original = TextField.text;
+        string newText = "";
+
+        Regex regex = new Regex($"<sprite name={symbolName}>");
+        newText = regex.Replace(original, symbolName);
+
+        TextField.text = newText;
     }
 
     private void RandomiseRemainingTextOptions()
