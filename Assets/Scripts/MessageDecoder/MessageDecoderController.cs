@@ -1,4 +1,5 @@
 using FriedSynapse.FlowEnt;
+using System;
 using UnityEngine;
 
 public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDecoderController>
@@ -8,12 +9,14 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
     private MessageDecoder MessageDecoder => messageDecoder;
 
     private Tween ShowMessageTween { get; set; }
+    private Action OnMessageClosed;
 
-    public void OpenMessage(MessageData messageData)
+    public void OpenMessage(MessageData messageData, Action onMessageClosed = null)
     {
         ShowMessageTween?.Stop();
         MessageDecoder.SetUp(messageData, CloseMessage);
         PlayerController.Instance.LockControls();
+        OnMessageClosed = onMessageClosed;
 
         //Play animation or something
         ShowMessageTween = new Tween(0.8f)
@@ -38,7 +41,11 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
             })
             .For(MessageDecoder.CanvasGroup)
                 .AlphaTo(0)
-            .OnCompleted(PlayerController.Instance.UnlockControls)
+            .OnCompleted(() => 
+            { 
+                PlayerController.Instance.UnlockControls();
+                OnMessageClosed?.Invoke();
+            })
             .Start();
     }
 }

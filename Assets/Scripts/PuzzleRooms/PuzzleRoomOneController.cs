@@ -43,6 +43,9 @@ public class PuzzleRoomOneController : MonoBehaviour
     [SerializeField]
     private MessageData firstNote;
     private MessageData FirstNote => firstNote;
+    [SerializeField]
+    private DoorControl secondRoomEntrace;
+    private DoorControl SecondRoomEntrace => secondRoomEntrace;
 
 
     bool isSphereAtBottom = true;
@@ -59,7 +62,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void PickUpFirstNote()
     {
-        MessageDecoderController.Instance?.OpenMessage(FirstNote);
+        MessageDecoderController.Instance?.OpenMessage(FirstNote, SecondRoomEntrace.Open);
     }
 
     public void SetSymbolBottomOfHill(Symbol symbol)

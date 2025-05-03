@@ -33,6 +33,11 @@ public class MessageDecoder : MonoBehaviour
     private CanvasGroup canvasGroup;
     public CanvasGroup CanvasGroup => canvasGroup;
 
+    [Header("Debug")]
+    [SerializeField]
+    private bool playOnStart = false;
+    private bool PlayOnStart => playOnStart;
+
     private List<DragAndDropTargetController> dragAndDropTargets = new List<DragAndDropTargetController>();
     private List<DragAndDropTextController> remainingOptions = new List<DragAndDropTextController>();
 
@@ -43,7 +48,8 @@ public class MessageDecoder : MonoBehaviour
 
     private void Start()
     {
-        SetUp(currentMessage);
+        if(PlayOnStart)
+            SetUp(currentMessage);
     }
 
     public void SetUp(MessageData message, Action onCompleted = null)

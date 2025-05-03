@@ -185,6 +185,7 @@ MonoBehaviour:
   currentMessage: {fileID: 11400000, guid: d1f71317820600447bca14bf173c2986, type: 2}
   dragAndDropTarget: {fileID: 8077740726703501411, guid: fee2e9507ea1edc4a835df6db2855ada, type: 3}
   dragAndDropText: {fileID: 7067776767778641583, guid: 01e54fb9b10d1a04c81244ad0680901b, type: 3}
+  canvasGroup: {fileID: 6500395149355583015}
 --- !u!225 &6500395149355583015
 CanvasGroup:
   m_ObjectHideFlags: 0

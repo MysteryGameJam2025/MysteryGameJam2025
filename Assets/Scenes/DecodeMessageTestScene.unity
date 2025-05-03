@@ -655,10 +655,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MessageDecoder
       objectReference: {fileID: 0}
-    - target: {fileID: 8453673400200550680, guid: 9649eb98fc45f1e4098ea4cbf383660f, type: 3}
-      propertyPath: currentCanvas
-      value: 
-      objectReference: {fileID: 668797880}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
