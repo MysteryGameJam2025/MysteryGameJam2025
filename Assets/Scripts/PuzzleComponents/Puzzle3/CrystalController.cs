@@ -12,6 +12,7 @@ public class CrystalController : MonoBehaviour
 
     private Animator Animator { get; set; }
 
+    [EasyButtons.Button]
     public void DropCrystal()
     {
         Animator = GetComponent<Animator>();
