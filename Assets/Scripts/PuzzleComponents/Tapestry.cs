@@ -27,19 +27,20 @@ public class Tapestry : AbstractInteractable
         // Show tapestry image
         // On close of image, set symbols
 
-        PlayerController.Instance.CloseButton.onClick.AddListener(CloseTapestry);
+        PlayerController.Instance.TapestryUI.CloseButton.onClick.AddListener(CloseTapestry);
         new Tween(0.5f)
             .OnStarted(() =>
             {
+                PlayerController.Instance.TapestryUI.SetSprites(SymbolsToEquip);
                 PlayerController.Instance?.LockControls();
             })
-            .For(PlayerController.Instance.TapestryGroup)
+            .For(PlayerController.Instance.TapestryUI.Group)
                 .AlphaTo(0, 1)
             .SetEasing(Easing.EaseInCubic)
             .OnCompleted(() =>
             {
-                PlayerController.Instance.TapestryGroup.interactable = true;
-                PlayerController.Instance.TapestryGroup.blocksRaycasts = true;
+                PlayerController.Instance.TapestryUI.Group.interactable = true;
+                PlayerController.Instance.TapestryUI.Group.blocksRaycasts = true;
             })
             .Start();
     }
@@ -75,10 +76,10 @@ public class Tapestry : AbstractInteractable
         new Tween(0.5f)
             .OnStarted(() =>
             {
-                PlayerController.Instance.TapestryGroup.interactable = false;
-                PlayerController.Instance.TapestryGroup.blocksRaycasts = false;
+                PlayerController.Instance.TapestryUI.Group.interactable = false;
+                PlayerController.Instance.TapestryUI.Group.blocksRaycasts = false;
             })
-            .For(PlayerController.Instance.TapestryGroup)
+            .For(PlayerController.Instance.TapestryUI.Group)
                 .AlphaTo(1, 0)
             .SetEasing(Easing.EaseOutCubic)
             .OnCompleted(() =>

@@ -2,7 +2,6 @@ using FriedSynapse.FlowEnt;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
 {
@@ -31,11 +30,8 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     private float footstepCooldown;
     private float FootstepCooldown => footstepCooldown;
     [SerializeField]
-    private Button closeButton;
-    public Button CloseButton => closeButton;
-    [SerializeField]
-    private CanvasGroup tapestryGroup;
-    public CanvasGroup TapestryGroup => tapestryGroup;
+    private TapestryUIController tapestryUI;
+    public TapestryUIController TapestryUI => tapestryUI;
 
 
     private Transform self;

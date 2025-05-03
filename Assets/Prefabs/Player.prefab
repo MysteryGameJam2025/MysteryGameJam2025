@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2109477091, guid: 0ae0654da6f298d4190b7a7f826257a6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1343,8 +1343,7 @@ MonoBehaviour:
   cameraSwitchControlsDelay: 0.4
   playerAnimator: {fileID: 4987142670202685521}
   footstepCooldown: 0.5
-  closeButton: {fileID: 1033604108208612188}
-  tapestryGroup: {fileID: 6671906783223095138}
+  tapestryUI: {fileID: 5139515951490536356}
 --- !u!114 &2296832954226456753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3130,7 +3129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -202149106, guid: 0ae0654da6f298d4190b7a7f826257a6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3793,7 +3792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1320411313, guid: 0ae0654da6f298d4190b7a7f826257a6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4713,6 +4712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5170792855605305159}
   - component: {fileID: 6671906783223095138}
+  - component: {fileID: 5139515951490536356}
   m_Layer: 5
   m_Name: TapestryUI
   m_TagString: Untagged
@@ -4753,6 +4753,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5139515951490536356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268727727050155162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d23d84edf95204baa6ff6d11dfd281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeButton: {fileID: 1033604108208612188}
+  group: {fileID: 6671906783223095138}
+  images:
+  - {fileID: 584457759596626994}
+  - {fileID: 5163772934613340380}
+  - {fileID: 6666047686849798405}
 --- !u!1 &7316007379286145135
 GameObject:
   m_ObjectHideFlags: 0
