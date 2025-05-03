@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using FriedSynapse.FlowEnt;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Tapestry : AbstractInteractable
 {
@@ -16,6 +17,9 @@ public class Tapestry : AbstractInteractable
     [SerializeField]
     private Sprite tapestryImage;
     private Sprite TapestryImage => tapestryImage;
+    [SerializeField]
+    private UnityEvent onSymbolsSet;
+    private UnityEvent OnSymbolsSet => onSymbolsSet;
 
 
     private AbstractAnimation PromptAnimation { get; set; }
@@ -26,6 +30,7 @@ public class Tapestry : AbstractInteractable
         // Show tapestry image
         // On close of image, set symbols
         GauntletController.Instance.SetSymbols(SymbolsToEquip);
+        OnSymbolsSet?.Invoke();
     }
 
     public override void OnInteractionHoverStart()
