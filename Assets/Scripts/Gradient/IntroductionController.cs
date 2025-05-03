@@ -40,6 +40,6 @@ public class IntroductionController : MonoBehaviour
 
     void OpenNote()
     {
-        CaveDoor.Open();
+        OverarchingNoteController.Instance?.ShowNote(onNoteClose: CaveDoor.Open);
     }
 }

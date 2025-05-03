@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0e596b20e8dfe4a8d31ccd826c1616, type: 3}
+  m_Name: SecondNote
+  m_EditorClassIdentifier: 
+  message: {fileID: 4900000, guid: ce1b2274a4bb7bb4d8bddb89efa5e0f4, type: 3}
+  translatedMessage: {fileID: 4900000, guid: c84b34d3118840946be8f998cd9cb9e4, type: 3}
+  postSolveDialog: {fileID: 11400000, guid: ec0b0ed937aeef04d84144149686560f, type: 2}
+  preSolveDialog: {fileID: 11400000, guid: ec0b0ed937aeef04d84144149686560f, type: 2}
+  symbolsInMessage:
+  - {fileID: 11400000, guid: 284d4897eb52aa84aae883c6b5b4eb6d, type: 2}
+  - {fileID: 11400000, guid: efbdba41618307441a15b9ae12fd9342, type: 2}
+  - {fileID: 11400000, guid: 810f9493cc031804180a91f753f8e7c4, type: 2}
+  - {fileID: 11400000, guid: a74118f3f3f5c974889d11caa518564b, type: 2}
+  alternatePossibilites:
+  - Blah
+  - Blah
+  - Blah

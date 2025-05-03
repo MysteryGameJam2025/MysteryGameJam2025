@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Connection
+      name: Openness
       rect:
         serializedVersion: 2
         x: 0
@@ -375,7 +375,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Attraction: -2109477091
-      Connection: -202149106
       Death: 1485205055
       Energy: -1320411313
       Entrust: 484211224
@@ -383,6 +382,7 @@ TextureImporter:
       Harmony: 1321231558
       Learning: -610235160
       Love: 1150918450
+      Openness: -202149106
       Ruin: -853956548
       Togetherness: 1034411918
       World: -1696380420

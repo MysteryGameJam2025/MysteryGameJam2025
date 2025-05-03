@@ -1,0 +1,16 @@
+<World>
+
+[Time] and [Place]
+[Culture] and [<Togetherness>]
+[Work] and [Share]
+[Progress] and [Cleverness]
+
+[Land] and [Change]
+[Upheaval] and [Yearning]
+[War] and [Flame]
+[Experience] and [<Learning>]
+
+[Far] and [Wide]
+[Larceny] and [Oppression]
+[Future] and [History]
+[<Harmony>] and [Discord]

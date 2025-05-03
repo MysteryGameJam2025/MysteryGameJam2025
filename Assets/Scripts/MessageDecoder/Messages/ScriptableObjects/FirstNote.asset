@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0e596b20e8dfe4a8d31ccd826c1616, type: 3}
-  m_Name: FirstPoem
+  m_Name: FirstNote
   m_EditorClassIdentifier: 
   message: {fileID: 4900000, guid: daaef8d2246fa7246b89e4e9f9a15d18, type: 3}
+  translatedMessage: {fileID: 4900000, guid: abc6db436e68e8041bde05d938c80743, type: 3}
+  postSolveDialog: {fileID: 11400000, guid: 97fb22ad2ea511a408f303b1e7ef7423, type: 2}
+  preSolveDialog: {fileID: 11400000, guid: 4ff37608712c78946820456902813916, type: 2}
   symbolsInMessage:
+  - {fileID: 11400000, guid: 3f1b3a1002672e246ac58916f4d1e6ac, type: 2}
   - {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
   - {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
   - {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}

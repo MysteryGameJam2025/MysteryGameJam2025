@@ -1,4 +1,5 @@
 using FriedSynapse.FlowEnt;
+using System;
 using UnityEngine;
 
 public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDecoderController>
@@ -7,26 +8,29 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
     private MessageDecoder messageDecoder;
     private MessageDecoder MessageDecoder => messageDecoder;
 
-    [SerializeField]
-    private CanvasGroup messageCanvasGroup;
-    private CanvasGroup MessageCanvasGroup => messageCanvasGroup;
-
     private Tween ShowMessageTween { get; set; }
+    private Action OnMessageClosed;
 
-    public void OpenMessage(MessageData messageData)
+    public void OpenMessage(MessageData messageData, Action onMessageClosed = null)
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = () => ShowMessage(messageData, onMessageClosed);
+        DialogueSingleton.Instance.EnqueueDialogue(messageData.PreSolveDialog);
+    }
+
+    private void ShowMessage(MessageData messageData, Action onMessageClosed)
     {
         ShowMessageTween?.Stop();
         MessageDecoder.SetUp(messageData, CloseMessage);
         PlayerController.Instance.LockControls();
+        OnMessageClosed = onMessageClosed;
 
-        //Play animation or something
         ShowMessageTween = new Tween(0.8f)
-            .For(MessageCanvasGroup)
+            .For(MessageDecoder.CanvasGroup)
                 .AlphaTo(1)
-            .OnCompleted(() => 
+            .OnCompleted(() =>
             {
-                MessageCanvasGroup.blocksRaycasts = true;
-                MessageCanvasGroup.interactable = true;
+                MessageDecoder.CanvasGroup.blocksRaycasts = true;
+                MessageDecoder.CanvasGroup.interactable = true;
             })
             .Start();
     }
@@ -37,12 +41,16 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
         ShowMessageTween = new Tween(0.8f)
             .OnStarted(() =>
             {
-                MessageCanvasGroup.blocksRaycasts = false;
-                MessageCanvasGroup.interactable = false;
+                MessageDecoder.CanvasGroup.blocksRaycasts = false;
+                MessageDecoder.CanvasGroup.interactable = false;
             })
-            .For(MessageCanvasGroup)
+            .For(MessageDecoder.CanvasGroup)
                 .AlphaTo(0)
-            .OnCompleted(PlayerController.Instance.UnlockControls)
+            .OnCompleted(() => 
+            { 
+                PlayerController.Instance.UnlockControls();
+                OnMessageClosed?.Invoke();
+            })
             .Start();
     }
 }

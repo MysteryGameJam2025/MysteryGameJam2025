@@ -8,6 +8,18 @@ public class MessageData : ScriptableObject
     public TextAsset Message => message;
 
     [SerializeField]
+    private TextAsset translatedMessage;
+    public TextAsset TranslatedMessage => translatedMessage;
+
+    [SerializeField]
+    private DialogueSectionSO postSolveDialog;
+    public DialogueSectionSO PostSolveDialog => postSolveDialog;
+
+    [SerializeField]
+    private DialogueSectionSO preSolveDialog;
+    public DialogueSectionSO PreSolveDialog => preSolveDialog;
+
+    [SerializeField]
     private Symbol[] symbolsInMessage;
     public Symbol[] SymbolsInMessage => symbolsInMessage;
 
