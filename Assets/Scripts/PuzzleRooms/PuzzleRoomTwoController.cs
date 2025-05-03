@@ -31,6 +31,9 @@ public class PuzzleRoomTwoController : MonoBehaviour
     [SerializeField]
     private Transform rightTrumpetEnd;
     private Transform RightTrumpetEnd => rightTrumpetEnd;
+    [SerializeField]
+    private DoorControl exitDoor;
+    private DoorControl ExitDoor => exitDoor;
 
     private bool HasLeftTrumpetBeenPlaced { get; set; }
     private bool HasRightTrumpetBeenPlaced { get; set; }
@@ -199,7 +202,7 @@ public class PuzzleRoomTwoController : MonoBehaviour
 
     void PlaySecondDeviceCorrectMelody()
     {
-        Debug.Log("You win!");
+        ExitDoor.Open();
     }
 
     void PlaySecondDeviceIncorrectMelody()
