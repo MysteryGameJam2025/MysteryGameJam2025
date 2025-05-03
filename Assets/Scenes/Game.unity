@@ -15655,6 +15655,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 570385612532454737, guid: 09d0e50d314a7f34a8113f0b9f9200b4, type: 3}
   m_PrefabInstance: {fileID: 395892458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &399339297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1033604108208612188, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+  m_PrefabInstance: {fileID: 1710311905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &400249513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16823,6 +16834,7 @@ Transform:
   - {fileID: 1940671400}
   - {fileID: 479818145}
   - {fileID: 1519383167}
+  - {fileID: 1050703195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &421448929
@@ -39481,6 +39493,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 570385612532454737, guid: 09d0e50d314a7f34a8113f0b9f9200b4, type: 3}
   m_PrefabInstance: {fileID: 1049947800}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1050703195 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+  m_PrefabInstance: {fileID: 1961271944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1054805201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45740,6 +45757,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 570385612532454737, guid: 09d0e50d314a7f34a8113f0b9f9200b4, type: 3}
   m_PrefabInstance: {fileID: 1228601197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1232059274 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 6671906783223095138, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+  m_PrefabInstance: {fileID: 1710311905}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1233478614
 PrefabInstance:
@@ -61172,6 +61194,14 @@ PrefabInstance:
       value: TapestryRoomTwo
       objectReference: {fileID: 0}
     - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 399339297}
+    - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: tapestryGroup
+      value: 
+      objectReference: {fileID: 1232059274}
+    - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: 'symbolsToEquip.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: a74118f3f3f5c974889d11caa518564b, type: 2}
@@ -73355,7 +73385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.5
+      value: 20.32
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -73363,7 +73393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.5
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73394,6 +73424,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8250202384394270282, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847231280329772205, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -92604,11 +92638,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 421274713}
     m_Modifications:
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55.64862
+      value: 4.3513794
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalPosition.y
@@ -92616,7 +92650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.434
+      value: 1.434
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalRotation.w
@@ -92624,15 +92658,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2783748911523895848, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -92650,6 +92684,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tapestry
       objectReference: {fileID: 0}
+    - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 399339297}
+    - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: tapestryGroup
+      value: 
+      objectReference: {fileID: 1232059274}
     - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
       propertyPath: 'symbolsToEquip.Array.data[0]'
       value: 
@@ -109808,6 +109850,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TapestryRoomOne
       objectReference: {fileID: 0}
+    - target: {fileID: 4860526793204069722, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 399339297}
+    - target: {fileID: 6322446751288763034, guid: 9667fa98cfce36a4cb2918b3c558bb26, type: 3}
+      propertyPath: tapestryGroup
+      value: 
+      objectReference: {fileID: 1232059274}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -110176,5 +110230,4 @@ SceneRoots:
   - {fileID: 1710311905}
   - {fileID: 1725976387}
   - {fileID: 814642738}
-  - {fileID: 1961271944}
   - {fileID: 486692748}

@@ -29,6 +29,9 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     [SerializeField]
     private float footstepCooldown;
     private float FootstepCooldown => footstepCooldown;
+    [SerializeField]
+    private TapestryUIController tapestryUI;
+    public TapestryUIController TapestryUI => tapestryUI;
 
 
     private Transform self;

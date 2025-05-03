@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using FriedSynapse.FlowEnt;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Tapestry : AbstractInteractable
 {
@@ -15,12 +16,8 @@ public class Tapestry : AbstractInteractable
     private List<Symbol> symbolsToEquip;
     private List<Symbol> SymbolsToEquip => symbolsToEquip;
     [SerializeField]
-    private Sprite tapestryImage;
-    private Sprite TapestryImage => tapestryImage;
-    [SerializeField]
     private UnityEvent onSymbolsSet;
     private UnityEvent OnSymbolsSet => onSymbolsSet;
-
 
     private AbstractAnimation PromptAnimation { get; set; }
 
@@ -30,9 +27,22 @@ public class Tapestry : AbstractInteractable
         // Show tapestry image
         // On close of image, set symbols
 
-        AudioController.Instance?.PlayLocalSound("GauntletActivate", gameObject);
-        GauntletController.Instance.SetSymbols(SymbolsToEquip);
-        OnSymbolsSet?.Invoke();
+        PlayerController.Instance.TapestryUI.CloseButton.onClick.AddListener(CloseTapestry);
+        new Tween(0.5f)
+            .OnStarted(() =>
+            {
+                PlayerController.Instance.TapestryUI.SetSprites(SymbolsToEquip);
+                PlayerController.Instance?.LockControls();
+            })
+            .For(PlayerController.Instance.TapestryUI.Group)
+                .AlphaTo(0, 1)
+            .SetEasing(Easing.EaseInCubic)
+            .OnCompleted(() =>
+            {
+                PlayerController.Instance.TapestryUI.Group.interactable = true;
+                PlayerController.Instance.TapestryUI.Group.blocksRaycasts = true;
+            })
+            .Start();
     }
 
     public override void OnInteractionHoverStart()
@@ -59,5 +69,32 @@ public class Tapestry : AbstractInteractable
                 Particle.SetActive(true);
             })
             .Start();
+    }
+
+    private void CloseTapestry()
+    {
+        new Tween(0.5f)
+            .OnStarted(() =>
+            {
+                PlayerController.Instance.TapestryUI.Group.interactable = false;
+                PlayerController.Instance.TapestryUI.Group.blocksRaycasts = false;
+            })
+            .For(PlayerController.Instance.TapestryUI.Group)
+                .AlphaTo(1, 0)
+            .SetEasing(Easing.EaseOutCubic)
+            .OnCompleted(() =>
+            {
+                PlayerController.Instance?.UnlockControls();
+                OnTapestryClose();
+            })
+            .Start();
+    }
+
+    private void OnTapestryClose()
+    {
+        AudioController.Instance?.PlayLocalSound("GauntletActivate", PlayerController.Instance.gameObject);
+        GauntletController.Instance.SetSymbols(SymbolsToEquip);
+        OnSymbolsSet?.Invoke();
+        Destroy(gameObject);
     }
 }
