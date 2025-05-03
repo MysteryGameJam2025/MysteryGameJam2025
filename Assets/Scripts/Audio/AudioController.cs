@@ -221,11 +221,11 @@ public class AudioController : MonoBehaviour
         return source;
     }
 
-    public AudioSource PlayLocalSound(string name, GameObject parent, bool shouldOverride = true, bool shouldPlay = true)
+    public AudioSource PlayLocalSound(string name, GameObject parent, bool shouldOverride = true, bool shouldPlay = true, bool shouldOverlap = false)
     {
         AudioSource source;
 
-        if (LoadedLocalSounds.TryGetValue((name, parent), out AudioSource loadedSource))
+        if (!shouldOverlap && LoadedLocalSounds.TryGetValue((name, parent), out AudioSource loadedSource))
         {
             source = loadedSource;
             if (source.isPlaying && !shouldOverride)
@@ -238,7 +238,7 @@ public class AudioController : MonoBehaviour
 
             source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
             source.clip = asset.AudioClip;
-            LoadedLocalSounds.Add((name, parent), source);
+            LoadedLocalSounds.TryAdd((name, parent), source);
         }
 
         if (shouldPlay)
