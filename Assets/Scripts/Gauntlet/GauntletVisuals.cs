@@ -41,6 +41,7 @@ public class GauntletVisuals : MonoBehaviour
         Target = target;
         Particles = new List<ParticleData>();
         InstantiateParticles().RunParallel();
+        AudioController.Instance?.PlayLocalSound("GauntletBeam", target.gameObject);
     }
 
     private async Task InstantiateParticles()

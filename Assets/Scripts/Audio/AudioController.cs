@@ -243,6 +243,7 @@ public class AudioController : MonoBehaviour
 
         if (shouldPlay)
             source.Play();
+        
         return source;
     }
 

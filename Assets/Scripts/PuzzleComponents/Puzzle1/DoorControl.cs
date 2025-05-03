@@ -16,11 +16,15 @@ public class DoorControl : SymbolActivatableBase
     {
         DoorOpenAnimation?.Stop();
         DoorOpenAnimation = new Flow()
-            .Queue(new Tween(2)
+            .OnStarted(() =>
+            {
+                AudioController.Instance?.PlayLocalSound("DoorOpen", gameObject, true);
+            })
+            .At(0.3f, new Tween(2.8f)
                 .For(LeftDoorPivot)
                 .RotateLocalYTo(-85f)
                 .SetEasing(Easing.EaseInOutQuad))
-            .At(0, new Tween(2)
+            .At(0.3f, new Tween(2.8f)
                 .For(RightDoorPivot)
                 .RotateLocalYTo(85f)
                 .SetEasing(Easing.EaseInOutQuad))
