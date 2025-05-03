@@ -109305,7 +109305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141580399}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fef825c0dc3f3245bb2a0fc9fb24499, type: 3}
   m_Name: 
@@ -109313,7 +109313,7 @@ MonoBehaviour:
   blackScreenDialogue: {fileID: 11400000, guid: 003400dd969b1734599db5aaebb2e069, type: 2}
   inLevelDialogue: {fileID: 11400000, guid: aa750bed1afab3f4d8bd3581589a6a75, type: 2}
   caveDoor: {fileID: 1191036520}
-  playIntro: 0
+  playIntro: 1
 --- !u!4 &2141580401
 Transform:
   m_ObjectHideFlags: 0
