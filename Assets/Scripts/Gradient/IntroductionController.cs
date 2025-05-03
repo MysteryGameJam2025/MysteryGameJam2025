@@ -28,7 +28,7 @@ public class IntroductionController : MonoBehaviour
         else
         {
             FullScreenDialogueSingleton.Instance.Hide();
-            OpenNote();
+            CaveDoor.Open();
         }
     }
 
