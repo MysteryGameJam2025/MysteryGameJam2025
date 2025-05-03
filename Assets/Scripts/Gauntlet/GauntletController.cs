@@ -173,13 +173,13 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
             SymbolPlate symbolPlate = currentInteractable as SymbolPlate;
             symbolPlate.HidePrompt();
             //NOTE: Play visual effect if the interactable is a symbol plate
-
         }
         else if (currentInteractable is Pickup)
         {
             Player.LockControls();
             PlayerAnimator.SetBool(IsPickupHash, true);
 
+            AudioController.Instance?.PlayLocalSound("PickUp", gameObject);
         }
         else
         {
