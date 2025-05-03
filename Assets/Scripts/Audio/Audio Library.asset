@@ -79,3 +79,6 @@ MonoBehaviour:
   - assetName: BeamImpact
     audioClip: {fileID: 8300000, guid: e3112a87508747a4b832b6fd714d490f, type: 3}
     type: 0
+  - assetName: Dialog
+    audioClip: {fileID: 8300000, guid: 16255d8e55e82ed499eccf8d3ebbc87c, type: 3}
+    type: 0

@@ -32,6 +32,12 @@ public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullSc
     public Action OnSectionCompleted { get; set; }
 
     private const float TimeBetweenCharacters = 0.03f;
+    private AudioSource DialogSoundSource { get; set; }
+
+    private void Start()
+    {
+        DialogSoundSource = AudioController.Instance?.PlayGlobalSound("Dialog", shouldPlay: false);
+    }
 
     void Update()
     {
@@ -143,6 +149,10 @@ public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullSc
             return;
         }
 
+        if(!DialogSoundSource.isPlaying)
+        {
+            AudioController.Instance?.PlayGlobalSound("Dialog", false);
+        }
         Dialogue.text += characterString;
     }
 

@@ -29,9 +29,21 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
     private Queue<DialogueData> DialogueQueue { get; set; }
     private bool IsReadyForNext { get; set; }
     public Action OnSectionCompleted { get; set; }
+    private AudioSource DialogSoundSource { get; set; }
+    private bool IsAnimating { get; set; } = false;
+
+    private void Start()
+    {
+        DialogSoundSource = AudioController.Instance?.PlayGlobalSound("Dialog", shouldPlay: false);
+    }
 
     void Update()
     {
+        if(IsAnimating && !DialogSoundSource.isPlaying)
+        {
+            AudioController.Instance?.PlayGlobalSound("Dialog", false);
+        }
+
         if (Activate.action.WasPressedThisFrame())
         {
             if (IsReadyForNext)
@@ -60,6 +72,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         PlayerController.Instance.UnlockControls();
         ShowHideAnimation?.Stop();
         ShowHideAnimation = new Tween(1)
+            .OnStarted(() => IsAnimating = false)
             .For(DialogueGroup)
             .AlphaTo(0)
             .SetEasing(Easing.EaseInSine)
@@ -77,6 +90,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         Color color = Dialogue.color;
         color.a = 1;
         Dialogue.color = color;
+        IsAnimating = false;
         IsReadyForNext = true;
         PromptGroup.alpha = 1;
     }
@@ -98,6 +112,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
 
     private void PlayNextDialogue()
     {
+        IsAnimating = true;
         IsReadyForNext = false;
         PromptGroup.alpha = 0;
         if (DialogueQueue.Count > 0)
