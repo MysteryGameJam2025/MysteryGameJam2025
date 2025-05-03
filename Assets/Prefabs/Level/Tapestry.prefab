@@ -84,8 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783748911523895848}
-  - component: {fileID: 6322446751288763034}
-  - component: {fileID: 4111006394781595099}
   m_Layer: 7
   m_Name: Tapestry
   m_TagString: Untagged
@@ -107,16 +105,50 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1412045683608209812}
-  - {fileID: 4179513020998460941}
+  - {fileID: 2778093298946025517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6322446751288763034
+--- !u!1 &4860526793204069722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2778093298946025517}
+  - component: {fileID: 5371013392540440415}
+  - component: {fileID: 4994538327537707011}
+  m_Layer: 7
+  m_Name: Interactable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2778093298946025517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860526793204069722}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4179513020998460941}
+  m_Father: {fileID: 2783748911523895848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5371013392540440415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4573389184330774472}
+  m_GameObject: {fileID: 4860526793204069722}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cb1f15b078688646abfca1174e6960f, type: 3}
@@ -128,14 +160,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd94dae056be75d4d848db6b3c5686b9, type: 2}
   - {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
   - {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}
-  tapestryImage: {fileID: 0}
---- !u!135 &4111006394781595099
+  onSymbolsSet:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &4994538327537707011
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4573389184330774472}
+  m_GameObject: {fileID: 4860526793204069722}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -242,7 +276,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2783748911523895848}
+    m_TransformParent: {fileID: 2778093298946025517}
     m_Modifications:
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_Pivot.x
@@ -286,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.12
+      value: 0.11999893
       objectReference: {fileID: 0}
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_LocalRotation.w
@@ -294,15 +328,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 926859059844546778, guid: 9710f9180878b4348ae095275e969112, type: 3}
       propertyPath: m_AnchoredPosition.x
