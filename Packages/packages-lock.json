@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "73d2383899210da808a1b27329cdaa8000de557b"
     },
+    "com.oddworm.copylightingsettings": {
+      "version": "https://github.com/pschraut/UnityCopyLightingSettings.git#1.6.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c6dfbb2c3823117e55e04b95ae1598ad3c20e403"
+    },
     "com.qiaozhilei.easy-text-effects": {
       "version": "https://github.com/LeiQiaoZhi/Easy-Text-Effect.git",
       "depth": 0,
