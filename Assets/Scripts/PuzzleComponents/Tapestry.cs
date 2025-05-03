@@ -29,6 +29,8 @@ public class Tapestry : AbstractInteractable
         // TODO: Implement tapestry image display
         // Show tapestry image
         // On close of image, set symbols
+
+        AudioController.Instance?.PlayLocalSound("GauntletActivate", gameObject);
         GauntletController.Instance.SetSymbols(SymbolsToEquip);
         OnSymbolsSet?.Invoke();
     }

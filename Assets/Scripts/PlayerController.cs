@@ -47,7 +47,10 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     {
         VelocityZHash = Animator.StringToHash("VelocityZ");
         IsGroundedHash = Animator.StringToHash("IsGrounded");
+    }
 
+    private void Start()
+    {
         FootstepSource = AudioController.Instance?.PlayLocalSound("Footsteps1", gameObject, shouldPlay: false);
     }
 

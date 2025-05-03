@@ -58,3 +58,15 @@ MonoBehaviour:
   - assetName: LightsOn
     audioClip: {fileID: 8300000, guid: cc3aeb6a5727dbb4b8a250960e3619e4, type: 3}
     type: 0
+  - assetName: GauntletActivate
+    audioClip: {fileID: 8300000, guid: 3fd384270798b98409dbfa860cb7bc3f, type: 3}
+    type: 0
+  - assetName: GauntletBeam
+    audioClip: {fileID: 8300000, guid: fe1021ace13897542acbc0edfdad9b20, type: 3}
+    type: 0
+  - assetName: PickUp
+    audioClip: {fileID: 8300000, guid: 02a7b422dbba7f04cb8b36dcea9d62e3, type: 3}
+    type: 0
+  - assetName: DoorOpen
+    audioClip: {fileID: 8300000, guid: ccc8d70b45611724f8832f1990fc54fe, type: 3}
+    type: 0
