@@ -34,6 +34,15 @@ public class PuzzleRoomTwoController : MonoBehaviour
     [SerializeField]
     private DoorControl exitDoor;
     private DoorControl ExitDoor => exitDoor;
+    [SerializeField]
+    private GameObject trumpetVfx;
+    private GameObject TrumpetVfx => trumpetVfx;
+    [SerializeField]
+    private GameObject harpVfx;
+    private GameObject HarpVfx => harpVfx;
+    [SerializeField]
+    private GameObject badHarpVfx;
+    private GameObject BadHarpVfx => badHarpVfx;
 
     private bool HasLeftTrumpetBeenPlaced { get; set; }
     private bool HasRightTrumpetBeenPlaced { get; set; }
@@ -191,29 +200,33 @@ public class PuzzleRoomTwoController : MonoBehaviour
     void StartFirstDeviceMelody()
     {
         IsFirstDevicePlayingCorrectMelody = true;
-        Debug.Log("Toot toot!");
+        TrumpetVfx.SetActive(true);
     }
 
     void StopFirstDeviceMelody()
     {
         IsFirstDevicePlayingCorrectMelody = false;
-        Debug.Log("Jazz music stops");
+        TrumpetVfx.SetActive(false);
     }
 
     void PlaySecondDeviceCorrectMelody()
     {
+        HarpVfx.SetActive(true);
+        BadHarpVfx.SetActive(false);
         ExitDoor.Open();
     }
 
     void PlaySecondDeviceIncorrectMelody()
     {
         IsSecondDevicePlayingCorrectMelody = false;
-        Debug.Log("BRRRRRRRRR");
+        HarpVfx.SetActive(false);
+        BadHarpVfx.SetActive(true);
     }
 
     void StopSecondDeviceMelody()
     {
         IsSecondDevicePlayingCorrectMelody = false;
-        Debug.Log("Rock music stops");
+        HarpVfx.SetActive(false);
+        BadHarpVfx.SetActive(false);
     }
 }
