@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class MessageDecoder : MonoBehaviour
 {
@@ -33,6 +32,10 @@ public class MessageDecoder : MonoBehaviour
     private CanvasGroup canvasGroup;
     public CanvasGroup CanvasGroup => canvasGroup;
 
+    [SerializeField]
+    private Button doneButton;
+    private Button DoneButton => doneButton;
+
     [Header("Debug")]
     [SerializeField]
     private bool playOnStart = false;
@@ -50,6 +53,8 @@ public class MessageDecoder : MonoBehaviour
     {
         if(PlayOnStart)
             SetUp(currentMessage);
+
+        DoneButton.onClick.AddListener(HideDecodedMessage);
     }
 
     public void SetUp(MessageData message, Action onCompleted = null)
@@ -152,10 +157,58 @@ public class MessageDecoder : MonoBehaviour
         dragAndDropTargets.Remove(target);
         Destroy(controller.gameObject);
         Destroy(target.gameObject);
-        dragAndDropTargetsRemaining--;
+        dragAndDropTargetsRemaining--;  
 
         if (dragAndDropTargetsRemaining <= 0)
-            OnCompleted?.Invoke();
+            HideUIInternal(() => 
+            {
+                DialogueSingleton.Instance.OnSectionCompleted = ShowDecodedMessage;
+                DialogueSingleton.Instance.EnqueueDialogue(CurrentMessage.PostSolveDialog); 
+            });
+    }
+
+    private void ShowDecodedMessage()
+    {
+        ResetTextArea();
+        textField.text = CurrentMessage.TranslatedMessage.text;
+        DoneButton.transform.parent.gameObject.SetActive(true);
+        ShowUIInternal();
+    }
+
+    private void HideDecodedMessage()
+    {
+        DoneButton.transform.parent.gameObject.SetActive(false);
+        OnCompleted?.Invoke();
+    }
+
+    private void ShowUIInternal()
+    {
+        new Tween(0.8f)
+            .For(CanvasGroup)
+                .AlphaTo(1)
+            .OnCompleted(() =>
+            {
+                CanvasGroup.blocksRaycasts = true;
+                CanvasGroup.interactable = true;
+            })
+            .Start();
+    }
+
+    private void HideUIInternal(Action onCompleted = null)
+    {
+        new Tween(0.8f)
+            .OnStarted(() =>
+            {
+                CanvasGroup.blocksRaycasts = false;
+                CanvasGroup.interactable = false;
+            })
+            .For(CanvasGroup)
+                .AlphaTo(0)
+            .OnCompleted(() =>
+            {
+                onCompleted?.Invoke();
+            })
+            .Start();
     }
 
     private void FadeInOutText(Action whileFaded = null)
@@ -209,5 +262,18 @@ public class MessageDecoder : MonoBehaviour
             remainingOptions[i].transform.SetSiblingIndex(i);
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(DragAndDropTextHolder);
+    }
+
+    private void ResetTextArea()
+    {
+        foreach(DragAndDropTextController remainingOption in remainingOptions)
+        {
+            Destroy(remainingOption.gameObject);
+        }
+
+        remainingOptions.Clear();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(DragAndDropTextHolder);
+
+        TextField.text = "";
     }
 }

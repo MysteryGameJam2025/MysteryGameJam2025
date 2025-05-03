@@ -13,16 +13,21 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
 
     public void OpenMessage(MessageData messageData, Action onMessageClosed = null)
     {
+        DialogueSingleton.Instance.OnSectionCompleted = () => ShowMessage(messageData, onMessageClosed);
+        DialogueSingleton.Instance.EnqueueDialogue(messageData.PreSolveDialog);
+    }
+
+    private void ShowMessage(MessageData messageData, Action onMessageClosed)
+    {
         ShowMessageTween?.Stop();
         MessageDecoder.SetUp(messageData, CloseMessage);
         PlayerController.Instance.LockControls();
         OnMessageClosed = onMessageClosed;
 
-        //Play animation or something
         ShowMessageTween = new Tween(0.8f)
             .For(MessageDecoder.CanvasGroup)
                 .AlphaTo(1)
-            .OnCompleted(() => 
+            .OnCompleted(() =>
             {
                 MessageDecoder.CanvasGroup.blocksRaycasts = true;
                 MessageDecoder.CanvasGroup.interactable = true;

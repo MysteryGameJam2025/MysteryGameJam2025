@@ -46,6 +46,9 @@ public class PuzzleRoomOneController : MonoBehaviour
     [SerializeField]
     private DoorControl secondRoomEntrace;
     private DoorControl SecondRoomEntrace => secondRoomEntrace;
+    [SerializeField]
+    private DialogueSectionSO postFirstTranslatedNoteDialog;
+    private DialogueSectionSO PostFirstTranslatedNoteDialog => postFirstTranslatedNoteDialog;
 
 
     bool isSphereAtBottom = true;
@@ -62,7 +65,13 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void PickUpFirstNote()
     {
-        MessageDecoderController.Instance?.OpenMessage(FirstNote, SecondRoomEntrace.Open);
+        MessageDecoderController.Instance?.OpenMessage(FirstNote, AfterFirstNote);
+    }
+
+    private void AfterFirstNote()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = SecondRoomEntrace.Open;
+        DialogueSingleton.Instance.EnqueueDialogue(PostFirstTranslatedNoteDialog);
     }
 
     public void SetSymbolBottomOfHill(Symbol symbol)
