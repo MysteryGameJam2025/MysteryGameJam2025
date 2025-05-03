@@ -25436,32 +25436,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
-      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
-      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5572504385175230262}
-    - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
-      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+    - target: {fileID: 4573297603569077200, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
+      propertyPath: m_Size.z
+      value: 1.4844738
       objectReference: {fileID: 0}
-    - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
-      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickUpFirstNote
+    - target: {fileID: 4573297603569077200, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000005975624
       objectReference: {fileID: 0}
-    - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
-      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PuzzleRoomOneController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325780440787541077, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
-      propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 4573297603569077200, guid: 64446d975d74cf44fbc1d322dbdf9659, type: 3}
+      propertyPath: m_Center.z
+      value: -0.022711419
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
