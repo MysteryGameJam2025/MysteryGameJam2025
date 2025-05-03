@@ -23,6 +23,21 @@ public class PuzzleRoomThreeController : MonoBehaviour
     [SerializeField]
     private GameObject holoCrystal;
     private GameObject HoloCrystal => holoCrystal;
+    [SerializeField]
+    private GameObject brokenTransmitter;
+    private GameObject BrokenTransmitter => brokenTransmitter;
+    [SerializeField]
+    private GameObject topTransmitter;
+    private GameObject TopTransmitter => topTransmitter;
+    [SerializeField]
+    private DoorControl exitDoor;
+    private DoorControl ExitDoor => exitDoor;
+    [SerializeField]
+    private GameObject beamVfx;
+    private GameObject BeamVfx => beamVfx;
+    [SerializeField]
+    private GameObject fixingPrompt;
+    private GameObject FixingPrompt => fixingPrompt;
 
     private bool IsStairsDestroyed { get; set; }
     private bool IsBrokenEmitterFixed { get; set; }
@@ -52,7 +67,11 @@ public class PuzzleRoomThreeController : MonoBehaviour
         if (!IsCrystalDropped && symbol == Ruin)
         {
             IsCrystalDropped = true;
+            TopTransmitter.SetActive(false);
+            BrokenTransmitter.SetActive(true);
+            // TODO: Add vfx
             Crystal.DropCrystal();
+            FixingPrompt.SetActive(true);
         }
 
         if (IsCrystalDropped && symbol == Fulfill)
@@ -63,7 +82,8 @@ public class PuzzleRoomThreeController : MonoBehaviour
 
         if (IsBrokenEmitterFixed && IsHoloCrystalActive)
         {
-            Debug.Log("You win!");
+            BeamVfx.SetActive(true);
+            ExitDoor.Open();
         }
     }
 
@@ -72,6 +92,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
         IsBrokenEmitterFixed = true;
         Crystal.gameObject.SetActive(false);
         BottomCrystal.SetActive(true);
+        FixingPrompt.SetActive(false);
     }
 
 }
