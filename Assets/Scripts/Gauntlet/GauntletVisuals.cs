@@ -41,7 +41,7 @@ public class GauntletVisuals : MonoBehaviour
         Target = target;
         Particles = new List<ParticleData>();
         InstantiateParticles().RunParallel();
-        AudioController.Instance?.PlayLocalSound("GauntletBeam", target.gameObject);
+        AudioController.Instance?.PlayLocalSound("BeamActivate", target.gameObject);
     }
 
     private async Task InstantiateParticles()
@@ -51,6 +51,8 @@ public class GauntletVisuals : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             GameObject particle = Instantiate(Particle, transform.position, Quaternion.identity);
+
+            AudioController.Instance?.PlayLocalSound("BeamExit", gameObject, shouldOverlap: true);
 
             Quaternion forwardRot = Quaternion.AngleAxis(240 + ((230 / 8) * indexes[i]), transform.forward);
             particle.transform.rotation = Quaternion.LookRotation(forwardRot * Vector3.up, forwardRot * Vector3.forward);
@@ -126,6 +128,9 @@ public class GauntletVisuals : MonoBehaviour
                 GameObject hitParticle = Instantiate(HitParticle, particleTransform.position, Quaternion.identity);
                 Destroy(hitParticle, 0.6f);
                 Particles.Remove(particleData);
+
+
+                AudioController.Instance?.PlayLocalSound("BeamImpact", gameObject, shouldOverlap: true);
                 //Destroy(particleTransform.gameObject);
 
             }

@@ -70,3 +70,12 @@ MonoBehaviour:
   - assetName: DoorOpen
     audioClip: {fileID: 8300000, guid: ccc8d70b45611724f8832f1990fc54fe, type: 3}
     type: 0
+  - assetName: BeamActivate
+    audioClip: {fileID: 8300000, guid: f141dfbd6d1620e4f998bd0b2993bac5, type: 3}
+    type: 0
+  - assetName: BeamExit
+    audioClip: {fileID: 8300000, guid: 84d7a8d4af846f54294552c7db3be71d, type: 3}
+    type: 0
+  - assetName: BeamImpact
+    audioClip: {fileID: 8300000, guid: e3112a87508747a4b832b6fd714d490f, type: 3}
+    type: 0
