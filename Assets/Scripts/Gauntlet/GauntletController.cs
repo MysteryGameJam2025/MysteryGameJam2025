@@ -77,7 +77,7 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
             return;
         }
 
-        if (!UIController.IsAnimationPlaying)
+        if (!UIController.IsAnimationPlaying && !IsLockingInteraction)
         {
             if (Next.action.WasPressedThisFrame())
                 ChangeSymbol(++SymbolIndex, true);
@@ -114,6 +114,11 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
             if (currentInteractable != null)
             {
                 EndHover();
+            }
+
+            if(AvailableSymbols.Count == 0 && interactable is SymbolPlate)
+            {
+                return;
             }
 
             interactable.OnInteractionHoverStart();
