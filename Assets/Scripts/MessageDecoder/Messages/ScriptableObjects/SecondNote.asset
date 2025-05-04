@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: {fileID: 4900000, guid: ce1b2274a4bb7bb4d8bddb89efa5e0f4, type: 3}
   translatedMessage: {fileID: 4900000, guid: c84b34d3118840946be8f998cd9cb9e4, type: 3}
-  postSolveDialog: {fileID: 11400000, guid: ec0b0ed937aeef04d84144149686560f, type: 2}
-  preSolveDialog: {fileID: 11400000, guid: ec0b0ed937aeef04d84144149686560f, type: 2}
+  postSolveDialog: {fileID: 11400000, guid: 3b3f0c28d17ae6c48b65ee84ffa63b5a, type: 2}
+  preSolveDialog: {fileID: 11400000, guid: e6f11397724769145ae76561153e2fab, type: 2}
   symbolsInMessage:
   - {fileID: 11400000, guid: 284d4897eb52aa84aae883c6b5b4eb6d, type: 2}
   - {fileID: 11400000, guid: efbdba41618307441a15b9ae12fd9342, type: 2}
