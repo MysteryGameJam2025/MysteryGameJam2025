@@ -2,7 +2,6 @@ using System;
 using FriedSynapse.FlowEnt;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
 
 public class GauntletUIController : MonoBehaviour

@@ -1,10 +1,7 @@
 using FriedSynapse.FlowEnt;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public enum AudioTypes
 {
@@ -22,7 +19,7 @@ public class AudioController : MonoBehaviour
     {
         get
         {
-            if(masterVolume == -1f)
+            if (masterVolume == -1f)
             {
                 masterVolume = PlayerPrefs.GetFloat("masterVol", 0.5f);
                 SetOnMixer("masterVol", masterVolume);
@@ -128,11 +125,6 @@ public class AudioController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        FadeBackgroundMusic(true);
-    }
-
     private void SetOnMixer(string name, float value)
     {
         float dB;
@@ -187,8 +179,8 @@ public class AudioController : MonoBehaviour
         SoundFadeTweens.Add(source, new Tween(timeOfFade)
             .For(source)
                 .VolumeTo(source.volume, 0)
-            .OnCompleted(() => 
-            { 
+            .OnCompleted(() =>
+            {
                 source.Stop();
                 SoundFadeTweens.Remove(source);
             })
@@ -199,7 +191,7 @@ public class AudioController : MonoBehaviour
     public AudioSource PlayGlobalSound(string name, bool shouldOverride = true, bool shouldPlay = true)
     {
         AudioSource source;
-        
+
         if (LoadedGlobalSounds.TryGetValue(name, out AudioSource loadedSource))
         {
             source = loadedSource;
@@ -247,7 +239,7 @@ public class AudioController : MonoBehaviour
 
         if (shouldPlay)
             source.Play();
-        
+
         return source;
     }
 
@@ -276,5 +268,10 @@ public class AudioController : MonoBehaviour
         if (shouldPlay)
             source.Play();
         return source;
+    }
+
+    public void StartBackgroundMusic()
+    {
+        BackgroundMusicSource.Play();
     }
 }

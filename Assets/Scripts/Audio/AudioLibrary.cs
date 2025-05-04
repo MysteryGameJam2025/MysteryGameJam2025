@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 [System.Serializable]
@@ -17,7 +16,7 @@ public struct AudioAsset
     private AudioTypes type;
     public AudioTypes Type => type;
 
-    [SerializeField, Range(0,1)]
+    [SerializeField, Range(0, 1)]
     private float volume;
     public float Volume => volume;
 

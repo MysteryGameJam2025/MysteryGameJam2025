@@ -33,3 +33,7 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
     dialogue: "From what we know, there\u2019s something powerful about them, something
       that the gauntlet responds to."
+  - speaker: {fileID: 0}
+    dialogue: <i>(Click near a Symbol Plate to paint it with a symbol.)</i>
+  - speaker: {fileID: 0}
+    dialogue: <i>(Use Q and E to change symbol.)</i>

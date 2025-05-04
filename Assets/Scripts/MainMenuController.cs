@@ -30,6 +30,7 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         Bind();
+        AudioController.Instance.StartBackgroundMusic();
     }
 
     private void Bind()
@@ -51,7 +52,6 @@ public class MainMenuController : MonoBehaviour
         new Tween(0.75f).OnCompleted(() =>
         {
             SceneController.Instance.LoadScene(sceneToLoadOnPlay);
-            AudioController.Instance?.FadeBackgroundMusic(true, 0.5f);
         }).Start();
     }
 
