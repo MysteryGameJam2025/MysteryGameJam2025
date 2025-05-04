@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class GauntletController : AbstractMonoBehaviourSingleton<GauntletController>
 {
     private int symbolIndex = 0;
+    private int SymbolIndex { get => symbolIndex; set => symbolIndex = value; }
 
     [SerializeField]
     private GauntletUIController uiController;
@@ -79,10 +80,10 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
         if (!UIController.IsAnimationPlaying)
         {
             if (Next.action.WasPressedThisFrame())
-                ChangeSymbol(++symbolIndex, true);
+                ChangeSymbol(++SymbolIndex, true);
 
             if (Previous.action.WasPressedThisFrame())
-                ChangeSymbol(--symbolIndex, false);
+                ChangeSymbol(--SymbolIndex, false);
         }
 
 
@@ -192,8 +193,8 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
 
     private void ChangeSymbol(int symbolIndex, bool isNext)
     {
-        symbolIndex = (symbolIndex + AvailableSymbols.Count) % AvailableSymbols.Count;
-        CurrentSymbol = AvailableSymbols[symbolIndex];
+        SymbolIndex = (symbolIndex + AvailableSymbols.Count) % AvailableSymbols.Count;
+        CurrentSymbol = AvailableSymbols[SymbolIndex];
 
         UIController?.SetSymbolInUI(CurrentSymbol, isNext);
         //PreviousActivatable?.DropInteraction();
