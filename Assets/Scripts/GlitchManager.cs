@@ -44,7 +44,8 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
         GlitchAnim?.Stop();
         GlitchAnim = new Tween(10)
             .For(GlitchMaterial)
-            .FloatTo(EffectStrengthRef, 1)
+            .FloatTo(EffectStrengthRef, 0, 1)
+            .SetEasing(Easing.EaseInQuint)
             .Start();
     }
 
@@ -78,5 +79,10 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
                 .For(GlitchMaterial)
                 .FloatTo(EffectStrengthRef, strength, 0))
             .Start();
+    }
+
+    public void StopGlitches()
+    {
+        GlitchMaterial.SetFloat(EffectStrengthRef, 0);
     }
 }

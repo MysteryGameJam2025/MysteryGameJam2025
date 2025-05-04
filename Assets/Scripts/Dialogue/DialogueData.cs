@@ -12,5 +12,12 @@ public class DialogueData
     public string Dialogue => dialogue;
 
     public string ToTaggedString()
-        => $"{Speaker.ToTaggedString()}{Dialogue}";
+    {
+        if (Speaker == null)
+        {
+            return Dialogue;
+        }
+
+        return $"{Speaker.ToTaggedString()}{Dialogue}";
+    }
 }
