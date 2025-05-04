@@ -62,6 +62,10 @@ public class PuzzleRoomTwoController : MonoBehaviour
     private DialogueSectionSO FirstHornInteractionDialouge => firstHornInteractionDialouge;
 
     [SerializeField]
+    private DialogueSectionSO discordentMelodyDialogue;
+    private DialogueSectionSO DiscordentMelodyDialogue => discordentMelodyDialogue;
+
+    [SerializeField]
     private DialogueSectionSO distressInteractionDialouge;
     private DialogueSectionSO DistressInteractionDialouge => distressInteractionDialouge;
 
@@ -81,6 +85,7 @@ public class PuzzleRoomTwoController : MonoBehaviour
     private bool IsFullyRepaired { get; set; }
     private bool IsFirstDevicePlayingCorrectMelody { get; set; }
     private bool IsSecondDevicePlayingCorrectMelody { get; set; }
+    private bool HasPlayedIncorectMelody { get; set; }
 
     private AbstractAnimation LeftTrumpetRepairAnimation { get; set; }
     private AbstractAnimation RightTrumpetRepairAnimation { get; set; }
@@ -190,6 +195,12 @@ public class PuzzleRoomTwoController : MonoBehaviour
         if (SecondMusicDeviceActiveSymbol == Harmony)
         {
             PlaySecondDeviceIncorrectMelody();
+            if (!HasPlayedIncorectMelody)
+            {
+                HasPlayedIncorectMelody = true;
+                DialogueSingleton.Instance.OnSectionCompleted = null;
+                DialogueSingleton.Instance.EnqueueDialogue(DiscordentMelodyDialogue);
+            }
             return;
         }
 

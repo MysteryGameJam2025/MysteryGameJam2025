@@ -74,7 +74,7 @@ public class MessageDecoder : MonoBehaviour
             string symbolName = CurrentMessage.SymbolsInMessage[i].SymbolSprite.name;
             Regex regex = new Regex($"<{symbolName}>");
             MatchCollection symbols = regex.Matches(rawData);
-            parsedString = regex.Replace(parsedString, $"<sprite name={symbolName}>");
+            parsedString = regex.Replace(parsedString, i == 0 ? $"<size= 50%><sprite name={symbolName}></size>" : $"<sprite name={symbolName}>");
             CreateNewTextOption(symbolName);
             for(int j = 0; j < symbols.Count; j++)
                 CreateNewDragAndDropTarget(symbolName);
