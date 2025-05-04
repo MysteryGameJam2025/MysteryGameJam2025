@@ -201,7 +201,7 @@ public class AudioController : MonoBehaviour
         else
         {
             AudioAsset asset = AudioLibrary.GetAsset(name);
-            source = Instantiate(GlobalSourcePrefab);
+            source = Instantiate(GlobalSourcePrefab, transform);
 
             source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
             source.clip = asset.AudioClip;
