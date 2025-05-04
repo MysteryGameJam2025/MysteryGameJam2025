@@ -20,6 +20,9 @@ public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullSc
     [SerializeField]
     private CanvasGroup promptGroup;
     private CanvasGroup PromptGroup => promptGroup;
+    [SerializeField]
+    private float soundCooldown;
+    private float SoundCooldown => soundCooldown;
 
     private AbstractAnimation ShowHideAnimation { get; set; }
 
@@ -33,6 +36,8 @@ public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullSc
 
     private const float TimeBetweenCharacters = 0.03f;
     private AudioSource DialogSoundSource { get; set; }
+    private bool SoundOnCooldown { get; set; } = false;
+    private Tween SoundCooldownTween;
 
     private void Start()
     {
@@ -149,9 +154,16 @@ public class FullScreenDialogueSingleton : AbstractMonoBehaviourSingleton<FullSc
             return;
         }
 
-        if(!DialogSoundSource.isPlaying)
+        if(!DialogSoundSource.isPlaying && !SoundOnCooldown)
         {
-            AudioController.Instance?.PlayGlobalSound("Dialog", false);
+            SoundCooldownTween = new Tween(SoundCooldown)
+                .OnStarted(() =>
+                {
+                    SoundOnCooldown = true;
+                    AudioController.Instance?.PlayGlobalSound("Dialog", false);
+                })
+                .OnCompleted(() => SoundOnCooldown = false)
+                .Start();
         }
         Dialogue.text += characterString;
     }

@@ -23,6 +23,9 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
     [SerializeField]
     private CanvasGroup promptGroup;
     private CanvasGroup PromptGroup => promptGroup;
+    [SerializeField]
+    private float soundCooldown;
+    private float SoundCooldown => soundCooldown;
 
     private AbstractAnimation ShowHideAnimation { get; set; }
 
@@ -32,6 +35,9 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
     private AudioSource DialogSoundSource { get; set; }
     private bool IsAnimating { get; set; } = false;
 
+    private bool SoundOnCooldown { get; set; } = false;
+    private Tween SoundCooldownTween;
+
     private void Start()
     {
         DialogSoundSource = AudioController.Instance?.PlayGlobalSound("Dialog", shouldPlay: false);
@@ -39,9 +45,16 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
 
     void Update()
     {
-        if (IsAnimating && !DialogSoundSource.isPlaying)
+        if (IsAnimating && !DialogSoundSource.isPlaying && !SoundOnCooldown)
         {
-            AudioController.Instance?.PlayGlobalSound("Dialog", false);
+            SoundCooldownTween = new Tween(SoundCooldown)
+                .OnStarted(() =>
+                {
+                    SoundOnCooldown = true;
+                    AudioController.Instance?.PlayGlobalSound("Dialog", false);
+                })
+                .OnCompleted(() => SoundOnCooldown = false)
+                .Start();
         }
 
         if (Activate.action.WasPressedThisFrame())
@@ -92,6 +105,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         IsAnimating = false;
         IsReadyForNext = true;
         PromptGroup.alpha = 1;
+        DialogSoundSource?.Stop();
     }
 
     public void EnqueueDialogue(DialogueSectionSO dialogueSection)
