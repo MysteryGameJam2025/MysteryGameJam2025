@@ -75425,7 +75425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55.217
+      value: 22.347
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75433,7 +75433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.552
+      value: 1.175
       objectReference: {fileID: 0}
     - target: {fileID: 4818876078669073277, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -111843,7 +111843,7 @@ MonoBehaviour:
   inLevelDialogue: {fileID: 11400000, guid: aa750bed1afab3f4d8bd3581589a6a75, type: 2}
   afterNoteDialogue: {fileID: 11400000, guid: 52fe252ccca8a164d93222907ecce501, type: 2}
   caveDoor: {fileID: 1191036520}
-  playIntro: 0
+  playIntro: 1
 --- !u!4 &2141580401
 Transform:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
             HoloCrystal.SetActive(true);
         }
 
-        if (IsBrokenEmitterFixed && IsHoloCrystalActive)
+        if (IsBrokenEmitterFixed && IsHoloCrystalActive && symbol == Entrust)
         {
             BeamVfx.SetActive(true);
             OnPuzzleCompleted();
