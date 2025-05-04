@@ -26,3 +26,7 @@ MonoBehaviour:
       symbols I\u2019ve just used."
   - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
     dialogue: "It must be a word that combines the concept of all three\u2026"
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Their meanings must be related to how I just used them.
+  - speaker: {fileID: 0}
+    dialogue: <i>(Drag and drop the translations for the symbols.)</i>
