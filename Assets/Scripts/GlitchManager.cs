@@ -8,6 +8,9 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
     private Material GlitchMaterial => glitchMaterial;
 
     private const string EffectStrengthRef = "_EffectStrength";
+    private const string PosterizeStrengthRef = "_PosterizeStrength";
+
+    private float PosterizeStrengthStart;
 
     private AbstractAnimation GlitchAnim { get; set; }
 
@@ -15,6 +18,7 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
     void Awake()
     {
         GlitchMaterial.SetFloat(EffectStrengthRef, 0);
+        PosterizeStrengthStart = GlitchMaterial.GetFloat(PosterizeStrengthRef);
     }
 
     public void PlayTinyGlitch()
@@ -28,12 +32,36 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
         GlitchInOut(1, 1);
     }
 
+    [EasyButtons.Button]
+    public void PlayFullGlitchOut()
+    {
+        PlayFullGlitchOut(5, 1);
+    }
+
     public void PlaySlowBuildup()
     {
         GlitchAnim?.Stop();
         GlitchAnim = new Tween(10)
             .For(GlitchMaterial)
             .FloatTo(EffectStrengthRef, 1)
+            .Start();
+    }
+
+    private void PlayFullGlitchOut(float duration, float strength)
+    {
+        GlitchAnim?.Stop();
+        GlitchAnim = new Flow()
+            .Queue(new Tween(duration * 0.20f)
+                .For(GlitchMaterial)
+                .FloatTo(EffectStrengthRef, 0, strength)
+                .For(GlitchMaterial)
+                .FloatTo(PosterizeStrengthRef, PosterizeStrengthStart, 1))
+            .Queue(new Tween(duration * 0.60f))
+            .Queue(new Tween(duration * 0.20f)
+                .For(GlitchMaterial)
+                .FloatTo(EffectStrengthRef, strength, 0)
+                .For(GlitchMaterial)
+                .FloatTo(PosterizeStrengthRef, 1, PosterizeStrengthStart))
             .Start();
     }
 
