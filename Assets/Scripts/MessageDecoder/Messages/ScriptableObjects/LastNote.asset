@@ -22,6 +22,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb07a6178e1a0a14eaa3db240681c0ac, type: 2}
   - {fileID: 11400000, guid: 91636e5178ae97b4ba367aa894a30588, type: 2}
   alternatePossibilites:
-  - Blah
-  - Blah
-  - Blah
+  - Anew
+  - Mistrust
+  - Instill
