@@ -146,6 +146,7 @@ public class PuzzleRoomOneController : MonoBehaviour
             .OnCompleted(() =>
             {
                 areLightsOn = true;
+                CheckSphereAndDoorControls();
             })
             .Start();
     }

@@ -23,8 +23,6 @@ public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManag
         ActiveCamera.enabled = true;
 
         AudioListenerController.transform.SetParent(ActiveCamera.transform, false);
-
-        Debug.Log($"Switched to camera: {ActiveCamera.transform.parent.gameObject.name}");
     }
 
     public bool IsActiveCamera(Camera camera)

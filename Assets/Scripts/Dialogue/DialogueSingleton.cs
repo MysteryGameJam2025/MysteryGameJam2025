@@ -39,7 +39,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
 
     void Update()
     {
-        if(IsAnimating && !DialogSoundSource.isPlaying)
+        if (IsAnimating && !DialogSoundSource.isPlaying)
         {
             AudioController.Instance?.PlayGlobalSound("Dialog", false);
         }
@@ -78,7 +78,6 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
             .SetEasing(Easing.EaseInSine)
             .OnCompleted(() =>
             {
-                Debug.Log("here");
                 Dialogue.text = string.Empty;
                 OnSectionCompleted?.Invoke();
             })
