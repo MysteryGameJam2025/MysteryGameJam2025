@@ -43,7 +43,7 @@ public class AudioController : MonoBehaviour
         {
             if (musicVolume == -1f)
             {
-                musicVolume = PlayerPrefs.GetFloat("musicVol", 0.5f);
+                musicVolume = PlayerPrefs.GetFloat("musicVol", 0.25f);
                 SetOnMixer("musicVol", musicVolume);
             }
 
@@ -65,7 +65,7 @@ public class AudioController : MonoBehaviour
         {
             if (sfxVolume == -1f)
             {
-                sfxVolume = PlayerPrefs.GetFloat("sfxVol", 0.5f);
+                sfxVolume = PlayerPrefs.GetFloat("sfxVol", 0.25f);
                 SetOnMixer("sfxVol", sfxVolume);
             }
 
