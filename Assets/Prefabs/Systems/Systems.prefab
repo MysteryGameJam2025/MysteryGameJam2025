@@ -139,6 +139,7 @@ MonoBehaviour:
   dialogueGroup: {fileID: 0}
   activate: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   promptGroup: {fileID: 0}
+  soundCooldown: 0.125
 --- !u!1 &5499561160120156945
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   typewriterEffect: {fileID: 0}
   activate: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   promptGroup: {fileID: 0}
+  soundCooldown: 0.125
 --- !u!1 &6687485445060331432
 GameObject:
   m_ObjectHideFlags: 0
