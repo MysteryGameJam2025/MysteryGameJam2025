@@ -1,5 +1,4 @@
 <Love>
-
 [Stars] and [Life]
 [Interaction] and [Days]
 [Person] and [Person]
