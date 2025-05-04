@@ -30,6 +30,9 @@ public class PuzzleRoomThreeController : MonoBehaviour
     private GameObject topTransmitter;
     private GameObject TopTransmitter => topTransmitter;
     [SerializeField]
+    private DoorControl entranceDoor;
+    private DoorControl EntranceDoor => entranceDoor;
+    [SerializeField]
     private DoorControl exitDoor;
     private DoorControl ExitDoor => exitDoor;
     [SerializeField]
@@ -41,6 +44,9 @@ public class PuzzleRoomThreeController : MonoBehaviour
     [SerializeField]
     private GameObject fixingPrompt;
     private GameObject FixingPrompt => fixingPrompt;
+    [SerializeField]
+    private GameObject attemptsExitTrigger;
+    private GameObject AttemptsExitTrigger => attemptsExitTrigger;
 
     [SerializeField]
     private MessageData thirdNote;
@@ -119,6 +125,11 @@ public class PuzzleRoomThreeController : MonoBehaviour
         FixingPrompt.SetActive(false);
     }
 
+    public void OnPlayerEnters()
+    {
+        AttemptsExitTrigger.SetActive(true);
+    }
+
     public void OnPuzzleCompleted()
     {
         ExitDoor.Open();
@@ -135,8 +146,15 @@ public class PuzzleRoomThreeController : MonoBehaviour
 
     public void PlayerAttemptsExit()
     {
+        GlitchManager.Instance.PlayFullGlitchOut(ForcePlayerBack);
+
         DialogueSingleton.Instance.OnSectionCompleted = null;
         DialogueSingleton.Instance.EnqueueDialogue(PlayerAttempsExitDialogue);
+    }
+
+    public void ForcePlayerBack()
+    {
+        EntranceDoor.Close(true);
     }
 
     public void PickUpNote()

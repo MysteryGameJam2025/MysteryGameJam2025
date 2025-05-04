@@ -1,4 +1,5 @@
 using FriedSynapse.FlowEnt;
+using System;
 using UnityEngine;
 
 public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
@@ -33,9 +34,9 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
     }
 
     [EasyButtons.Button]
-    public void PlayFullGlitchOut()
+    public void PlayFullGlitchOut(Action onAtFullStrength = null)
     {
-        PlayFullGlitchOut(5, 1);
+        PlayFullGlitchOut(5, 1, onAtFullStrength);
     }
 
     public void PlaySlowBuildup()
@@ -47,7 +48,7 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
             .Start();
     }
 
-    private void PlayFullGlitchOut(float duration, float strength)
+    private void PlayFullGlitchOut(float duration, float strength, Action onAtFullStrength = null)
     {
         GlitchAnim?.Stop();
         GlitchAnim = new Flow()
@@ -56,7 +57,8 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
                 .FloatTo(EffectStrengthRef, 0, strength)
                 .For(GlitchMaterial)
                 .FloatTo(PosterizeStrengthRef, PosterizeStrengthStart, 1))
-            .Queue(new Tween(duration * 0.60f))
+            .Queue(new Tween(duration * 0.60f)
+                .OnStarted(() => onAtFullStrength?.Invoke()))
             .Queue(new Tween(duration * 0.20f)
                 .For(GlitchMaterial)
                 .FloatTo(EffectStrengthRef, strength, 0)

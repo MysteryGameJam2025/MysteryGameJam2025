@@ -20,8 +20,11 @@ public class RoomEntranceDialogueTrigger : MonoBehaviour
         {
             hasBeenTriggered = true;
             OnEntry?.Invoke();
-            DialogueSingleton.Instance.OnSectionCompleted = null;
-            DialogueSingleton.Instance.EnqueueDialogue(EntranceDialogue);
+            if (EntranceDialogue != null)
+            {
+                DialogueSingleton.Instance.OnSectionCompleted = null;
+                DialogueSingleton.Instance.EnqueueDialogue(EntranceDialogue);
+            }
         }
     }
 }
