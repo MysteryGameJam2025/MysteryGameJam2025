@@ -17,22 +17,36 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
         GlitchMaterial.SetFloat(EffectStrengthRef, 0);
     }
 
+    public void PlayTinyGlitch()
+    {
+        GlitchInOut(1, 0.5f);
+    }
+
     [EasyButtons.Button]
     public void PlayShortGlitch()
     {
-        GlitchInOut(1);
+        GlitchInOut(1, 1);
     }
 
-    private void GlitchInOut(float duration)
+    public void PlaySlowBuildup()
+    {
+        GlitchAnim?.Stop();
+        GlitchAnim = new Tween(10)
+            .For(GlitchMaterial)
+            .FloatTo(EffectStrengthRef, 1)
+            .Start();
+    }
+
+    private void GlitchInOut(float duration, float strength)
     {
         GlitchAnim?.Stop();
         GlitchAnim = new Flow()
             .Queue(new Tween(duration * 0.5f)
                 .For(GlitchMaterial)
-                .FloatTo(EffectStrengthRef, 0, 1))
+                .FloatTo(EffectStrengthRef, 0, strength))
             .Queue(new Tween(duration * 0.5f)
                 .For(GlitchMaterial)
-                .FloatTo(EffectStrengthRef, 1, 0))
+                .FloatTo(EffectStrengthRef, strength, 0))
             .Start();
     }
 }
