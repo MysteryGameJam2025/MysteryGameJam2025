@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 82c7d45cdd74d3b4ba899542ccc06669
+guid: 17a24242af839b945b5438e05f5f50cd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -22,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -80,7 +80,12 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: MODEL_CharacterTrueForm_Sitting(Clone)
+      parentName: 
+      position: {x: 2.9802322e-10, y: -0.000000002682209, z: -0.0000000014901155}
+      rotation: {x: 0.0000000219557, y: 0.000000004172325, z: 8.9406893e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -97,7 +102,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
