@@ -30,4 +30,27 @@ public class DoorControl : SymbolActivatableBase
                 .SetEasing(Easing.EaseInOutQuad))
             .Start();
     }
+
+    public void Close(bool isInstant = false)
+    {
+        if (!isInstant)
+        {
+            DoorOpenAnimation?.Stop();
+            DoorOpenAnimation = new Flow()
+                .At(0, new Tween(2.8f)
+                    .For(LeftDoorPivot)
+                    .RotateLocalYTo(0)
+                    .SetEasing(Easing.EaseInOutQuad))
+                .At(0, new Tween(2.8f)
+                    .For(RightDoorPivot)
+                    .RotateLocalYTo(0)
+                    .SetEasing(Easing.EaseInOutQuad))
+                .Start();
+        }
+        else
+        {
+            LeftDoorPivot.rotation = Quaternion.identity;
+            RightDoorPivot.rotation = Quaternion.identity;
+        }
+    }
 }
