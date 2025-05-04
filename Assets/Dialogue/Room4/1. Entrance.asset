@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94579628104783439874d378925d1f0, type: 3}
+  m_Name: 1. Entrance
+  m_EditorClassIdentifier: 
+  dialogueData:
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: How did I get out?
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "I don\u2019t remember anything, past\u2026"
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "The note\u2026"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Love\u2026"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "World\u2026"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Death\u2026"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Translating\u2026"
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "I didn\u2019t get out\u2026"
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Home. I was thinking about home.
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: "Just\u2026"
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: Let me go.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Report\u2026"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Neural reconstruction was a success. Memories were successfully partitioned
+      until the last moment.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Good new data on Auric Symbology. Good new data on Cave System #3209.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: However, unfortunately, the note was of little consequence.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "It\u2019s just a memory."
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: A vista of the past, before we were ever here.
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: Ending simulation.

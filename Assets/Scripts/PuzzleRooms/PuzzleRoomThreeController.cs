@@ -39,6 +39,27 @@ public class PuzzleRoomThreeController : MonoBehaviour
     private GameObject fixingPrompt;
     private GameObject FixingPrompt => fixingPrompt;
 
+    [SerializeField]
+    private MessageData thirdNote;
+    private MessageData ThirdNote => thirdNote;
+
+    [Header("Dialogue")]
+    [SerializeField]
+    private DialogueSectionSO shoeInteractionDialogue;
+    private DialogueSectionSO ShoeInteractionDialogue => shoeInteractionDialogue;
+
+    [SerializeField]
+    private DialogueSectionSO playerAttempsExitDialogue;
+    private DialogueSectionSO PlayerAttempsExitDialogue => playerAttempsExitDialogue;
+
+    [SerializeField]
+    private DialogueSectionSO puzzleCompletionDialogue;
+    private DialogueSectionSO PuzzleCompletionDialogue => puzzleCompletionDialogue;
+
+    [SerializeField]
+    private DialogueSectionSO postThirdTranslatedNoteDialogue;
+    private DialogueSectionSO PostThirdTranslatedNoteDialogue => postThirdTranslatedNoteDialogue;
+
     private bool IsStairsDestroyed { get; set; }
     private bool IsBrokenEmitterFixed { get; set; }
     private bool IsCrystalDropped { get; set; }
@@ -83,7 +104,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
         if (IsBrokenEmitterFixed && IsHoloCrystalActive)
         {
             BeamVfx.SetActive(true);
-            ExitDoor.Open();
+            OnPuzzleCompleted();
         }
     }
 
@@ -95,4 +116,34 @@ public class PuzzleRoomThreeController : MonoBehaviour
         FixingPrompt.SetActive(false);
     }
 
+    public void OnPuzzleCompleted()
+    {
+        ExitDoor.Open();
+
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(PuzzleCompletionDialogue);
+    }
+
+    public void PlayerFindsShoe()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(ShoeInteractionDialogue);
+    }
+
+    public void PlayerAttemptsExit()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(PlayerAttempsExitDialogue);
+    }
+
+    public void PickUpNote()
+    {
+        MessageDecoderController.Instance?.OpenMessage(ThirdNote, AfterNote);
+    }
+
+    private void AfterNote()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(PostThirdTranslatedNoteDialogue);
+    }
 }
