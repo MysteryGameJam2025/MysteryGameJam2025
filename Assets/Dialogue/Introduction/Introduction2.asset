@@ -26,7 +26,7 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
     dialogue: Can you just give me a second?
   - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
-    dialogue: "We don\u2019t have a lot of time, Rho. I need to repeat your briefing
+    dialogue: "We don\u2019t have a lot of time, Rho. I need you to repeat your briefing
       for me."
   - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
     dialogue: Missing people, large group, unknown number.
