@@ -213,6 +213,8 @@ public class AudioController : MonoBehaviour
 
             source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
             source.clip = asset.AudioClip;
+            source.volume = asset.Volume;
+            source.reverbZoneMix = asset.Reverb;
             LoadedGlobalSounds.Add(name, source);
         }
 
@@ -238,6 +240,8 @@ public class AudioController : MonoBehaviour
 
             source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
             source.clip = asset.AudioClip;
+            source.volume = asset.Volume;
+            source.reverbZoneMix = asset.Reverb;
             LoadedLocalSounds.TryAdd((name, parent), source);
         }
 
@@ -266,6 +270,8 @@ public class AudioController : MonoBehaviour
         AudioAsset asset = AudioLibrary.GetAssetRange(name, numberOfSounds)[Random.Range(0, numberOfSounds)];
         source.clip = asset.AudioClip;
         source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
+        source.volume = asset.Volume;
+        source.reverbZoneMix = asset.Reverb;
 
         if (shouldPlay)
             source.Play();

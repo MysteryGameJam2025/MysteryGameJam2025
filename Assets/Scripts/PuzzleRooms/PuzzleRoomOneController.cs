@@ -41,6 +41,19 @@ public class PuzzleRoomOneController : MonoBehaviour
     private Color EmissionEnd => emissionEnd;
 
     [SerializeField]
+    private DialogueSectionSO interactingWithTapestry;
+    private DialogueSectionSO InteractingWithTapestry => interactingWithTapestry;
+    [SerializeField]
+    private DialogueSectionSO interactingWithBlood;
+    private DialogueSectionSO InteractingWithBlood => interactingWithBlood;
+    [SerializeField]
+    private DialogueSectionSO firstSymbolPlateDialogue;
+    private DialogueSectionSO FirstSymbolPlateDialogue => firstSymbolPlateDialogue;
+    [SerializeField]
+    private DialogueSectionSO completedPuzzleDialogue;
+    private DialogueSectionSO CompletedPuzzleDialogue => completedPuzzleDialogue;
+
+    [SerializeField]
     private MessageData firstNote;
     private MessageData FirstNote => firstNote;
     [SerializeField]
@@ -55,6 +68,7 @@ public class PuzzleRoomOneController : MonoBehaviour
     bool isSphereAtTop;
     bool areControlsConnected;
     bool areLightsOn;
+    bool hasUsedSymbol;
 
     private AbstractAnimation MaterialAnimation { get; set; }
 
@@ -76,6 +90,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void SetSymbolBottomOfHill(Symbol symbol)
     {
+        CheckFirstUse(symbol);
         if (!isSphereAtBottom)
         {
             return;
@@ -87,6 +102,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void SetSymbolTopOfHill(Symbol symbol)
     {
+        CheckFirstUse(symbol);
         if (!isSphereAtTop)
         {
             Backstop.SetCurrentSymbol(symbol);
@@ -108,8 +124,19 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void SetDoorSymbol(Symbol symbol)
     {
+        CheckFirstUse(symbol);
         DoorControls.SetCurrentSymbol(symbol);
         CheckSphereAndDoorControls();
+    }
+
+    private void CheckFirstUse(Symbol symbol)
+    {
+        if (!hasUsedSymbol && symbol == Attraction)
+        {
+            hasUsedSymbol = true;
+            DialogueSingleton.Instance.OnSectionCompleted = null;
+            DialogueSingleton.Instance.EnqueueDialogue(FirstSymbolPlateDialogue);
+        }
     }
 
     public void CheckSphereAndBackstop()
@@ -131,7 +158,7 @@ public class PuzzleRoomOneController : MonoBehaviour
     {
         if (DoorControls.CurrentSymbol == Openness && areLightsOn)
         {
-            DoorControls.Open();
+            OnPuzzleCompleted();
         }
     }
 
@@ -149,5 +176,25 @@ public class PuzzleRoomOneController : MonoBehaviour
                 CheckSphereAndDoorControls();
             })
             .Start();
+    }
+
+    public void InteractedWithTapestry()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(InteractingWithTapestry);
+    }
+
+    public void InteractedWithBlood()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(InteractingWithBlood);
+    }
+
+    public void OnPuzzleCompleted()
+    {
+        DoorControls.Open();
+
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(CompletedPuzzleDialogue);
     }
 }

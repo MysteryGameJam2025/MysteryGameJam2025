@@ -9,6 +9,9 @@ public class IntroductionController : MonoBehaviour
     private DialogueSectionSO inLevelDialogue;
     private DialogueSectionSO InLevelDialogue => inLevelDialogue;
     [SerializeField]
+    private DialogueSectionSO afterNoteDialogue;
+    private DialogueSectionSO AfterNoteDialogue => afterNoteDialogue;
+    [SerializeField]
     private DoorControl caveDoor;
     private DoorControl CaveDoor => caveDoor;
 
@@ -40,6 +43,17 @@ public class IntroductionController : MonoBehaviour
 
     void OpenNote()
     {
-        OverarchingNoteController.Instance?.ShowNote(onNoteClose: CaveDoor.Open);
+        OverarchingNoteController.Instance?.ShowNote(onNoteClose: StartAfterNoteDialogue);
+    }
+
+    void StartAfterNoteDialogue()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = OpenStartDoor;
+        DialogueSingleton.Instance.EnqueueDialogue(AfterNoteDialogue);
+    }
+
+    void OpenStartDoor()
+    {
+        CaveDoor.Open();
     }
 }

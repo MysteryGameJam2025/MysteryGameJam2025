@@ -58,7 +58,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         ShowHideAnimation?.Stop();
         ShowHideAnimation = new Tween(1)
             .For(DialogueGroup)
-            .AlphaTo(1)
+            .AlphaTo(0, 1)
             .SetEasing(Easing.EaseOutSine)
             .OnCompleted(() =>
             {
@@ -74,7 +74,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
         ShowHideAnimation = new Tween(1)
             .OnStarted(() => IsAnimating = false)
             .For(DialogueGroup)
-            .AlphaTo(0)
+            .AlphaTo(1, 0)
             .SetEasing(Easing.EaseInSine)
             .OnCompleted(() =>
             {

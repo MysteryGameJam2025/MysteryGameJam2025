@@ -18,4 +18,6 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
     dialogue: What do you think it means? The symbol?
   - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
-    dialogue: Seems simple enough. It must mean attraction.
+    dialogue: "When I use it, it pulls on the crystal\u2026"
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: It must mean attraction.

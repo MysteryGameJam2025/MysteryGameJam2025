@@ -23,6 +23,7 @@ public class CameraManagerSingleton : AbstractMonoBehaviourSingleton<CameraManag
         ActiveCamera.enabled = true;
 
         AudioListenerController.transform.SetParent(ActiveCamera.transform, false);
+        AudioListenerController.transform.position = camera.transform.position;
     }
 
     public bool IsActiveCamera(Camera camera)
