@@ -209,6 +209,7 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
 
         availableSymbols = symbolsToEquip;
         currentSymbol = availableSymbols[0];
+        symbolIndex = 0;
 
         UIController.SetInitialSymbol(CurrentSymbol);
 
