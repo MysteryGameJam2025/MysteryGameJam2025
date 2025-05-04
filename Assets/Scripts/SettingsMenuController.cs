@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SettingsMenuController : MonoBehaviour
@@ -16,6 +17,9 @@ public class SettingsMenuController : MonoBehaviour
 
     [SerializeField]
     private Button backButton;
+    [SerializeField]
+    private EventSystem eventSystem;
+    private EventSystem EventSystem => eventSystem;
 
     public Action OnClose;
 
@@ -29,6 +33,7 @@ public class SettingsMenuController : MonoBehaviour
     {
         OnClose = onClose;
         container.SetActive(true);
+        EventSystem.SetSelectedGameObject(masterVolumeSlider.gameObject);
     }
 
     public void CloseSettings()
