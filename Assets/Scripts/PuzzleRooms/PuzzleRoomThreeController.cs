@@ -113,6 +113,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
         if (IsBrokenEmitterFixed && IsHoloCrystalActive && symbol == Entrust)
         {
             BeamVfx.SetActive(true);
+            AudioController.Instance?.PlayLocalSound("ContinualBeam", TopTransmitter.gameObject);
             OnPuzzleCompleted();
         }
     }

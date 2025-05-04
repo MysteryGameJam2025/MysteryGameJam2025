@@ -46,6 +46,7 @@ public class PowerSphereController : SymbolActivatableBase
     private MeshRenderer MeshRenderer => meshRenderer ??= GetComponent<MeshRenderer>();
 
     private AudioSource RollingSource { get; set; }
+    private AudioSource BeamSource { get; set; }
 
     public Action OnReachedTarget;
 
@@ -60,6 +61,7 @@ public class PowerSphereController : SymbolActivatableBase
             AttractionEffect.SetActive(true);
             targetTransform = currentTarget.transform;
             RollingSource = AudioController.Instance.PlayLocalSound("BallRolling", gameObject, shouldPlay: false);
+            BeamSource = AudioController.Instance?.PlayLocalSound("ContinualBeam", gameObject, shouldPlay: false);
         }
 
         if (currentSymbol == Connection)
@@ -78,6 +80,7 @@ public class PowerSphereController : SymbolActivatableBase
             if (shouldMoveTowardsTarget)
             {
                 AudioController.Instance.PlayLocalSound("BallRolling", gameObject, false);
+                AudioController.Instance.PlayLocalSound("ContinualBeam", gameObject, false);
                 if (Vector3.Distance(targetTransform.position, transform.position) <= StoppingDistance)
                 {
                     ReachedTarget();
@@ -94,6 +97,7 @@ public class PowerSphereController : SymbolActivatableBase
         currentTarget = null;
         RB.isKinematic = true;
         RollingSource?.Stop();
+        BeamSource?.Stop();
         AudioController.Instance.PlayLocalSound("BallClick", gameObject);
         OnReachedTarget?.Invoke();
     }
