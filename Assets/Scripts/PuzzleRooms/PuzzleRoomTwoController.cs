@@ -297,6 +297,8 @@ public class PuzzleRoomTwoController : MonoBehaviour
 
     public void InteractedWithDistressBeacon()
     {
+        GlitchManager.Instance.PlayShortGlitch();
+
         DialogueSingleton.Instance.OnSectionCompleted = null;
         DialogueSingleton.Instance.EnqueueDialogue(DistressInteractionDialouge);
     }

@@ -184,6 +184,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     public void InteractedWithBlood()
     {
+        GlitchManager.Instance.PlayTinyGlitch();
         DialogueSingleton.Instance.OnSectionCompleted = null;
         DialogueSingleton.Instance.EnqueueDialogue(InteractingWithBlood);
     }
