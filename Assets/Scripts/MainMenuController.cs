@@ -2,6 +2,7 @@ using FriedSynapse.FlowEnt;
 using System;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -21,6 +22,9 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField]
     private Button quitButton;
+    [SerializeField]
+    private EventSystem eventSystem;
+    private EventSystem EventSystem => eventSystem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,7 +48,7 @@ public class MainMenuController : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         AudioController.Instance?.FadeBackgroundMusic(false, 0.5f);
-        new Tween(0.75f).OnCompleted(() => 
+        new Tween(0.75f).OnCompleted(() =>
         {
             SceneController.Instance.LoadScene(sceneToLoadOnPlay);
             AudioController.Instance?.FadeBackgroundMusic(true, 0.5f);
@@ -54,6 +58,11 @@ public class MainMenuController : MonoBehaviour
     private void SetMenuUIVisibility(bool isVisible)
     {
         container.gameObject.SetActive(isVisible);
+        if (isVisible)
+        {
+            EventSystem.SetSelectedGameObject(playButton.gameObject);
+        }
+
     }
 
     private void Quit()
