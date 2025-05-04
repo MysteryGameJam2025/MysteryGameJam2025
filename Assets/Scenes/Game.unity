@@ -75465,7 +75465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8250202384394270282, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8847231280329772205, guid: 75ea842002fe53d419773ed31e8c2acd, type: 3}
       propertyPath: m_SizeDelta.y
@@ -75854,10 +75854,6 @@ PrefabInstance:
       propertyPath: messageDecoder
       value: 
       objectReference: {fileID: 1710311909}
-    - target: {fileID: 2868967923836820225, guid: de81a38b7b23da04fbb40a005ed2cdd3, type: 3}
-      propertyPath: messageCanvasGroup
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3760465040740890525, guid: de81a38b7b23da04fbb40a005ed2cdd3, type: 3}
       propertyPath: textField
       value: 
@@ -111843,7 +111839,7 @@ MonoBehaviour:
   inLevelDialogue: {fileID: 11400000, guid: aa750bed1afab3f4d8bd3581589a6a75, type: 2}
   afterNoteDialogue: {fileID: 11400000, guid: 52fe252ccca8a164d93222907ecce501, type: 2}
   caveDoor: {fileID: 1191036520}
-  playIntro: 1
+  playIntro: 0
 --- !u!4 &2141580401
 Transform:
   m_ObjectHideFlags: 0

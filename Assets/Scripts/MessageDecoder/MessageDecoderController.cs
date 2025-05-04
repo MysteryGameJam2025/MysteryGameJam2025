@@ -7,18 +7,23 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
     [SerializeField]
     private MessageDecoder messageDecoder;
     private MessageDecoder MessageDecoder => messageDecoder;
+    [SerializeField]
+    private GameObject closeButton;
+    private GameObject CloseButton => closeButton;
 
     private Tween ShowMessageTween { get; set; }
     private Action OnMessageClosed;
 
     public void OpenMessage(MessageData messageData, Action onMessageClosed = null)
     {
+
         DialogueSingleton.Instance.OnSectionCompleted = () => ShowMessage(messageData, onMessageClosed);
         DialogueSingleton.Instance.EnqueueDialogue(messageData.PreSolveDialog);
     }
 
     private void ShowMessage(MessageData messageData, Action onMessageClosed)
     {
+        GauntletController.Instance.UIController.Hide();
         ShowMessageTween?.Stop();
         MessageDecoder.SetUp(messageData, CloseMessage);
         PlayerController.Instance.LockControls();
@@ -37,6 +42,7 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
 
     public void CloseMessage()
     {
+        GauntletController.Instance.UIController.Show();
         ShowMessageTween?.Stop();
         ShowMessageTween = new Tween(0.8f)
             .OnStarted(() =>
@@ -46,8 +52,8 @@ public class MessageDecoderController : AbstractMonoBehaviourSingleton<MessageDe
             })
             .For(MessageDecoder.CanvasGroup)
                 .AlphaTo(0)
-            .OnCompleted(() => 
-            { 
+            .OnCompleted(() =>
+            {
                 PlayerController.Instance.UnlockControls();
                 OnMessageClosed?.Invoke();
             })

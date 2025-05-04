@@ -12,6 +12,9 @@ public class PauseManagerSingleton : MonoBehaviour
     [SerializeField]
     private CanvasGroup pauseMenu;
     private CanvasGroup PauseMenu => pauseMenu;
+    [SerializeField]
+    private GameObject resumeButton;
+    private GameObject ResumeButton => resumeButton;
 
     private bool isPaused { get; set; }
     private AbstractAnimation ShowHideAnimation { get; set; }
@@ -24,6 +27,7 @@ public class PauseManagerSingleton : MonoBehaviour
         PauseMenu.alpha = 1;
         PauseMenu.interactable = true;
         PauseMenu.blocksRaycasts = true;
+        PlayerController.Instance.EventSystem.SetSelectedGameObject(ResumeButton);
     }
 
     public void Resume()

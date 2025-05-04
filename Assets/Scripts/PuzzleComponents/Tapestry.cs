@@ -41,6 +41,7 @@ public class Tapestry : AbstractInteractable
             {
                 PlayerController.Instance.TapestryUI.Group.interactable = true;
                 PlayerController.Instance.TapestryUI.Group.blocksRaycasts = true;
+                PlayerController.Instance.EventSystem.SetSelectedGameObject(PlayerController.Instance.TapestryUI.CloseButton.gameObject);
             })
             .Start();
     }
