@@ -16,6 +16,14 @@ public struct AudioAsset
     [SerializeField]
     private AudioTypes type;
     public AudioTypes Type => type;
+
+    [SerializeField, Range(0,1)]
+    private float volume;
+    public float Volume => volume;
+
+    [SerializeField, Range(0, 1.1f)]
+    private float reverb;
+    public float Reverb => reverb;
 }
 
 [CreateAssetMenu]
