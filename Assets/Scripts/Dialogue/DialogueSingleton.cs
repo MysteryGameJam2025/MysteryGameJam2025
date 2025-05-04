@@ -78,7 +78,7 @@ public class DialogueSingleton : AbstractMonoBehaviourSingleton<DialogueSingleto
             .SetEasing(Easing.EaseInSine)
             .OnCompleted(() =>
             {
-                Dialogue.text = string.Empty;
+                SetText(" ");
                 OnSectionCompleted?.Invoke();
             })
             .Start();
