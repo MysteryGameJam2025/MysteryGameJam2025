@@ -49,8 +49,8 @@ public class DoorControl : SymbolActivatableBase
         }
         else
         {
-            LeftDoorPivot.rotation = Quaternion.identity;
-            RightDoorPivot.rotation = Quaternion.identity;
+            LeftDoorPivot.localRotation = Quaternion.identity;
+            RightDoorPivot.localRotation = Quaternion.identity;
         }
     }
 }
