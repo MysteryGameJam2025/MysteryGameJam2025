@@ -10,6 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e94579628104783439874d378925d1f0, type: 3}
-  m_Name: PreSecondNote
+  m_Name: 3. TriesToLeave
   m_EditorClassIdentifier: 
-  dialogueData: []
+  dialogueData:
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "Please\u2026"
+  - speaker: {fileID: 11400000, guid: f67ed9dca3b31a7479ada965f37a86af, type: 2}
+    dialogue: "The mission\u2026"

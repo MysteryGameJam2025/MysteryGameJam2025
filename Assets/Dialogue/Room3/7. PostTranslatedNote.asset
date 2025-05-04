@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e94579628104783439874d378925d1f0, type: 3}
-  m_Name: PreLastNote
+  m_Name: 7. PostTranslatedNote
   m_EditorClassIdentifier: 
-  dialogueData: []
+  dialogueData:
+  - speaker: {fileID: 11400000, guid: eb0c7f5d14e119c43a53406cb2bf1991, type: 2}
+    dialogue: ...

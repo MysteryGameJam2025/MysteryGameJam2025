@@ -56,9 +56,7 @@ public class PuzzleRoomOneController : MonoBehaviour
     [SerializeField]
     private MessageData firstNote;
     private MessageData FirstNote => firstNote;
-    [SerializeField]
-    private DoorControl secondRoomEntrace;
-    private DoorControl SecondRoomEntrace => secondRoomEntrace;
+
     [SerializeField]
     private DialogueSectionSO postFirstTranslatedNoteDialog;
     private DialogueSectionSO PostFirstTranslatedNoteDialog => postFirstTranslatedNoteDialog;
@@ -84,7 +82,7 @@ public class PuzzleRoomOneController : MonoBehaviour
 
     private void AfterFirstNote()
     {
-        DialogueSingleton.Instance.OnSectionCompleted = SecondRoomEntrace.Open;
+        DialogueSingleton.Instance.OnSectionCompleted = null;
         DialogueSingleton.Instance.EnqueueDialogue(PostFirstTranslatedNoteDialog);
     }
 

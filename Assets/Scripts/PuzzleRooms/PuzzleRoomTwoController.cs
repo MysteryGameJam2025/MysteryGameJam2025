@@ -44,6 +44,36 @@ public class PuzzleRoomTwoController : MonoBehaviour
     private GameObject badHarpVfx;
     private GameObject BadHarpVfx => badHarpVfx;
 
+    [SerializeField]
+    private MessageData secondNote;
+    private MessageData SecondNote => secondNote;
+
+    [Header("Dialogue")]
+    [SerializeField]
+    private DialogueSectionSO tapestryInteractionDialouge;
+    private DialogueSectionSO TapestryInteractionDialouge => tapestryInteractionDialouge;
+
+    [SerializeField]
+    private DialogueSectionSO brokenHornInteractionDialouge;
+    private DialogueSectionSO BrokenHornInteractionDialouge => brokenHornInteractionDialouge;
+
+    [SerializeField]
+    private DialogueSectionSO firstHornInteractionDialouge;
+    private DialogueSectionSO FirstHornInteractionDialouge => firstHornInteractionDialouge;
+
+    [SerializeField]
+    private DialogueSectionSO distressInteractionDialouge;
+    private DialogueSectionSO DistressInteractionDialouge => distressInteractionDialouge;
+
+    [SerializeField]
+    private DialogueSectionSO puzzleCompletionDialouge;
+    private DialogueSectionSO PuzzleCompletionDialouge => puzzleCompletionDialouge;
+
+    [SerializeField]
+    private DialogueSectionSO postSecondTranslatedNoteDialog;
+    private DialogueSectionSO PostSecondTranslatedNoteDialog => postSecondTranslatedNoteDialog;
+
+    private bool HasATrumpet { get; set; }
     private bool HasLeftTrumpetBeenPlaced { get; set; }
     private bool HasRightTrumpetBeenPlaced { get; set; }
     private bool HasLeftTrumpetBeenRepaired { get; set; }
@@ -67,11 +97,23 @@ public class PuzzleRoomTwoController : MonoBehaviour
     public void PickupLeftTrumpet()
     {
         LeftTrumpetPlacement.SetActive(true);
+        CheckHornDialogue();
     }
 
     public void PickupRightTrumpet()
     {
         RightTrumpetPlacement.SetActive(true);
+        CheckHornDialogue();
+    }
+
+    private void CheckHornDialogue()
+    {
+        if (!HasATrumpet)
+        {
+            HasATrumpet = true;
+            DialogueSingleton.Instance.OnSectionCompleted = null;
+            DialogueSingleton.Instance.EnqueueDialogue(FirstHornInteractionDialouge);
+        }
     }
 
     public void PlaceLeftTrumpet()
@@ -109,6 +151,12 @@ public class PuzzleRoomTwoController : MonoBehaviour
 
     void CheckForTrumpetRepair()
     {
+        if(!HasLeftTrumpetBeenPlaced && !HasRightTrumpetBeenPlaced)
+        {
+            DialogueSingleton.Instance.OnSectionCompleted = null;
+            DialogueSingleton.Instance.EnqueueDialogue(BrokenHornInteractionDialouge);
+        }
+
         if (FirstMusicDeviceActiveSymbol == Togetherness)
         {
             if (HasLeftTrumpetBeenPlaced && !HasLeftTrumpetBeenRepaired)
@@ -213,7 +261,7 @@ public class PuzzleRoomTwoController : MonoBehaviour
     {
         HarpVfx.SetActive(true);
         BadHarpVfx.SetActive(false);
-        ExitDoor.Open();
+        OnPuzzleCompleted();
     }
 
     void PlaySecondDeviceIncorrectMelody()
@@ -228,5 +276,36 @@ public class PuzzleRoomTwoController : MonoBehaviour
         IsSecondDevicePlayingCorrectMelody = false;
         HarpVfx.SetActive(false);
         BadHarpVfx.SetActive(false);
+    }
+
+    public void PickUpNote()
+    {
+        MessageDecoderController.Instance?.OpenMessage(SecondNote, AfterNote);
+    }
+
+    private void AfterNote()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(PostSecondTranslatedNoteDialog);
+    }
+
+    public void InteractedWithTapestry()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(TapestryInteractionDialouge);
+    }
+
+    public void InteractedWithDistressBeacon()
+    {
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(DistressInteractionDialouge);
+    }
+
+    public void OnPuzzleCompleted()
+    {
+        ExitDoor.Open();
+
+        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.EnqueueDialogue(PuzzleCompletionDialouge);
     }
 }
