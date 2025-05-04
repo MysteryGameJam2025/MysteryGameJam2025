@@ -11,7 +11,7 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
 
     [SerializeField]
     private GauntletUIController uiController;
-    private GauntletUIController UIController => uiController;
+    public GauntletUIController UIController => uiController;
 
     [SerializeField]
     private InputActionReference activate;
@@ -118,7 +118,6 @@ public class GauntletController : AbstractMonoBehaviourSingleton<GauntletControl
             interactable.OnInteractionHoverStart();
             currentInteractable = interactable;
         }
-
     }
 
     void EndHover()

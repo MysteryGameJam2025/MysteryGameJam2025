@@ -49,6 +49,7 @@ public class OverarchingNoteController : AbstractMonoBehaviourSingleton<Overarch
             .SetEasing(Easing.EaseInCubic)
             .OnCompleted(() =>
             {
+                PlayerController.Instance.EventSystem.SetSelectedGameObject(CloseButton.gameObject);
                 CanvasGroup.interactable = true;
                 CanvasGroup.blocksRaycasts = true;
             })

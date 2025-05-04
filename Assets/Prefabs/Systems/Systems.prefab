@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageDecoder: {fileID: 0}
+  closeButton: {fileID: 0}
 --- !u!1 &4188431055909325789
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseAction: {fileID: 8823038120691304022, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   pauseMenu: {fileID: 0}
+  resumeButton: {fileID: 0}
 --- !u!1 &7802238649578912029
 GameObject:
   m_ObjectHideFlags: 0

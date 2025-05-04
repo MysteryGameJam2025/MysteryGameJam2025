@@ -29,7 +29,7 @@ public class GauntletUIController : MonoBehaviour
     private RectTransform rightArrow;
     private RectTransform RightArrow => rightArrow;
 
-    private AbstractAnimation ShowAnimation { get; set; }
+    private AbstractAnimation ShowHideAnimation { get; set; }
     private AbstractAnimation DialAnimation { get; set; }
     public bool IsAnimationPlaying { get; private set; }
 
@@ -68,10 +68,20 @@ public class GauntletUIController : MonoBehaviour
 
     public void Show()
     {
-        ShowAnimation?.Stop();
-        ShowAnimation = new Tween(1)
+        ShowHideAnimation?.Stop();
+        ShowHideAnimation = new Tween(1)
             .For(CanvasGroup)
             .AlphaTo(1)
+            .SetEasing(Easing.EaseOutSine)
+            .Start();
+    }
+
+    public void Hide()
+    {
+        ShowHideAnimation?.Stop();
+        ShowHideAnimation = new Tween(1)
+            .For(CanvasGroup)
+            .AlphaTo(0)
             .SetEasing(Easing.EaseOutSine)
             .Start();
     }

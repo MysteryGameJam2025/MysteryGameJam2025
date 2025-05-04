@@ -1,6 +1,7 @@
 using FriedSynapse.FlowEnt;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
@@ -32,6 +33,9 @@ public class PlayerController : AbstractMonoBehaviourSingleton<PlayerController>
     [SerializeField]
     private TapestryUIController tapestryUI;
     public TapestryUIController TapestryUI => tapestryUI;
+    [SerializeField]
+    private EventSystem eventSystem;
+    public EventSystem EventSystem => eventSystem;
 
 
     private Transform self;
