@@ -22,6 +22,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc7667e0d7068174390a8b7d7327bc49, type: 2}
   - {fileID: 11400000, guid: 1e2ba451e54327245aa8caa45ada9882, type: 2}
   alternatePossibilites:
-  - Lust
-  - Power
-  - Bond
+  - Action
+  - Nobleness
+  - Lethargy
