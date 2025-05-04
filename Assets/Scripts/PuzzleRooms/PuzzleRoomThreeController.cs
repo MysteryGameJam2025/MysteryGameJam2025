@@ -33,6 +33,9 @@ public class PuzzleRoomThreeController : MonoBehaviour
     private DoorControl exitDoor;
     private DoorControl ExitDoor => exitDoor;
     [SerializeField]
+    private DoorControl nextRoomEntrance;
+    private DoorControl NextRoomEntrance => nextRoomEntrance;
+    [SerializeField]
     private GameObject beamVfx;
     private GameObject BeamVfx => beamVfx;
     [SerializeField]
@@ -143,7 +146,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
 
     private void AfterNote()
     {
-        DialogueSingleton.Instance.OnSectionCompleted = null;
+        DialogueSingleton.Instance.OnSectionCompleted = NextRoomEntrance.Open;
         DialogueSingleton.Instance.EnqueueDialogue(PostThirdTranslatedNoteDialogue);
     }
 }
