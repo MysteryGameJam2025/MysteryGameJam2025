@@ -65,7 +65,7 @@ public class AudioController : MonoBehaviour
         {
             if (sfxVolume == -1f)
             {
-                sfxVolume = PlayerPrefs.GetFloat("sfxVol", 0.25f);
+                sfxVolume = PlayerPrefs.GetFloat("sfxVol", 0.5f);
                 SetOnMixer("sfxVol", sfxVolume);
             }
 
@@ -281,7 +281,6 @@ public class AudioController : MonoBehaviour
                 .VolumeTo(source.volume, 0)
             .OnCompleted(() =>
             {
-                source.Stop();
                 SoundFadeTweens.Remove(source);
             })
             .Start()

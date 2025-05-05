@@ -65,7 +65,7 @@ public class SettingsMenuController : MonoBehaviour
 
     private void OnSfxChanged(float value)
     {
-        AudioController.Instance.MusicVolume = value;
+        AudioController.Instance.SfxVolume = value;
     }
 
     private void OnMusicChanged(float value)
