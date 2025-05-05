@@ -86,6 +86,7 @@ public class PuzzleRoomTwoController : MonoBehaviour
     private bool IsFirstDevicePlayingCorrectMelody { get; set; }
     private bool IsSecondDevicePlayingCorrectMelody { get; set; }
     private bool HasPlayedIncorectMelody { get; set; }
+    private bool IsPlayerInRoom { get; set; }
 
     private AbstractAnimation LeftTrumpetRepairAnimation { get; set; }
     private AbstractAnimation RightTrumpetRepairAnimation { get; set; }
@@ -260,18 +261,23 @@ public class PuzzleRoomTwoController : MonoBehaviour
     {
         IsFirstDevicePlayingCorrectMelody = true;
         TrumpetVfx.SetActive(true);
+        AudioController.Instance.FadeInWorldHorns();
     }
 
     void StopFirstDeviceMelody()
     {
         IsFirstDevicePlayingCorrectMelody = false;
         TrumpetVfx.SetActive(false);
+        AudioController.Instance.FadeOutWorldHorns();
     }
 
     void PlaySecondDeviceCorrectMelody()
     {
         HarpVfx.SetActive(true);
         BadHarpVfx.SetActive(false);
+
+        AudioController.Instance.FadeInHarpCorrect();
+        AudioController.Instance.FadeOutHarpIncorrect();
         OnPuzzleCompleted();
     }
 
@@ -280,6 +286,8 @@ public class PuzzleRoomTwoController : MonoBehaviour
         IsSecondDevicePlayingCorrectMelody = false;
         HarpVfx.SetActive(false);
         BadHarpVfx.SetActive(true);
+        AudioController.Instance.FadeInHarpIncorrect();
+        AudioController.Instance.FadeOutHarpCorrect();
     }
 
     void StopSecondDeviceMelody()
@@ -287,6 +295,9 @@ public class PuzzleRoomTwoController : MonoBehaviour
         IsSecondDevicePlayingCorrectMelody = false;
         HarpVfx.SetActive(false);
         BadHarpVfx.SetActive(false);
+
+        AudioController.Instance.FadeOutHarpCorrect();
+        AudioController.Instance.FadeOutHarpIncorrect();
     }
 
     public void PickUpNote()
@@ -320,5 +331,25 @@ public class PuzzleRoomTwoController : MonoBehaviour
 
         DialogueSingleton.Instance.OnSectionCompleted = null;
         DialogueSingleton.Instance.EnqueueDialogue(PuzzleCompletionDialouge);
+    }
+
+    public void OnPlayerEntersExits()
+    {
+        IsPlayerInRoom = !IsPlayerInRoom;
+
+        if (IsPlayerInRoom)
+        {
+            AudioController.Instance.FadeInWorldTheme();
+            if (IsFirstDevicePlayingCorrectMelody)
+                AudioController.Instance.FadeInWorldHorns();
+            if (IsSecondDevicePlayingCorrectMelody)
+                AudioController.Instance.FadeInHarpCorrect();
+            if (BadHarpVfx.activeInHierarchy)
+                AudioController.Instance.FadeInHarpIncorrect();
+        }
+        else
+        {
+            AudioController.Instance.FadeOutWorldTheme();
+        }
     }
 }

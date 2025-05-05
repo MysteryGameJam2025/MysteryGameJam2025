@@ -31,6 +31,7 @@ public class FourthRoomController : MonoBehaviour
     {
         PlayerController.Instance.LockControls();
         FinalSequenceAnimation?.Stop();
+        GlitchManager.Instance.PlaySlowBuildup();
         FinalSequenceAnimation = new Flow()
             .QueueDelay(3)
             .Queue(new Tween(4)

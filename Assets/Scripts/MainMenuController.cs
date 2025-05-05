@@ -30,6 +30,7 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         Bind();
+        AudioController.Instance.FadeOutBackingTrack();
         AudioController.Instance.StartBackgroundMusic();
     }
 

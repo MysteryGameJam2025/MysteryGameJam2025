@@ -67,12 +67,23 @@ public class PuzzleRoomOneController : MonoBehaviour
     bool areControlsConnected;
     bool areLightsOn;
     bool hasUsedSymbol;
+    bool isInRoom;
 
     private AbstractAnimation MaterialAnimation { get; set; }
 
     void Awake()
     {
         PowerUpMaterial.SetColor("_EmissionColor", EmmissionStart);
+    }
+
+    public void OnPlayerEntersExits() 
+    {
+        isInRoom = !isInRoom;
+
+        if(isInRoom)
+            AudioController.Instance.FadeInLoveTheme();
+        else
+            AudioController.Instance.FadeOutLoveTheme();
     }
 
     public void PickUpFirstNote()

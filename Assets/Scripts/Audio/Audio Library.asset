@@ -17,7 +17,49 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 4b49be93b57e7f446abbdc310cc3b38f, type: 3}
     type: 1
     volume: 1
-    reverb: 1.1
+    reverb: 1
+    maxDistance: 500
+  - assetName: BackingTrack
+    audioClip: {fileID: 8300000, guid: 76fc06dc905de084bbeaa3accd3b0117, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
+    maxDistance: 500
+  - assetName: LoveTheme
+    audioClip: {fileID: 8300000, guid: cc4e0956acaf54f488e6b38da70bf0c4, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
+    maxDistance: 500
+  - assetName: WorldTheme
+    audioClip: {fileID: 8300000, guid: bad08c591da8974408b60f08017d7086, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
+    maxDistance: 500
+  - assetName: WorldThemeHarpCorrect
+    audioClip: {fileID: 8300000, guid: ad10f3cb20a79f5448e84a60fdb84748, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
+    maxDistance: 500
+  - assetName: WorldThemeHarpIncorrect
+    audioClip: {fileID: 8300000, guid: 6818cacbca031274b9517a343617cd5e, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
+    maxDistance: 500
+  - assetName: WorldThemeHorns
+    audioClip: {fileID: 8300000, guid: bc2664b6808a61c40bad04047fdb88bd, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
+    maxDistance: 500
+  - assetName: DeathTheme
+    audioClip: {fileID: 8300000, guid: 4bf0b66f9909a4b4a82c3e85e7b41391, type: 3}
+    type: 1
+    volume: 1
+    reverb: 1
     maxDistance: 500
   - assetName: Footsteps1
     audioClip: {fileID: 8300000, guid: e9bb2d3e8b737d44db1cf4854d0a751d, type: 3}

@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glitchMaterial: {fileID: 2100000, guid: 7c0223c56ef8a8d468f615dfef0391ac, type: 2}
+  endGlitchCooldownMax: 2
+  endGlitchCooldownMin: 4
 --- !u!1 &8805962525429960680
 GameObject:
   m_ObjectHideFlags: 0
