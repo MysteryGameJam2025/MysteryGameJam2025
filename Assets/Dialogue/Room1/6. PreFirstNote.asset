@@ -30,3 +30,6 @@ MonoBehaviour:
     dialogue: Their meanings must be related to how I just used them.
   - speaker: {fileID: 0}
     dialogue: <i>(Drag and drop the translations for the symbols.)</i>
+  - speaker: {fileID: 0}
+    dialogue: <i>(Each Auric symbol has a translation which must be matched, including
+      the title one at the top.)</i>
