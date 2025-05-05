@@ -241,7 +241,7 @@ public class AudioController : MonoBehaviour
 
     public void FadeOutDeathTheme(float timeOfFade = 3f)
     {
-        FadeInSource(DeathThemeSource, timeOfFade);
+        FadeOutSource(DeathThemeSource, timeOfFade);
     }
 
     public void FadeInSource(AudioSource source, float timeOfFade = 1f, float targetVolume = 1f)
