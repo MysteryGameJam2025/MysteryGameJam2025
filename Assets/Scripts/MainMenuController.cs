@@ -33,6 +33,9 @@ public class MainMenuController : MonoBehaviour
     {
         Bind();
         AudioController.Instance.FadeOutBackingTrack();
+        AudioController.Instance.FadeOutLoveTheme();
+        AudioController.Instance.FadeOutWorldTheme();
+        AudioController.Instance.FadeOutDeathTheme();
         AudioController.Instance.StartBackgroundMusic();
     }
 
