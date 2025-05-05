@@ -59,6 +59,6 @@ public class FourthRoomController : MonoBehaviour
         EndSequence.SetFloat(WipeX, 0);
         EndSequence.SetFloat(WipeY, 0);
         EndSequence.SetFloat(ProgressRef, 0);
-        SceneController.Instance.LoadScene("Menu");
+        SceneController.Instance.LoadScene("Credits");
     }
 }
