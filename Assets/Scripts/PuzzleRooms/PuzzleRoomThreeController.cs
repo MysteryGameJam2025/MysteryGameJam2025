@@ -74,6 +74,11 @@ public class PuzzleRoomThreeController : MonoBehaviour
     private bool IsCrystalDropped { get; set; }
     private bool IsHoloCrystalActive { get; set; }
 
+    private void Start()
+    {
+        AudioController.Instance?.PlayLocalSound("ContinualBeam", TopTransmitter.gameObject, loop: true);
+    }
+
     public void OnStairsSymbolPlateUsed(Symbol symbol)
     {
         if (!IsStairsDestroyed && symbol == Ruin)
@@ -113,7 +118,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
         if (IsBrokenEmitterFixed && IsHoloCrystalActive && symbol == Entrust)
         {
             BeamVfx.SetActive(true);
-            AudioController.Instance?.PlayLocalSound("ContinualBeam", TopTransmitter.gameObject);
+            AudioController.Instance?.PlayLocalSound("ContinualBeam", HoloCrystal.gameObject, loop: true);
             OnPuzzleCompleted();
         }
     }
