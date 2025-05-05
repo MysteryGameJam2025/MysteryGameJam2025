@@ -74,11 +74,6 @@ public class PuzzleRoomThreeController : MonoBehaviour
     private bool IsCrystalDropped { get; set; }
     private bool IsHoloCrystalActive { get; set; }
 
-    private void Start()
-    {
-        AudioController.Instance?.PlayLocalSound("ContinualBeam", TopTransmitter.gameObject, loop: true);
-    }
-
     public void OnStairsSymbolPlateUsed(Symbol symbol)
     {
         if (!IsStairsDestroyed && symbol == Ruin)
