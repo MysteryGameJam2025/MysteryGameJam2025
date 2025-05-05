@@ -97,6 +97,34 @@ public class AudioController : MonoBehaviour
     private AudioSource BackgroundMusicSource => backgroundMusicSource;
 
     [SerializeField]
+    private AudioSource backingTrackSource;
+    private AudioSource BackingTrackSource => backingTrackSource;
+
+    [SerializeField]
+    private AudioSource loveThemeSource;
+    private AudioSource LoveThemeSource => loveThemeSource;
+
+    [SerializeField]
+    private AudioSource worldThemeSource;
+    private AudioSource WorldThemeSource => worldThemeSource;
+
+    [SerializeField]
+    private AudioSource worldThemeIncorrectHarpSource;
+    private AudioSource WorldThemeIncorrectHarpSource => worldThemeIncorrectHarpSource;
+
+    [SerializeField]
+    private AudioSource worldThemeCorrectHarpSource;
+    private AudioSource WorldThemeCorrectHarpSource => worldThemeCorrectHarpSource;
+
+    [SerializeField]
+    private AudioSource worldThemeHornSource;
+    private AudioSource WorldThemeHornSource => worldThemeHornSource;
+
+    [SerializeField]
+    private AudioSource deathThemeSource;
+    private AudioSource DeathThemeSource => deathThemeSource;
+
+    [SerializeField]
     private AudioLibrary audioLibrary;
     private AudioLibrary AudioLibrary => audioLibrary;
 
@@ -142,6 +170,68 @@ public class AudioController : MonoBehaviour
             FadeInSource(BackgroundMusicSource, timeOfFade);
         else
             FadeOutSource(BackgroundMusicSource, timeOfFade);
+    }
+
+    public void FadeInBackingTrack(float timeOfFade = 1f)
+    {
+        FadeInSource(BackingTrackSource, timeOfFade);
+    }
+
+    public void FadeOutBackingTrack(float timeOfFade = 1f)
+    {
+        FadeInSource(BackingTrackSource, timeOfFade);
+    }
+
+    public void FadeInLoveTheme(float timeOfFade = 1f)
+    {
+        FadeInSource(LoveThemeSource, timeOfFade);
+
+        FadeOutSource(WorldThemeSource, timeOfFade);
+        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeHornSource, timeOfFade);
+        FadeOutSource(DeathThemeSource, timeOfFade);
+    }
+
+    public void FadeInWorldTheme(float timeOfFade = 1f)
+    {
+        FadeInSource(WorldThemeSource, timeOfFade);
+
+        FadeOutSource(LoveThemeSource, timeOfFade);
+        FadeOutSource(DeathThemeSource, timeOfFade);
+    }
+
+    public void FadeInWorldHorns(float timeOfFade = 1f)
+    {
+        FadeInSource(WorldThemeHornSource, timeOfFade);
+    }
+
+    public void FadeOutWorldHorns(float timeOfFade = 1f)
+    {
+        FadeOutSource(WorldThemeHornSource, timeOfFade);
+    }
+
+    public void FadeInHarpIncorrect(float timeOfFade = 1f)
+    {
+        FadeInSource(WorldThemeIncorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
+    }
+
+    public void FadeInHarpCorrect(float timeOfFade = 1f)
+    {
+        FadeInSource(WorldThemeCorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
+    }
+
+    public void FadeInDeathTheme(float timeOfFade = 1f)
+    {
+        FadeInSource(DeathThemeSource, timeOfFade);
+
+        FadeOutSource(LoveThemeSource, timeOfFade);
+        FadeOutSource(WorldThemeSource, timeOfFade);
+        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeHornSource, timeOfFade);
     }
 
     public void FadeInSource(AudioSource source, float timeOfFade = 1f)

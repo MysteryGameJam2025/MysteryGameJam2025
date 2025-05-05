@@ -35,6 +35,11 @@ public class IntroductionController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        AudioController.Instance?.FadeInBackingTrack();
+    }
+
     void StartInLevelDialogue()
     {
         DialogueSingleton.Instance.OnSectionCompleted = OpenNote;
