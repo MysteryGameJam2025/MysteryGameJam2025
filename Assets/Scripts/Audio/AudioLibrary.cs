@@ -23,6 +23,10 @@ public struct AudioAsset
     [SerializeField, Range(0, 1.1f)]
     private float reverb;
     public float Reverb => reverb;
+
+    [SerializeField]
+    private float maxDistance;
+    public float MaxDistance => maxDistance;
 }
 
 [CreateAssetMenu]

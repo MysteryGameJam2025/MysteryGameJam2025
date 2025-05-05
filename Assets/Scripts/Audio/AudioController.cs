@@ -215,7 +215,7 @@ public class AudioController : MonoBehaviour
         return source;
     }
 
-    public AudioSource PlayLocalSound(string name, GameObject parent, bool shouldOverride = true, bool shouldPlay = true, bool shouldOverlap = false)
+    public AudioSource PlayLocalSound(string name, GameObject parent, bool shouldOverride = true, bool shouldPlay = true, bool shouldOverlap = false, bool loop = false)
     {
         AudioSource source;
 
@@ -234,6 +234,8 @@ public class AudioController : MonoBehaviour
             source.clip = asset.AudioClip;
             source.volume = asset.Volume;
             source.reverbZoneMix = asset.Reverb;
+            source.loop = loop;
+            source.maxDistance = asset.MaxDistance;
             LoadedLocalSounds.TryAdd((name, parent), source);
         }
 
@@ -264,6 +266,7 @@ public class AudioController : MonoBehaviour
         source.outputAudioMixerGroup = asset.Type == AudioTypes.Music ? MusicGroup : SfxGroup;
         source.volume = asset.Volume;
         source.reverbZoneMix = asset.Reverb;
+        source.maxDistance = asset.MaxDistance;
 
         if (shouldPlay)
             source.Play();

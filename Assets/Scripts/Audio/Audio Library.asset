@@ -18,118 +18,142 @@ MonoBehaviour:
     type: 1
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps1
     audioClip: {fileID: 8300000, guid: e9bb2d3e8b737d44db1cf4854d0a751d, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps2
     audioClip: {fileID: 8300000, guid: 598312b15644a7749b05f39d5bc10db8, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps3
     audioClip: {fileID: 8300000, guid: 9525ce9ab43ddc948b981af860254d44, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps4
     audioClip: {fileID: 8300000, guid: 7b160518934419f4e9138bf6425df526, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps5
     audioClip: {fileID: 8300000, guid: b8acbbf62f85e874d8d97d7d285783f3, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps6
     audioClip: {fileID: 8300000, guid: 0a6374a58de0b9e43856ba1aaeccd464, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps7
     audioClip: {fileID: 8300000, guid: 3bc9ea056cfd272468ce480b6bf65b6d, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: Footsteps8
     audioClip: {fileID: 8300000, guid: 2d04e2c8d481ece4aa2f32b069f55051, type: 3}
     type: 0
     volume: 1
     reverb: 1.1
+    maxDistance: 500
   - assetName: UiClick
     audioClip: {fileID: 8300000, guid: 1bfe4ced89e58b94da4185f21f25d3e9, type: 3}
     type: 0
     volume: 1
     reverb: 0
+    maxDistance: 500
   - assetName: UiAccept
     audioClip: {fileID: 8300000, guid: 3391a529ba7dff34c8f17f983745bbc8, type: 3}
     type: 0
     volume: 1
     reverb: 0
+    maxDistance: 500
   - assetName: SwapSymbol
     audioClip: {fileID: 8300000, guid: 2e682be38a3287c4cacfbcbe7f795db2, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: BallClick
     audioClip: {fileID: 8300000, guid: 437ae6828d2864b489b8be168c2461dc, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: BallRolling
     audioClip: {fileID: 8300000, guid: 6c57b871b3006cb429b5fb3574b0f186, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: LightsOn
     audioClip: {fileID: 8300000, guid: cc3aeb6a5727dbb4b8a250960e3619e4, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: GauntletActivate
     audioClip: {fileID: 8300000, guid: 3fd384270798b98409dbfa860cb7bc3f, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: GauntletBeam
     audioClip: {fileID: 8300000, guid: fe1021ace13897542acbc0edfdad9b20, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: PickUp
     audioClip: {fileID: 8300000, guid: 02a7b422dbba7f04cb8b36dcea9d62e3, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: DoorOpen
     audioClip: {fileID: 8300000, guid: ccc8d70b45611724f8832f1990fc54fe, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: BeamActivate
     audioClip: {fileID: 8300000, guid: f141dfbd6d1620e4f998bd0b2993bac5, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: BeamExit
     audioClip: {fileID: 8300000, guid: 84d7a8d4af846f54294552c7db3be71d, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: BeamImpact
     audioClip: {fileID: 8300000, guid: e3112a87508747a4b832b6fd714d490f, type: 3}
     type: 0
     volume: 1
     reverb: 1
+    maxDistance: 500
   - assetName: Dialog
     audioClip: {fileID: 8300000, guid: 16255d8e55e82ed499eccf8d3ebbc87c, type: 3}
     type: 0
-    volume: 0.5
+    volume: 0.3
     reverb: 1
+    maxDistance: 500
   - assetName: ContinualBeam
-    audioClip: {fileID: 8300000, guid: add6542ca32ace345a92ef78a27740e2, type: 3}
+    audioClip: {fileID: 8300000, guid: f1b69bce15691b84bab054524d618ef4, type: 3}
     type: 0
-    volume: 0.5
+    volume: 0.3
     reverb: 1
+    maxDistance: 18
