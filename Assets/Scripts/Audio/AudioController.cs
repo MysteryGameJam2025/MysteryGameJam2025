@@ -376,5 +376,6 @@ public class AudioController : MonoBehaviour
     public void StartBackgroundMusic()
     {
         BackgroundMusicSource.Play();
+        BackgroundMusicSource.volume = 1;
     }
 }

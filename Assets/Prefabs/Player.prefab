@@ -3916,11 +3916,11 @@ RectTransform:
   m_Children:
   - {fileID: 4672922722779078199}
   - {fileID: 1915440446068964397}
-  - {fileID: 4791064563932388584}
   - {fileID: 2002938244205437017}
   - {fileID: 8856573038190096221}
   - {fileID: 5330632186752333615}
   - {fileID: 5170792855605305159}
+  - {fileID: 4791064563932388584}
   m_Father: {fileID: 4818876078669073277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5584,7 +5584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

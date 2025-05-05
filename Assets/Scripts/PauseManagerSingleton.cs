@@ -1,10 +1,11 @@
 using FriedSynapse.FlowEnt;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PauseManagerSingleton : MonoBehaviour
 {
-    private const string MainSceneName = "Main";
+    private const string MainSceneName = "Menu";
 
     [SerializeField]
     private InputActionReference pauseAction;
@@ -13,11 +14,20 @@ public class PauseManagerSingleton : MonoBehaviour
     private CanvasGroup pauseMenu;
     private CanvasGroup PauseMenu => pauseMenu;
     [SerializeField]
-    private GameObject resumeButton;
-    private GameObject ResumeButton => resumeButton;
+    private Button resumeButton;
+    private Button ResumeButton => resumeButton;
+    [SerializeField]
+    private Button quitButton;
+    private Button QuitButton => quitButton;
 
     private bool isPaused { get; set; }
     private AbstractAnimation ShowHideAnimation { get; set; }
+
+    public void Start()
+    {
+        ResumeButton.onClick.AddListener(Resume);
+        QuitButton.onClick.AddListener(Quit);
+    }
 
     public void Pause()
     {
@@ -27,7 +37,6 @@ public class PauseManagerSingleton : MonoBehaviour
         PauseMenu.alpha = 1;
         PauseMenu.interactable = true;
         PauseMenu.blocksRaycasts = true;
-        PlayerController.Instance.EventSystem.SetSelectedGameObject(ResumeButton);
     }
 
     public void Resume()

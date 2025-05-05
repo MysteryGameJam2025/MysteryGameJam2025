@@ -1,3 +1,4 @@
+using FriedSynapse.FlowEnt;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,11 +21,13 @@ public class SceneController : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        FlowEntController.Instance.Stop();
         SceneManager.LoadScene(sceneName);
     }
 
     public void LoadScene(int sceneIndex)
     {
+        FlowEntController.Instance.Stop();
         SceneManager.LoadScene(sceneIndex);
     }
 }
