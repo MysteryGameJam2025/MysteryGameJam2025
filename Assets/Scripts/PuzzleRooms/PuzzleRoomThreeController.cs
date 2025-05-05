@@ -129,6 +129,7 @@ public class PuzzleRoomThreeController : MonoBehaviour
     public void OnPlayerEnters()
     {
         AttemptsExitTrigger.SetActive(true);
+        AudioController.Instance.FadeInDeathTheme();
     }
 
     public void OnPuzzleCompleted()

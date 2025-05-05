@@ -179,26 +179,30 @@ public class AudioController : MonoBehaviour
 
     public void FadeOutBackingTrack(float timeOfFade = 1f)
     {
-        FadeInSource(BackingTrackSource, timeOfFade);
+        FadeOutSource(BackingTrackSource, timeOfFade);
     }
 
     public void FadeInLoveTheme(float timeOfFade = 1f)
     {
         FadeInSource(LoveThemeSource, timeOfFade);
+    }
 
-        FadeOutSource(WorldThemeSource, timeOfFade);
-        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
-        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
-        FadeOutSource(WorldThemeHornSource, timeOfFade);
-        FadeOutSource(DeathThemeSource, timeOfFade);
+    public void FadeOutLoveTheme(float timeOfFade = 3f)
+    {
+        FadeOutSource(LoveThemeSource, timeOfFade);
     }
 
     public void FadeInWorldTheme(float timeOfFade = 1f)
     {
         FadeInSource(WorldThemeSource, timeOfFade);
+    }
 
-        FadeOutSource(LoveThemeSource, timeOfFade);
-        FadeOutSource(DeathThemeSource, timeOfFade);
+    public void FadeOutWorldTheme(float timeOfFade = 3f)
+    {
+        FadeOutSource(WorldThemeSource, timeOfFade);
+        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
+        FadeOutSource(WorldThemeHornSource, timeOfFade);
     }
 
     public void FadeInWorldHorns(float timeOfFade = 1f)
@@ -214,27 +218,33 @@ public class AudioController : MonoBehaviour
     public void FadeInHarpIncorrect(float timeOfFade = 1f)
     {
         FadeInSource(WorldThemeIncorrectHarpSource, timeOfFade);
-        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
+    }
+
+    public void FadeOutHarpIncorrect(float timeOfFade = 1f)
+    {
+        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
     }
 
     public void FadeInHarpCorrect(float timeOfFade = 1f)
     {
         FadeInSource(WorldThemeCorrectHarpSource, timeOfFade);
-        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
+    }
+    public void FadeOutHarpCorrect(float timeOfFade = 1f)
+    {
+        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
     }
 
     public void FadeInDeathTheme(float timeOfFade = 1f)
     {
         FadeInSource(DeathThemeSource, timeOfFade);
-
-        FadeOutSource(LoveThemeSource, timeOfFade);
-        FadeOutSource(WorldThemeSource, timeOfFade);
-        FadeOutSource(WorldThemeIncorrectHarpSource, timeOfFade);
-        FadeOutSource(WorldThemeCorrectHarpSource, timeOfFade);
-        FadeOutSource(WorldThemeHornSource, timeOfFade);
     }
 
-    public void FadeInSource(AudioSource source, float timeOfFade = 1f)
+    public void FadeOutDeathTheme(float timeOfFade = 3f)
+    {
+        FadeInSource(DeathThemeSource, timeOfFade);
+    }
+
+    public void FadeInSource(AudioSource source, float timeOfFade = 1f, float targetVolume = 1f)
     {
         if (SoundFadeTweens.TryGetValue(source, out Tween tween))
         {
@@ -249,7 +259,7 @@ public class AudioController : MonoBehaviour
                     source.Play();
             })
             .For(source)
-                .VolumeTo(source.volume, 1)
+                .VolumeTo(source.volume, targetVolume)
             .OnCompleted(() =>
             {
                 SoundFadeTweens.Remove(source);

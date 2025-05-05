@@ -7,6 +7,12 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
     [SerializeField]
     private Material glitchMaterial;
     private Material GlitchMaterial => glitchMaterial;
+    [SerializeField]
+    private float endGlitchCooldownMax;
+    private float EndGlitchCooldownMax => endGlitchCooldownMax;
+    [SerializeField]
+    private float endGlitchCooldownMin;
+    private float EndGlitchCooldownMin => endGlitchCooldownMin;
 
     private const string EffectStrengthRef = "_EffectStrength";
     private const string PosterizeStrengthRef = "_PosterizeStrength";
@@ -14,6 +20,8 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
     private float PosterizeStrengthStart;
 
     private AbstractAnimation GlitchAnim { get; set; }
+
+    private Tween EndGlitchCooldownTween { get; set; }
 
 
     void Awake()
@@ -39,8 +47,20 @@ public class GlitchManager : AbstractMonoBehaviourSingleton<GlitchManager>
         PlayFullGlitchOut(5, 1, onAtFullStrength);
     }
 
+    public void BeginEnd()
+    {
+        EndGlitchCooldownTween = new Tween(UnityEngine.Random.Range(EndGlitchCooldownMin, EndGlitchCooldownMax))
+            .OnCompleted(() =>
+            {
+                PlayShortGlitch();
+                BeginEnd();
+            })
+            .Start();
+    }
+
     public void PlaySlowBuildup()
     {
+        EndGlitchCooldownTween?.Stop();
         GlitchAnim?.Stop();
         GlitchAnim = new Tween(10)
             .For(GlitchMaterial)

@@ -12181,10 +12181,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioController
       objectReference: {fileID: 0}
-    - target: {fileID: 6774977330561639158, guid: 9d10298756baebf42aa35d4a1ca72759, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
